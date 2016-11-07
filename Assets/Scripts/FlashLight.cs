@@ -2,71 +2,88 @@
 using System.Collections;
 using UnityStandardAssets.ImageEffects;
 
-public class FlashLight : MonoBehaviour {
+public class FlashLight : MonoBehaviour
+{
 
     public Light flashLight;
-
+    public LayerMask monsterLayer;  
     private Ray rayToInteract;
     private RaycastHit hitInfo;
-    public float rangeInteract = 10f;
+    public float rangeInteract = 100f;
 
     int counter = 0;
 
-    // Use this for initialization
-    void Start () {
-        flashLight = gameObject.GetComponent<Light>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    public GameObject menuLanterna;
 
-        if (Input.GetButtonDown("Fire1"))
+    // Use this for initialization
+    void Start()
+    {
+        flashLight = gameObject.GetComponent<Light>();
+        flashLight.enabled = false;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (!GameInfo.paused)
         {
-            flashLight.enabled = !flashLight.enabled;
-            Debug.Log("clicou");
+            //if (Input.GetButtonDown("Fire1"))
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                flashLight.enabled = !flashLight.enabled;
+                //Debug.Log("clicou");
+
+                if (flashLight.enabled)
+                {
+                    CanvasGroup cg = menuLanterna.GetComponent<CanvasGroup>();
+                    cg.alpha = 1f;
+                }
+                else
+                {
+                    CanvasGroup cg = menuLanterna.GetComponent<CanvasGroup>();
+                    cg.alpha = 0.4f;
+                }
+            }
         }
 
-        Getitem();
+        //Getitem();
     }
 
     public void Getitem()
     {
         //rayToInteract = Camera.current.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-        rayToInteract = Player.getCamera().ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-
-        if (Physics.Raycast(rayToInteract, out hitInfo, rangeInteract))
+        rayToInteract = Player.GetCamera().ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        if (Physics.Raycast(rayToInteract, out hitInfo, rangeInteract, monsterLayer))
         {
-            Debug.Log(hitInfo.collider.tag);
-
+            Debug.Log(hitInfo.transform.gameObject.name);
             if (hitInfo.collider.tag == "BabyMonster")
             {
-                if(flashLight.enabled)
+                if (flashLight.enabled)
                 {
                     GameObject playerCamera = GameObject.Find("FirstPersonCharacter");
                     NoiseAndGrain noisePlayer = playerCamera.GetComponent<NoiseAndGrain>();
                     noisePlayer.intensityMultiplier = 0;
                     Debug.Log("bebe monstro");
                     Destroy(hitInfo.collider.gameObject);
-                    Main.getInstance().counterMinutes = 0;
-                    Main.getInstance().counterMinutes = 0;
                     counter = 0;
                 }
-                else
+                else if (!flashLight.enabled && Monster.GetInstance().InScreen())
                 {
                     counter += 1;
 
-                    if(counter >  20)
+                    // if (counter > 1)
                     {
-                        Monster.getInstance().mosterNV.enabled = false;
+                        Monster.GetInstance().mosterNV.enabled = false;
 
-                        Vector3 newPos = new Vector3();
-                        newPos.x = Player.getInstance().transform.position.x - 20;
-                        newPos.y = Player.getInstance().transform.position.y - 20;
-                        newPos.z = Player.getInstance().transform.position.z - 20;
+                        /*Vector3 newPos = new Vector3();
+                        newPos.x = Player.GetInstance().transform.position.x - 20;
+                        newPos.y = Player.GetInstance().transform.position.y - 20;
+                        newPos.z = Player.GetInstance().transform.position.z - 20;
 
-                        Monster.getInstance().transform.position = newPos;
-
-                        Player.getInstance().Kill();
+                        Monster.GetInstance().transform.position = newPos;
+                        */
+                        //Player.GetInstance().Die();
+                        Main.GetInstance().GameOver();
                     }
                 }
                 // Destroy(hitInfo.collider.gameObject);

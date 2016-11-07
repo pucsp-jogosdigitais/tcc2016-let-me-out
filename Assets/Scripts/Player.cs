@@ -1,67 +1,207 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.ImageEffects;
+using System.Collections.Generic;
 
-public class Player : MonoBehaviour {
-
-    public static Player thatPlayer;
+public class Player : MonoBehaviour
+{
+    static Player instance;
 
     public Light flashLight;
 
-    private Ray rayToInteract;
-    private RaycastHit hitInfo;
+    Ray rayToInteract;
+    RaycastHit hitInfo;
     public float rangeInteract = 10f;
 
-    public static Player getInstance()
+    public GameObject hand;
+    public GameObject hairCross;
+
+    List<string> items;
+
+    public static Player GetInstance()
     {
-        return thatPlayer;
+        return instance;
     }
 
-    public static Camera getCamera()
+    public static Camera GetCamera()
     {
         return GameObject.Find("FirstPersonCharacter").GetComponent<Camera>();
     }
 
-	// Use this for initialization
-	void Start () {
-        thatPlayer = this;
-	}
+    public static Transform GetTransform()
+    {
+        return GameObject.Find("Player").GetComponent<Transform>();
+    }
 
-    // Update is called once per frame
+    public static CameraShake GetShake()
+    {
+        return GameObject.Find("Player").GetComponent<CameraShake>();
+    }
+
+    public static MotionBlur GetMotionBlur()
+    {
+        return GameObject.Find("FirstPersonCharacter").GetComponent<MotionBlur>();
+    }
+
+    void Start()
+    {
+        instance = this;
+        items = new List<string>();
+    }
+
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
-        {
-            Getitem();
-        }
-
-        //if (Input.GetButtonDown("Fire1"))
-        //{
-        //    flashLight.enabled = !flashLight.enabled;
-        //}
+        Interact();
     }
 
-    public void Kill()
+    public void Die()
     {
-        Application.LoadLevel(Application.loadedLevel);
-        //Debug.Log("morreu");
+        Main.GetInstance().GameOver();
+        //Application.LoadLevel(Application.loadedLevel);
     }
 
-    public void Getitem()
+    public void ActivateGrainCamera()
     {
-        //rayToInteract = Camera.current.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-        rayToInteract = Player.getCamera().ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        NoiseAndGrain noisePlayer = Player.GetCamera().GetComponent<NoiseAndGrain>();
+        noisePlayer.intensityMultiplier = 3;
+    }
+
+    public void DesactivateGrainCamera()
+    {
+        NoiseAndGrain noisePlayer = Player.GetCamera().GetComponent<NoiseAndGrain>();
+        noisePlayer.intensityMultiplier = 0;
+    }
+
+    public void Interact()
+    {
+        rayToInteract = Player.GetCamera().ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 
         if (Physics.Raycast(rayToInteract, out hitInfo, rangeInteract))
         {
-            Debug.Log(hitInfo.collider.tag);
-                
-                if (hitInfo.collider.tag == "Item")
-                {
-                    Destroy(hitInfo.collider.gameObject);
-                    Main.getInstance().spawnTimeMinutes -= 1;
-                    //Debug.Log(Main.getInstance().spawnTimeMinutes);
-                }
+            switch (hitInfo.collider.tag)
+            {
+                case "Item":
+                    if (IsActiveItem(hitInfo))
+                    {
+                        ActivateAnimHand();
+                        GetItem(hitInfo);
+                    }
+                    break;
+                case "Door":
+                    ActivateAnimHand();
+                    OpenDoor(hitInfo);
+                    break;
+                case "Fireplace":
+                    ActivateAnimHand();
+                    Fireplace firePlace = hitInfo.transform.gameObject.GetComponent<Fireplace>();
 
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+
+                        if (Player.GetInstance().Items.Contains(Constants.PictureItem))
+                        {
+                            if (Player.GetInstance().items.Contains(Constants.StockWood))
+                            {
+                                Player.GetInstance().items.Remove(Constants.StockWood);
+                                firePlace.light.intensity = firePlace.lightIntensity;
+                            }
+
+                                if (firePlace.light.intensity < firePlace.minlightIntensity)
+                            {
+                                SubtitleManager.GetInstance().SetText("Recarregue a lareira para queimar o quadro.");
+                            }
+                            else
+                            {
+                                SubtitleManager.GetInstance().SetText("Quadro destruído.");
+                            }
+                        }
+                        else
+                        {
+                            if (Player.GetInstance().items.Contains(Constants.StockWood))
+                            {
+								firePlace.light.intensity = firePlace.lightIntensity;
+								Debug.Log (firePlace.light.intensity);
+								Player.GetInstance().items.Remove(Constants.StockWood);	
+								SubtitleManager.GetInstance().SetText("Recarregou lareira");
+                            }
+                            else
+                            {
+                                SubtitleManager.GetInstance().SetText("Pegue lenha");
+                            }
+                        }
+                    }
+
+                    Debug.Log("Lareira");
+                    break;
+                default:
+                    DesactivateAnimHand();
+                    break;
             }
+        }
+        else
+        {
+            DesactivateAnimHand();
+        }
+    }
+
+    void OpenDoor(RaycastHit hitInfo)
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            DoorWrapper door = hitInfo.collider.gameObject.GetComponent<DoorWrapper>();
+
+            door.OpenDoor();
+        }
+    }
+
+    bool IsActiveItem(RaycastHit hitInfo)
+    {
+        bool active = true;
+
+        Item item = hitInfo.collider.gameObject.GetComponent<Item>();
+
+        if (item.isDestroyed)
+        {
+            active = false;
+        }
+
+        return active;
+    }
+
+    void GetItem(RaycastHit hitInfo)
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Item item = hitInfo.collider.gameObject.GetComponent<Item>();
+
+            Debug.Log(item.CodItem);
+            Debug.Log(Constants.PictureItem);
+
+            if(!item.CodItem.Trim().Contains(Constants.PictureItem))
+            {
+                items.Add(item.CodItem);
+                Debug.Log("entrou aqui");
+            }
+           
+            item.Destroy();
+            DesactivateAnimHand();
+        }
+    }
+
+    void ActivateAnimHand()
+    {
+        hand.SetActive(true);
+        hairCross.SetActive(false);
+    }
+
+    void DesactivateAnimHand()
+    {
+        hand.SetActive(false);
+        hairCross.SetActive(true);
+    }
+
+    public List<string> Items
+    {
+        get { return items; }
     }
 }

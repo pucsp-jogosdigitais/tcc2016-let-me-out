@@ -1,0 +1,1042 @@
+fileFormatVersion: 2
+guid: 85710a1b2c5cf2942aa74875b1035c74
+timeCreated: 1474460059
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: armariopronto1:gabinete2:group2
+    100002: armariopronto2:gabinete2:group2
+    100004: armariopronto2:gabinete2:pasted__pCylinder2
+    100006: armariopronto:gabinete2:group
+    100008: armariopronto:gabinete2:group2
+    100010: armariopronto:gabinete2:group3
+    100012: armariopronto:gabinete2:group4
+    100014: armariopronto:gabinete2:group5
+    100016: armariopronto:gabinete2:group6
+    100018: armariopronto:gabinete2:group7
+    100020: armariopronto:gabinete2:guarda10:polySurface2
+    100022: armariopronto:gabinete2:guarda5:criado2:polySurface1
+    100024: armariopronto:gabinete2:guarda5:criado3:polySurface1
+    100026: armariopronto:gabinete2:guarda5:criado:group
+    100028: armariopronto:gabinete2:guarda5:criado:group1
+    100030: armariopronto:gabinete2:guarda5:criado:group2
+    100032: armariopronto:gabinete2:guarda5:criado:group3
+    100034: armariopronto:gabinete2:guarda5:criado:group4
+    100036: armariopronto:gabinete2:guarda5:criado:group5
+    100038: armariopronto:gabinete2:guarda5:criado:group6
+    100040: armariopronto:gabinete2:guarda5:criado:group7
+    100042: armariopronto:gabinete2:guarda5:criado:pasted__group6
+    100044: armariopronto:gabinete2:guarda5:group
+    100046: armariopronto:gabinete2:guarda5:group1
+    100048: armariopronto:gabinete2:guarda5:group2
+    100050: armariopronto:gabinete2:guarda5:group3
+    100052: armariopronto:gabinete2:guarda5:group4
+    100054: armariopronto:gabinete2:guarda5:pasted__group
+    100056: armariopronto:gabinete2:guarda5:pasted__pCube3
+    100058: armariopronto:gabinete2:guarda5:pasted__pCube4
+    100060: armariopronto:gabinete2:guarda5:pCube3
+    100062: armariopronto:gabinete2:guarda5:pCube4
+    100064: armariopronto:gabinete2:guarda5:polySurface2
+    100066: armariopronto:gabinete2:guarda5:transform1
+    100068: armariopronto:gabinete2:guarda5:transform2
+    100070: armariopronto:gabinete2:guarda5:transform3
+    100072: armariopronto:gabinete2:guarda5:transform4
+    100074: armariopronto:gabinete2:guarda9:polySurface2
+    100076: armariopronto:gabinete2:pasted__group4
+    100078: armariopronto:gabinete2:pasted__pasted__pCylinder2
+    100080: armariopronto:gabinete2:pasted__pasted__transform4
+    100082: armariopronto:gabinete2:pasted__pCylinder2
+    100084: armariopronto:gabinete2:pasted__pCylinder2 1
+    100086: armariopronto:gabinete2:pasted__pCylinder2 2
+    100088: armariopronto:gabinete2:pasted__polySurface6
+    100090: armariopronto:gabinete2:pasted__polySurface6 1
+    100092: armariopronto:gabinete2:pasted__transform4
+    100094: armariopronto:gabinete2:pasted__transform4 1
+    100096: armariopronto:gabinete2:pasted__transform4 2
+    100098: armariopronto:gabinete2:pCylinder2
+    100100: armariopronto:gabinete2:polySurface1
+    100102: armariopronto:gabinete2:polySurface3
+    100104: armariopronto:gabinete2:transform1
+    100106: armariopronto:gabinete2:transform2
+    100108: armariopronto:gabinete2:transform3
+    100110: armariopronto:gabinete2:transform4
+    100112: armariopronto:gabinete2:transform5
+    100114: armariopronto:gabinete2:transform6
+    100116: armariopronto:gabinete2:transform7
+    100118: armariopronto:gabinete2:transform8
+    100120: armariopronto:group
+    100122: armariopronto:group1
+    100124: armariopronto:group2
+    100126: armariopronto:group3
+    100128: armariopronto:group4
+    100130: armariopronto:group5
+    100132: armariopronto:group6
+    100134: armariopronto:group7
+    100136: armariopronto:guarda10:criado:polySurface1
+    100138: armariopronto:guarda11:group3
+    100140: armariopronto:guarda11:pasted__pCube3
+    100142: armariopronto:guarda12:group3
+    100144: armariopronto:guarda12:pasted__pCube3
+    100146: armariopronto:guarda5:criado2:polySurface1
+    100148: armariopronto:guarda5:criado3:polySurface1
+    100150: armariopronto:guarda5:criado:group
+    100152: armariopronto:guarda5:criado:group1
+    100154: armariopronto:guarda5:criado:group2
+    100156: armariopronto:guarda5:criado:group3
+    100158: armariopronto:guarda5:criado:group4
+    100160: armariopronto:guarda5:criado:group5
+    100162: armariopronto:guarda5:criado:group6
+    100164: armariopronto:guarda5:criado:group7
+    100166: armariopronto:guarda5:criado:pasted__group6
+    100168: armariopronto:guarda5:criado:polySurface1
+    100170: armariopronto:guarda5:group
+    100172: armariopronto:guarda5:group1
+    100174: armariopronto:guarda5:group2
+    100176: armariopronto:guarda5:group3
+    100178: armariopronto:guarda5:group4
+    100180: armariopronto:guarda5:pasted__group
+    100182: armariopronto:guarda5:pasted__pCube3
+    100184: armariopronto:guarda5:pasted__pCube4
+    100186: armariopronto:guarda5:pCube3
+    100188: armariopronto:guarda5:pCube4
+    100190: armariopronto:guarda5:transform1
+    100192: armariopronto:guarda5:transform2
+    100194: armariopronto:guarda5:transform3
+    100196: armariopronto:guarda5:transform4
+    100198: armariopronto:guarda6:group3
+    100200: armariopronto:guarda6:pasted__pCube3
+    100202: armariopronto:guarda7:group3
+    100204: armariopronto:guarda7:pasted__pCube3
+    100206: armariopronto:guarda8:group3
+    100208: armariopronto:guarda8:pasted__pCube3
+    100210: armariopronto:guarda9:criado:polySurface1
+    100212: armariopronto:pasted__group1
+    100214: armariopronto:pasted__group1 1
+    100216: armariopronto:pasted__group3
+    100218: armariopronto:pasted__group3 1
+    100220: armariopronto:pasted__group4
+    100222: armariopronto:pasted__pasted__group1
+    100224: armariopronto:pasted__pasted__group1 1
+    100226: armariopronto:pasted__pasted__pCylinder1
+    100228: armariopronto:pasted__pasted__pCylinder1 1
+    100230: armariopronto:pasted__pasted__pCylinder2
+    100232: armariopronto:pasted__pasted__pCylinder2 1
+    100234: armariopronto:pasted__pasted__transform1
+    100236: armariopronto:pasted__pasted__transform1 1
+    100238: armariopronto:pasted__pasted__transform2
+    100240: armariopronto:pasted__pasted__transform2 1
+    100242: armariopronto:pasted__pCylinder1
+    100244: armariopronto:pasted__pCylinder1 1
+    100246: armariopronto:pasted__pCylinder2
+    100248: armariopronto:pasted__transform1
+    100250: armariopronto:pasted__transform1 1
+    100252: armariopronto:pasted__transform2
+    100254: armariopronto:pasted__transform2 1
+    100256: armariopronto:pasted__transform3
+    100258: armariopronto:pasted__transform3 1
+    100260: armariopronto:pCylinder1
+    100262: armariopronto:transform1
+    100264: armariopronto:transform2
+    100266: armariopronto:transform3
+    100268: gabinete4:group
+    100270: gabinete4:group2
+    100272: gabinete4:group3
+    100274: gabinete4:group4
+    100276: gabinete4:group5
+    100278: gabinete4:group6
+    100280: gabinete4:group6_pasted__pCylinder2_pasted__polySurface6
+    100282: gabinete4:group7
+    100284: gabinete4:group8
+    100286: gabinete4:guarda10:polySurface2
+    100288: gabinete4:guarda13:polySurface2
+    100290: gabinete4:guarda5:criado2:polySurface1
+    100292: gabinete4:guarda5:criado3:polySurface1
+    100294: gabinete4:guarda5:criado:group
+    100296: gabinete4:guarda5:criado:group1
+    100298: gabinete4:guarda5:criado:group2
+    100300: gabinete4:guarda5:criado:group3
+    100302: gabinete4:guarda5:criado:group4
+    100304: gabinete4:guarda5:criado:group5
+    100306: gabinete4:guarda5:criado:group6
+    100308: gabinete4:guarda5:criado:group7
+    100310: gabinete4:guarda5:criado:pasted__group6
+    100312: gabinete4:guarda5:group
+    100314: gabinete4:guarda5:group1
+    100316: gabinete4:guarda5:group2
+    100318: gabinete4:guarda5:group3
+    100320: gabinete4:guarda5:group4
+    100322: gabinete4:guarda5:pasted__group
+    100324: gabinete4:guarda5:pasted__pCube3
+    100326: gabinete4:guarda5:pasted__pCube4
+    100328: gabinete4:guarda5:pCube3
+    100330: gabinete4:guarda5:pCube4
+    100332: gabinete4:guarda5:polySurface2
+    100334: gabinete4:guarda5:transform1
+    100336: gabinete4:guarda5:transform2
+    100338: gabinete4:guarda5:transform3
+    100340: gabinete4:guarda5:transform4
+    100342: gabinete4:guarda9:polySurface2
+    100344: gabinete4:pasted__group4
+    100346: gabinete4:pasted__group6
+    100348: gabinete4:pasted__pasted__pCylinder2
+    100350: gabinete4:pasted__pasted__pCylinder2 1
+    100352: gabinete4:pasted__pasted__polySurface6
+    100354: gabinete4:pasted__pasted__transform4
+    100356: gabinete4:pasted__pasted__transform4 1
+    100358: gabinete4:pasted__pCylinder2
+    100360: gabinete4:pasted__pCylinder2 1
+    100362: gabinete4:pasted__pCylinder2 2
+    100364: gabinete4:pasted__polySurface3
+    100366: gabinete4:pasted__polySurface6
+    100368: gabinete4:pasted__polySurface6 1
+    100370: gabinete4:pasted__transform2
+    100372: gabinete4:pasted__transform4
+    100374: gabinete4:pasted__transform4 1
+    100376: gabinete4:pasted__transform4 2
+    100378: gabinete4:pasted__transform7
+    100380: gabinete4:pasted__transform8
+    100382: gabinete4:pCylinder2
+    100384: gabinete4:polySurface1
+    100386: gabinete4:polySurface3
+    100388: gabinete4:polySurface5
+    100390: gabinete4:polySurface6
+    100392: gabinete4:transform1
+    100394: gabinete4:transform10
+    100396: gabinete4:transform11
+    100398: gabinete4:transform2
+    100400: gabinete4:transform3
+    100402: gabinete4:transform4
+    100404: gabinete4:transform5
+    100406: gabinete4:transform6
+    100408: gabinete4:transform7
+    100410: gabinete4:transform8
+    100412: gabinete4:transform9
+    100414: gabinete5:group
+    100416: gabinete5:group2
+    100418: gabinete5:group3
+    100420: gabinete5:group4
+    100422: gabinete5:group5
+    100424: gabinete5:group7
+    100426: gabinete5:group8
+    100428: gabinete5:group9
+    100430: gabinete5:guarda13:polySurface2
+    100432: gabinete5:guarda5:criado2:polySurface1
+    100434: gabinete5:guarda5:criado3:polySurface1
+    100436: gabinete5:guarda5:criado:group
+    100438: gabinete5:guarda5:criado:group1
+    100440: gabinete5:guarda5:criado:group2
+    100442: gabinete5:guarda5:criado:group3
+    100444: gabinete5:guarda5:criado:group4
+    100446: gabinete5:guarda5:criado:group5
+    100448: gabinete5:guarda5:criado:group6
+    100450: gabinete5:guarda5:criado:group7
+    100452: gabinete5:guarda5:criado:pasted__group6
+    100454: gabinete5:guarda5:group
+    100456: gabinete5:guarda5:group1
+    100458: gabinete5:guarda5:group2
+    100460: gabinete5:guarda5:group3
+    100462: gabinete5:guarda5:group4
+    100464: gabinete5:guarda5:pasted__group
+    100466: gabinete5:guarda5:pasted__pCube3
+    100468: gabinete5:guarda5:pasted__pCube4
+    100470: gabinete5:guarda5:pCube3
+    100472: gabinete5:guarda5:pCube4
+    100474: gabinete5:guarda5:polySurface2
+    100476: gabinete5:guarda5:transform1
+    100478: gabinete5:guarda5:transform2
+    100480: gabinete5:guarda5:transform3
+    100482: gabinete5:guarda5:transform4
+    100484: gabinete5:pasted__group4
+    100486: gabinete5:pasted__group6
+    100488: gabinete5:pasted__pasted__pCylinder2
+    100490: gabinete5:pasted__pasted__pCylinder2 1
+    100492: gabinete5:pasted__pasted__polySurface6
+    100494: gabinete5:pasted__pasted__transform4
+    100496: gabinete5:pasted__pasted__transform4 1
+    100498: gabinete5:pasted__pCylinder2
+    100500: gabinete5:pasted__pCylinder2 1
+    100502: gabinete5:pasted__pCylinder3
+    100504: gabinete5:pasted__polySurface3
+    100506: gabinete5:pasted__polySurface6
+    100508: gabinete5:pasted__transform12
+    100510: gabinete5:pasted__transform2
+    100512: gabinete5:pasted__transform4
+    100514: gabinete5:pasted__transform4 1
+    100516: gabinete5:pasted__transform7
+    100518: gabinete5:pasted__transform8
+    100520: gabinete5:pCylinder2
+    100522: gabinete5:pCylinder3
+    100524: gabinete5:polySurface1
+    100526: gabinete5:polySurface6
+    100528: gabinete5:transform1
+    100530: gabinete5:transform12
+    100532: gabinete5:transform4
+    100534: gabinete5:transform5
+    100536: gabinete5:transform6
+    100538: gabinete6:group8
+    100540: gabinete6:guarda13:polySurface2
+    100542: gabinete6:pasted__group6
+    100544: gabinete6:pasted__pasted__pCylinder2
+    100546: gabinete6:pasted__pasted__polySurface6
+    100548: gabinete6:pasted__pasted__transform4
+    100550: gabinete6:pasted__polySurface3
+    100552: gabinete6:pasted__transform2
+    100554: gabinete6:pasted__transform7
+    100556: gabinete6:pasted__transform8
+    100558: gabinete7:group8
+    100560: gabinete7:guarda13:polySurface2
+    100562: gabinete7:pasted__group6
+    100564: gabinete7:pasted__pasted__pCylinder2
+    100566: gabinete7:pasted__pasted__polySurface6
+    100568: gabinete7:pasted__pasted__transform4
+    100570: gabinete7:pasted__polySurface3
+    100572: gabinete7:pasted__transform2
+    100574: gabinete7:pasted__transform7
+    100576: gabinete7:pasted__transform8
+    100578: gabinete8:group6
+    100580: gabinete8:group6_pasted__pCylinder2_pasted__polySurface6
+    100582: gabinete8:guarda10:polySurface2
+    100584: gabinete8:guarda9:polySurface2
+    100586: gabinete8:pasted__pCylinder2
+    100588: gabinete8:pasted__polySurface6
+    100590: gabinete8:pasted__transform4
+    100592: gabinete8:polySurface3
+    100594: gabinete8:polySurface5
+    100596: gabinete8:polySurface6
+    100598: gabinete8:transform10
+    100600: gabinete8:transform11
+    100602: gabinete8:transform2
+    100604: gabinete8:transform3
+    100606: gabinete8:transform7
+    100608: gabinete8:transform8
+    100610: gabinete8:transform9
+    100612: gabinete:group
+    100614: gabinete:group1
+    100616: gabinete:group2
+    100618: gabinete:group3
+    100620: gabinete:group4
+    100622: gabinete:group5
+    100624: gabinete:group6
+    100626: gabinete:group7
+    100628: gabinete:guarda10:criado:polySurface1
+    100630: gabinete:guarda11:group3
+    100632: gabinete:guarda11:pasted__pCube3
+    100634: gabinete:guarda12:group3
+    100636: gabinete:guarda12:pasted__pCube3
+    100638: gabinete:guarda5:criado2:polySurface1
+    100640: gabinete:guarda5:criado3:polySurface1
+    100642: gabinete:guarda5:criado:group
+    100644: gabinete:guarda5:criado:group1
+    100646: gabinete:guarda5:criado:group2
+    100648: gabinete:guarda5:criado:group3
+    100650: gabinete:guarda5:criado:group4
+    100652: gabinete:guarda5:criado:group5
+    100654: gabinete:guarda5:criado:group6
+    100656: gabinete:guarda5:criado:group7
+    100658: gabinete:guarda5:criado:pasted__group6
+    100660: gabinete:guarda5:criado:polySurface1
+    100662: gabinete:guarda5:group
+    100664: gabinete:guarda5:group1
+    100666: gabinete:guarda5:group2
+    100668: gabinete:guarda5:group3
+    100670: gabinete:guarda5:group4
+    100672: gabinete:guarda5:pasted__group
+    100674: gabinete:guarda5:pasted__pCube3
+    100676: gabinete:guarda5:pasted__pCube4
+    100678: gabinete:guarda5:pCube3
+    100680: gabinete:guarda5:pCube4
+    100682: gabinete:guarda5:transform1
+    100684: gabinete:guarda5:transform2
+    100686: gabinete:guarda5:transform3
+    100688: gabinete:guarda5:transform4
+    100690: gabinete:guarda6:group3
+    100692: gabinete:guarda6:pasted__pCube3
+    100694: gabinete:guarda7:group3
+    100696: gabinete:guarda7:pasted__pCube3
+    100698: gabinete:guarda8:group3
+    100700: gabinete:guarda8:pasted__pCube3
+    100702: gabinete:guarda9:criado:polySurface1
+    100704: gabinete:pasted__group1
+    100706: gabinete:pasted__group1 1
+    100708: gabinete:pasted__group3
+    100710: gabinete:pasted__group3 1
+    100712: gabinete:pasted__group4
+    100714: gabinete:pasted__pasted__group1
+    100716: gabinete:pasted__pasted__group1 1
+    100718: gabinete:pasted__pasted__pCylinder1
+    100720: gabinete:pasted__pasted__pCylinder1 1
+    100722: gabinete:pasted__pasted__pCylinder2
+    100724: gabinete:pasted__pasted__pCylinder2 1
+    100726: gabinete:pasted__pasted__transform1
+    100728: gabinete:pasted__pasted__transform1 1
+    100730: gabinete:pasted__pasted__transform2
+    100732: gabinete:pasted__pasted__transform2 1
+    100734: gabinete:pasted__pCylinder1
+    100736: gabinete:pasted__pCylinder1 1
+    100738: gabinete:pasted__pCylinder2
+    100740: gabinete:pasted__transform1
+    100742: gabinete:pasted__transform1 1
+    100744: gabinete:pasted__transform2
+    100746: gabinete:pasted__transform2 1
+    100748: gabinete:pasted__transform3
+    100750: gabinete:pasted__transform3 1
+    100752: gabinete:pCube1
+    100754: gabinete:pCylinder1
+    100756: gabinete:transform1
+    100758: gabinete:transform2
+    100760: gabinete:transform3
+    100762: group
+    100764: group10
+    100766: group11
+    100768: group12
+    100770: group13
+    100772: group14
+    100774: group2
+    100776: group3
+    100778: group4
+    100780: group5
+    100782: group6
+    100784: group6_pasted__pCylinder2_pasted__polySurface6
+    100786: group7
+    100788: group7_pasted__pCylinder2_pasted__polySurface6
+    100790: group8
+    100792: group9
+    100794: guarda10:polySurface2
+    100796: guarda13:polySurface2
+    100798: guarda5:criado2:polySurface1
+    100800: guarda5:criado3:polySurface1
+    100802: guarda5:criado:group
+    100804: guarda5:criado:group1
+    100806: guarda5:criado:group2
+    100808: guarda5:criado:group3
+    100810: guarda5:criado:group4
+    100812: guarda5:criado:group5
+    100814: guarda5:criado:group6
+    100816: guarda5:criado:group7
+    100818: guarda5:criado:pasted__group6
+    100820: guarda5:group
+    100822: guarda5:group1
+    100824: guarda5:group2
+    100826: guarda5:group3
+    100828: guarda5:group4
+    100830: guarda5:pasted__group
+    100832: guarda5:pasted__pCube3
+    100834: guarda5:pasted__pCube4
+    100836: guarda5:pCube3
+    100838: guarda5:pCube4
+    100840: guarda5:polySurface2
+    100842: guarda5:transform1
+    100844: guarda5:transform2
+    100846: guarda5:transform3
+    100848: guarda5:transform4
+    100850: guarda9:polySurface2
+    100852: pasted__group12
+    100854: pasted__group4
+    100856: pasted__group6
+    100858: pasted__pasted__pCylinder2
+    100860: pasted__pasted__pCylinder2 1
+    100862: pasted__pasted__polySurface6
+    100864: pasted__pasted__transform4
+    100866: pasted__pasted__transform4 1
+    100868: pasted__pCylinder2
+    100870: pasted__pCylinder2 1
+    100872: pasted__pCylinder2 2
+    100874: pasted__pCylinder2 3
+    100876: pasted__pCylinder3
+    100878: pasted__pCylinder4
+    100880: pasted__pCylinder5
+    100882: pasted__polySurface3
+    100884: pasted__polySurface6
+    100886: pasted__polySurface6 1
+    100888: pasted__polySurface7
+    100890: pasted__transform2
+    100892: pasted__transform4
+    100894: pasted__transform4 1
+    100896: pasted__transform4 2
+    100898: pasted__transform7
+    100900: pasted__transform8
+    100902: pCylinder2
+    100904: //RootNode
+    100906: polySurface1
+    100908: polySurface3
+    100910: polySurface5
+    100912: polySurface6
+    100914: polySurface6 1
+    100916: polySurface8
+    100918: transform1
+    100920: transform10
+    100922: transform11
+    100924: transform2
+    100926: transform3
+    100928: transform4
+    100930: transform5
+    100932: transform6
+    100934: transform7
+    100936: transform8
+    100938: transform9
+    400000: armariopronto1:gabinete2:group2
+    400002: armariopronto2:gabinete2:group2
+    400004: armariopronto2:gabinete2:pasted__pCylinder2
+    400006: armariopronto:gabinete2:group
+    400008: armariopronto:gabinete2:group2
+    400010: armariopronto:gabinete2:group3
+    400012: armariopronto:gabinete2:group4
+    400014: armariopronto:gabinete2:group5
+    400016: armariopronto:gabinete2:group6
+    400018: armariopronto:gabinete2:group7
+    400020: armariopronto:gabinete2:guarda10:polySurface2
+    400022: armariopronto:gabinete2:guarda5:criado2:polySurface1
+    400024: armariopronto:gabinete2:guarda5:criado3:polySurface1
+    400026: armariopronto:gabinete2:guarda5:criado:group
+    400028: armariopronto:gabinete2:guarda5:criado:group1
+    400030: armariopronto:gabinete2:guarda5:criado:group2
+    400032: armariopronto:gabinete2:guarda5:criado:group3
+    400034: armariopronto:gabinete2:guarda5:criado:group4
+    400036: armariopronto:gabinete2:guarda5:criado:group5
+    400038: armariopronto:gabinete2:guarda5:criado:group6
+    400040: armariopronto:gabinete2:guarda5:criado:group7
+    400042: armariopronto:gabinete2:guarda5:criado:pasted__group6
+    400044: armariopronto:gabinete2:guarda5:group
+    400046: armariopronto:gabinete2:guarda5:group1
+    400048: armariopronto:gabinete2:guarda5:group2
+    400050: armariopronto:gabinete2:guarda5:group3
+    400052: armariopronto:gabinete2:guarda5:group4
+    400054: armariopronto:gabinete2:guarda5:pasted__group
+    400056: armariopronto:gabinete2:guarda5:pasted__pCube3
+    400058: armariopronto:gabinete2:guarda5:pasted__pCube4
+    400060: armariopronto:gabinete2:guarda5:pCube3
+    400062: armariopronto:gabinete2:guarda5:pCube4
+    400064: armariopronto:gabinete2:guarda5:polySurface2
+    400066: armariopronto:gabinete2:guarda5:transform1
+    400068: armariopronto:gabinete2:guarda5:transform2
+    400070: armariopronto:gabinete2:guarda5:transform3
+    400072: armariopronto:gabinete2:guarda5:transform4
+    400074: armariopronto:gabinete2:guarda9:polySurface2
+    400076: armariopronto:gabinete2:pasted__group4
+    400078: armariopronto:gabinete2:pasted__pasted__pCylinder2
+    400080: armariopronto:gabinete2:pasted__pasted__transform4
+    400082: armariopronto:gabinete2:pasted__pCylinder2
+    400084: armariopronto:gabinete2:pasted__pCylinder2 1
+    400086: armariopronto:gabinete2:pasted__pCylinder2 2
+    400088: armariopronto:gabinete2:pasted__polySurface6
+    400090: armariopronto:gabinete2:pasted__polySurface6 1
+    400092: armariopronto:gabinete2:pasted__transform4
+    400094: armariopronto:gabinete2:pasted__transform4 1
+    400096: armariopronto:gabinete2:pasted__transform4 2
+    400098: armariopronto:gabinete2:pCylinder2
+    400100: armariopronto:gabinete2:polySurface1
+    400102: armariopronto:gabinete2:polySurface3
+    400104: armariopronto:gabinete2:transform1
+    400106: armariopronto:gabinete2:transform2
+    400108: armariopronto:gabinete2:transform3
+    400110: armariopronto:gabinete2:transform4
+    400112: armariopronto:gabinete2:transform5
+    400114: armariopronto:gabinete2:transform6
+    400116: armariopronto:gabinete2:transform7
+    400118: armariopronto:gabinete2:transform8
+    400120: armariopronto:group
+    400122: armariopronto:group1
+    400124: armariopronto:group2
+    400126: armariopronto:group3
+    400128: armariopronto:group4
+    400130: armariopronto:group5
+    400132: armariopronto:group6
+    400134: armariopronto:group7
+    400136: armariopronto:guarda10:criado:polySurface1
+    400138: armariopronto:guarda11:group3
+    400140: armariopronto:guarda11:pasted__pCube3
+    400142: armariopronto:guarda12:group3
+    400144: armariopronto:guarda12:pasted__pCube3
+    400146: armariopronto:guarda5:criado2:polySurface1
+    400148: armariopronto:guarda5:criado3:polySurface1
+    400150: armariopronto:guarda5:criado:group
+    400152: armariopronto:guarda5:criado:group1
+    400154: armariopronto:guarda5:criado:group2
+    400156: armariopronto:guarda5:criado:group3
+    400158: armariopronto:guarda5:criado:group4
+    400160: armariopronto:guarda5:criado:group5
+    400162: armariopronto:guarda5:criado:group6
+    400164: armariopronto:guarda5:criado:group7
+    400166: armariopronto:guarda5:criado:pasted__group6
+    400168: armariopronto:guarda5:criado:polySurface1
+    400170: armariopronto:guarda5:group
+    400172: armariopronto:guarda5:group1
+    400174: armariopronto:guarda5:group2
+    400176: armariopronto:guarda5:group3
+    400178: armariopronto:guarda5:group4
+    400180: armariopronto:guarda5:pasted__group
+    400182: armariopronto:guarda5:pasted__pCube3
+    400184: armariopronto:guarda5:pasted__pCube4
+    400186: armariopronto:guarda5:pCube3
+    400188: armariopronto:guarda5:pCube4
+    400190: armariopronto:guarda5:transform1
+    400192: armariopronto:guarda5:transform2
+    400194: armariopronto:guarda5:transform3
+    400196: armariopronto:guarda5:transform4
+    400198: armariopronto:guarda6:group3
+    400200: armariopronto:guarda6:pasted__pCube3
+    400202: armariopronto:guarda7:group3
+    400204: armariopronto:guarda7:pasted__pCube3
+    400206: armariopronto:guarda8:group3
+    400208: armariopronto:guarda8:pasted__pCube3
+    400210: armariopronto:guarda9:criado:polySurface1
+    400212: armariopronto:pasted__group1
+    400214: armariopronto:pasted__group1 1
+    400216: armariopronto:pasted__group3
+    400218: armariopronto:pasted__group3 1
+    400220: armariopronto:pasted__group4
+    400222: armariopronto:pasted__pasted__group1
+    400224: armariopronto:pasted__pasted__group1 1
+    400226: armariopronto:pasted__pasted__pCylinder1
+    400228: armariopronto:pasted__pasted__pCylinder1 1
+    400230: armariopronto:pasted__pasted__pCylinder2
+    400232: armariopronto:pasted__pasted__pCylinder2 1
+    400234: armariopronto:pasted__pasted__transform1
+    400236: armariopronto:pasted__pasted__transform1 1
+    400238: armariopronto:pasted__pasted__transform2
+    400240: armariopronto:pasted__pasted__transform2 1
+    400242: armariopronto:pasted__pCylinder1
+    400244: armariopronto:pasted__pCylinder1 1
+    400246: armariopronto:pasted__pCylinder2
+    400248: armariopronto:pasted__transform1
+    400250: armariopronto:pasted__transform1 1
+    400252: armariopronto:pasted__transform2
+    400254: armariopronto:pasted__transform2 1
+    400256: armariopronto:pasted__transform3
+    400258: armariopronto:pasted__transform3 1
+    400260: armariopronto:pCylinder1
+    400262: armariopronto:transform1
+    400264: armariopronto:transform2
+    400266: armariopronto:transform3
+    400268: gabinete4:group
+    400270: gabinete4:group2
+    400272: gabinete4:group3
+    400274: gabinete4:group4
+    400276: gabinete4:group5
+    400278: gabinete4:group6
+    400280: gabinete4:group6_pasted__pCylinder2_pasted__polySurface6
+    400282: gabinete4:group7
+    400284: gabinete4:group8
+    400286: gabinete4:guarda10:polySurface2
+    400288: gabinete4:guarda13:polySurface2
+    400290: gabinete4:guarda5:criado2:polySurface1
+    400292: gabinete4:guarda5:criado3:polySurface1
+    400294: gabinete4:guarda5:criado:group
+    400296: gabinete4:guarda5:criado:group1
+    400298: gabinete4:guarda5:criado:group2
+    400300: gabinete4:guarda5:criado:group3
+    400302: gabinete4:guarda5:criado:group4
+    400304: gabinete4:guarda5:criado:group5
+    400306: gabinete4:guarda5:criado:group6
+    400308: gabinete4:guarda5:criado:group7
+    400310: gabinete4:guarda5:criado:pasted__group6
+    400312: gabinete4:guarda5:group
+    400314: gabinete4:guarda5:group1
+    400316: gabinete4:guarda5:group2
+    400318: gabinete4:guarda5:group3
+    400320: gabinete4:guarda5:group4
+    400322: gabinete4:guarda5:pasted__group
+    400324: gabinete4:guarda5:pasted__pCube3
+    400326: gabinete4:guarda5:pasted__pCube4
+    400328: gabinete4:guarda5:pCube3
+    400330: gabinete4:guarda5:pCube4
+    400332: gabinete4:guarda5:polySurface2
+    400334: gabinete4:guarda5:transform1
+    400336: gabinete4:guarda5:transform2
+    400338: gabinete4:guarda5:transform3
+    400340: gabinete4:guarda5:transform4
+    400342: gabinete4:guarda9:polySurface2
+    400344: gabinete4:pasted__group4
+    400346: gabinete4:pasted__group6
+    400348: gabinete4:pasted__pasted__pCylinder2
+    400350: gabinete4:pasted__pasted__pCylinder2 1
+    400352: gabinete4:pasted__pasted__polySurface6
+    400354: gabinete4:pasted__pasted__transform4
+    400356: gabinete4:pasted__pasted__transform4 1
+    400358: gabinete4:pasted__pCylinder2
+    400360: gabinete4:pasted__pCylinder2 1
+    400362: gabinete4:pasted__pCylinder2 2
+    400364: gabinete4:pasted__polySurface3
+    400366: gabinete4:pasted__polySurface6
+    400368: gabinete4:pasted__polySurface6 1
+    400370: gabinete4:pasted__transform2
+    400372: gabinete4:pasted__transform4
+    400374: gabinete4:pasted__transform4 1
+    400376: gabinete4:pasted__transform4 2
+    400378: gabinete4:pasted__transform7
+    400380: gabinete4:pasted__transform8
+    400382: gabinete4:pCylinder2
+    400384: gabinete4:polySurface1
+    400386: gabinete4:polySurface3
+    400388: gabinete4:polySurface5
+    400390: gabinete4:polySurface6
+    400392: gabinete4:transform1
+    400394: gabinete4:transform10
+    400396: gabinete4:transform11
+    400398: gabinete4:transform2
+    400400: gabinete4:transform3
+    400402: gabinete4:transform4
+    400404: gabinete4:transform5
+    400406: gabinete4:transform6
+    400408: gabinete4:transform7
+    400410: gabinete4:transform8
+    400412: gabinete4:transform9
+    400414: gabinete5:group
+    400416: gabinete5:group2
+    400418: gabinete5:group3
+    400420: gabinete5:group4
+    400422: gabinete5:group5
+    400424: gabinete5:group7
+    400426: gabinete5:group8
+    400428: gabinete5:group9
+    400430: gabinete5:guarda13:polySurface2
+    400432: gabinete5:guarda5:criado2:polySurface1
+    400434: gabinete5:guarda5:criado3:polySurface1
+    400436: gabinete5:guarda5:criado:group
+    400438: gabinete5:guarda5:criado:group1
+    400440: gabinete5:guarda5:criado:group2
+    400442: gabinete5:guarda5:criado:group3
+    400444: gabinete5:guarda5:criado:group4
+    400446: gabinete5:guarda5:criado:group5
+    400448: gabinete5:guarda5:criado:group6
+    400450: gabinete5:guarda5:criado:group7
+    400452: gabinete5:guarda5:criado:pasted__group6
+    400454: gabinete5:guarda5:group
+    400456: gabinete5:guarda5:group1
+    400458: gabinete5:guarda5:group2
+    400460: gabinete5:guarda5:group3
+    400462: gabinete5:guarda5:group4
+    400464: gabinete5:guarda5:pasted__group
+    400466: gabinete5:guarda5:pasted__pCube3
+    400468: gabinete5:guarda5:pasted__pCube4
+    400470: gabinete5:guarda5:pCube3
+    400472: gabinete5:guarda5:pCube4
+    400474: gabinete5:guarda5:polySurface2
+    400476: gabinete5:guarda5:transform1
+    400478: gabinete5:guarda5:transform2
+    400480: gabinete5:guarda5:transform3
+    400482: gabinete5:guarda5:transform4
+    400484: gabinete5:pasted__group4
+    400486: gabinete5:pasted__group6
+    400488: gabinete5:pasted__pasted__pCylinder2
+    400490: gabinete5:pasted__pasted__pCylinder2 1
+    400492: gabinete5:pasted__pasted__polySurface6
+    400494: gabinete5:pasted__pasted__transform4
+    400496: gabinete5:pasted__pasted__transform4 1
+    400498: gabinete5:pasted__pCylinder2
+    400500: gabinete5:pasted__pCylinder2 1
+    400502: gabinete5:pasted__pCylinder3
+    400504: gabinete5:pasted__polySurface3
+    400506: gabinete5:pasted__polySurface6
+    400508: gabinete5:pasted__transform12
+    400510: gabinete5:pasted__transform2
+    400512: gabinete5:pasted__transform4
+    400514: gabinete5:pasted__transform4 1
+    400516: gabinete5:pasted__transform7
+    400518: gabinete5:pasted__transform8
+    400520: gabinete5:pCylinder2
+    400522: gabinete5:pCylinder3
+    400524: gabinete5:polySurface1
+    400526: gabinete5:polySurface6
+    400528: gabinete5:transform1
+    400530: gabinete5:transform12
+    400532: gabinete5:transform4
+    400534: gabinete5:transform5
+    400536: gabinete5:transform6
+    400538: gabinete6:group8
+    400540: gabinete6:guarda13:polySurface2
+    400542: gabinete6:pasted__group6
+    400544: gabinete6:pasted__pasted__pCylinder2
+    400546: gabinete6:pasted__pasted__polySurface6
+    400548: gabinete6:pasted__pasted__transform4
+    400550: gabinete6:pasted__polySurface3
+    400552: gabinete6:pasted__transform2
+    400554: gabinete6:pasted__transform7
+    400556: gabinete6:pasted__transform8
+    400558: gabinete7:group8
+    400560: gabinete7:guarda13:polySurface2
+    400562: gabinete7:pasted__group6
+    400564: gabinete7:pasted__pasted__pCylinder2
+    400566: gabinete7:pasted__pasted__polySurface6
+    400568: gabinete7:pasted__pasted__transform4
+    400570: gabinete7:pasted__polySurface3
+    400572: gabinete7:pasted__transform2
+    400574: gabinete7:pasted__transform7
+    400576: gabinete7:pasted__transform8
+    400578: gabinete8:group6
+    400580: gabinete8:group6_pasted__pCylinder2_pasted__polySurface6
+    400582: gabinete8:guarda10:polySurface2
+    400584: gabinete8:guarda9:polySurface2
+    400586: gabinete8:pasted__pCylinder2
+    400588: gabinete8:pasted__polySurface6
+    400590: gabinete8:pasted__transform4
+    400592: gabinete8:polySurface3
+    400594: gabinete8:polySurface5
+    400596: gabinete8:polySurface6
+    400598: gabinete8:transform10
+    400600: gabinete8:transform11
+    400602: gabinete8:transform2
+    400604: gabinete8:transform3
+    400606: gabinete8:transform7
+    400608: gabinete8:transform8
+    400610: gabinete8:transform9
+    400612: gabinete:group
+    400614: gabinete:group1
+    400616: gabinete:group2
+    400618: gabinete:group3
+    400620: gabinete:group4
+    400622: gabinete:group5
+    400624: gabinete:group6
+    400626: gabinete:group7
+    400628: gabinete:guarda10:criado:polySurface1
+    400630: gabinete:guarda11:group3
+    400632: gabinete:guarda11:pasted__pCube3
+    400634: gabinete:guarda12:group3
+    400636: gabinete:guarda12:pasted__pCube3
+    400638: gabinete:guarda5:criado2:polySurface1
+    400640: gabinete:guarda5:criado3:polySurface1
+    400642: gabinete:guarda5:criado:group
+    400644: gabinete:guarda5:criado:group1
+    400646: gabinete:guarda5:criado:group2
+    400648: gabinete:guarda5:criado:group3
+    400650: gabinete:guarda5:criado:group4
+    400652: gabinete:guarda5:criado:group5
+    400654: gabinete:guarda5:criado:group6
+    400656: gabinete:guarda5:criado:group7
+    400658: gabinete:guarda5:criado:pasted__group6
+    400660: gabinete:guarda5:criado:polySurface1
+    400662: gabinete:guarda5:group
+    400664: gabinete:guarda5:group1
+    400666: gabinete:guarda5:group2
+    400668: gabinete:guarda5:group3
+    400670: gabinete:guarda5:group4
+    400672: gabinete:guarda5:pasted__group
+    400674: gabinete:guarda5:pasted__pCube3
+    400676: gabinete:guarda5:pasted__pCube4
+    400678: gabinete:guarda5:pCube3
+    400680: gabinete:guarda5:pCube4
+    400682: gabinete:guarda5:transform1
+    400684: gabinete:guarda5:transform2
+    400686: gabinete:guarda5:transform3
+    400688: gabinete:guarda5:transform4
+    400690: gabinete:guarda6:group3
+    400692: gabinete:guarda6:pasted__pCube3
+    400694: gabinete:guarda7:group3
+    400696: gabinete:guarda7:pasted__pCube3
+    400698: gabinete:guarda8:group3
+    400700: gabinete:guarda8:pasted__pCube3
+    400702: gabinete:guarda9:criado:polySurface1
+    400704: gabinete:pasted__group1
+    400706: gabinete:pasted__group1 1
+    400708: gabinete:pasted__group3
+    400710: gabinete:pasted__group3 1
+    400712: gabinete:pasted__group4
+    400714: gabinete:pasted__pasted__group1
+    400716: gabinete:pasted__pasted__group1 1
+    400718: gabinete:pasted__pasted__pCylinder1
+    400720: gabinete:pasted__pasted__pCylinder1 1
+    400722: gabinete:pasted__pasted__pCylinder2
+    400724: gabinete:pasted__pasted__pCylinder2 1
+    400726: gabinete:pasted__pasted__transform1
+    400728: gabinete:pasted__pasted__transform1 1
+    400730: gabinete:pasted__pasted__transform2
+    400732: gabinete:pasted__pasted__transform2 1
+    400734: gabinete:pasted__pCylinder1
+    400736: gabinete:pasted__pCylinder1 1
+    400738: gabinete:pasted__pCylinder2
+    400740: gabinete:pasted__transform1
+    400742: gabinete:pasted__transform1 1
+    400744: gabinete:pasted__transform2
+    400746: gabinete:pasted__transform2 1
+    400748: gabinete:pasted__transform3
+    400750: gabinete:pasted__transform3 1
+    400752: gabinete:pCube1
+    400754: gabinete:pCylinder1
+    400756: gabinete:transform1
+    400758: gabinete:transform2
+    400760: gabinete:transform3
+    400762: group
+    400764: group10
+    400766: group11
+    400768: group12
+    400770: group13
+    400772: group14
+    400774: group2
+    400776: group3
+    400778: group4
+    400780: group5
+    400782: group6
+    400784: group6_pasted__pCylinder2_pasted__polySurface6
+    400786: group7
+    400788: group7_pasted__pCylinder2_pasted__polySurface6
+    400790: group8
+    400792: group9
+    400794: guarda10:polySurface2
+    400796: guarda13:polySurface2
+    400798: guarda5:criado2:polySurface1
+    400800: guarda5:criado3:polySurface1
+    400802: guarda5:criado:group
+    400804: guarda5:criado:group1
+    400806: guarda5:criado:group2
+    400808: guarda5:criado:group3
+    400810: guarda5:criado:group4
+    400812: guarda5:criado:group5
+    400814: guarda5:criado:group6
+    400816: guarda5:criado:group7
+    400818: guarda5:criado:pasted__group6
+    400820: guarda5:group
+    400822: guarda5:group1
+    400824: guarda5:group2
+    400826: guarda5:group3
+    400828: guarda5:group4
+    400830: guarda5:pasted__group
+    400832: guarda5:pasted__pCube3
+    400834: guarda5:pasted__pCube4
+    400836: guarda5:pCube3
+    400838: guarda5:pCube4
+    400840: guarda5:polySurface2
+    400842: guarda5:transform1
+    400844: guarda5:transform2
+    400846: guarda5:transform3
+    400848: guarda5:transform4
+    400850: guarda9:polySurface2
+    400852: pasted__group12
+    400854: pasted__group4
+    400856: pasted__group6
+    400858: pasted__pasted__pCylinder2
+    400860: pasted__pasted__pCylinder2 1
+    400862: pasted__pasted__polySurface6
+    400864: pasted__pasted__transform4
+    400866: pasted__pasted__transform4 1
+    400868: pasted__pCylinder2
+    400870: pasted__pCylinder2 1
+    400872: pasted__pCylinder2 2
+    400874: pasted__pCylinder2 3
+    400876: pasted__pCylinder3
+    400878: pasted__pCylinder4
+    400880: pasted__pCylinder5
+    400882: pasted__polySurface3
+    400884: pasted__polySurface6
+    400886: pasted__polySurface6 1
+    400888: pasted__polySurface7
+    400890: pasted__transform2
+    400892: pasted__transform4
+    400894: pasted__transform4 1
+    400896: pasted__transform4 2
+    400898: pasted__transform7
+    400900: pasted__transform8
+    400902: pCylinder2
+    400904: //RootNode
+    400906: polySurface1
+    400908: polySurface3
+    400910: polySurface5
+    400912: polySurface6
+    400914: polySurface6 1
+    400916: polySurface8
+    400918: transform1
+    400920: transform10
+    400922: transform11
+    400924: transform2
+    400926: transform3
+    400928: transform4
+    400930: transform5
+    400932: transform6
+    400934: transform7
+    400936: transform8
+    400938: transform9
+    2300000: armariopronto2:gabinete2:pasted__pCylinder2
+    2300002: gabinete5:polySurface6
+    2300004: gabinete:pCube1
+    2300006: group7_pasted__pCylinder2_pasted__polySurface6
+    2300008: pasted__pCylinder2
+    2300010: pasted__pCylinder4
+    2300012: pasted__pCylinder5
+    2300014: pasted__polySurface7
+    2300016: polySurface6
+    2300018: polySurface8
+    3300000: armariopronto2:gabinete2:pasted__pCylinder2
+    3300002: gabinete5:polySurface6
+    3300004: gabinete:pCube1
+    3300006: group7_pasted__pCylinder2_pasted__polySurface6
+    3300008: pasted__pCylinder2
+    3300010: pasted__pCylinder4
+    3300012: pasted__pCylinder5
+    3300014: pasted__polySurface7
+    3300016: polySurface6
+    3300018: polySurface8
+    4300000: gabinete:pCube1
+    4300002: armariopronto2:gabinete2:pasted__pCylinder2
+    4300004: pasted__pCylinder2
+    4300006: pasted__pCylinder4
+    4300008: pasted__pCylinder5
+    4300010: group7_pasted__pCylinder2_pasted__polySurface6
+    4300012: polySurface6
+    4300014: gabinete5:polySurface6
+    4300016: pasted__polySurface7
+    4300018: polySurface8
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
