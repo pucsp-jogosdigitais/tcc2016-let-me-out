@@ -142,7 +142,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100914, guid: 50c608fe9fc271d4fb4de5fb7d7732f8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100868, guid: 50c608fe9fc271d4fb4de5fb7d7732f8, type: 3}
       propertyPath: m_Layer
@@ -6812,7 +6812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currType: 0
   hide: 0
-  codItem: 'Picture #1'
+  codItem: "Peda\xE7o #1"
   sub: Pegou P1
   subRelatedItem: 
   relatedItemCod: 
@@ -7988,7 +7988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97052d880be90cb4ca78c21e7f879ac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 
+  eventName: initialEvent
 --- !u!82 &383301508
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30227,6 +30227,22 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300118, guid: 50c608fe9fc271d4fb4de5fb7d7732f8, type: 3}
+--- !u!1 &1872317175 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 101150, guid: 50c608fe9fc271d4fb4de5fb7d7732f8, type: 3}
+  m_PrefabInternal: {fileID: 23491104}
+--- !u!64 &1872317179
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1872317175}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300238, guid: 50c608fe9fc271d4fb4de5fb7d7732f8, type: 3}
 --- !u!1 &1874211606 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}

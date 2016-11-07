@@ -25,13 +25,13 @@ public class EventManager : MonoBehaviour {
     {
         switch(eventName)
         {
-            case "initialEvent":
+		case "initialEvent":
 
-                Invoke("InitialEvent", 3);
-                Invoke("BabyCry", 5);
-                Invoke("ActivateBaby", 6);
+			Invoke ("InitialEvent", 3);
+			Invoke ("BabyCry", 5);
+			Invoke ("ActivateBaby", 6);
 
-                Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
+			//Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
 
                 break;
 
