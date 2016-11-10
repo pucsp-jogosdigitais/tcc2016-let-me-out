@@ -9,6 +9,7 @@ public class NewMenu : MonoBehaviour
 {
     [SerializeField]
     bool inGame;
+    public bool isActive;
 
     public enum Menu { Default, Items, Config, Exit, None };
     public Menu[] menusToShow;
@@ -17,6 +18,7 @@ public class NewMenu : MonoBehaviour
     public bool inAnimation;
 
     GameObject smartphone;
+    GameObject wrapperSmartphone;
     GameObject firstMenu;
     GameObject exitMenu;
     GameObject exitLoadingMenu;
@@ -44,8 +46,12 @@ public class NewMenu : MonoBehaviour
     void Start()
     {
         smartphone = GameObject.Find("SmartPhone");
+        wrapperSmartphone = GameObject.Find("WrapperSmartphone");
+
         firstMenu = GameObject.Find("Principal");
-        
+
+        inventoryMenu = GameObject.Find("MenuInventario");
+
         configMenu = GameObject.Find("MenuConfiguracoes");
         transitionBgConfig = GameObject.Find("EfeitoTransicao");
 
@@ -68,21 +74,36 @@ public class NewMenu : MonoBehaviour
         inventoryItemStockWood = HelperUtil.FindObject(smartphone, "ItemTora");
         inventoryItemKey = HelperUtil.FindObject(smartphone, "ItemChave");
 
+        wrapperSmartphone.SetActive(isActive);
+        SetBlur(isActive);
+
         FillMenu();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isActive = !isActive;
+            wrapperSmartphone.SetActive(isActive);
+            SetBlur(isActive);
+        }
         //GameObject quitWrapper = GameObject.Find("MenuSair");
     }
 
-    void DesactivateBlur()
+    private void SetBlur(bool isActive)
     {
         UnityStandardAssets.ImageEffects.Blur blur = defaultCamera.GetComponent<UnityStandardAssets.ImageEffects.Blur>();
 
-        blur.blurSpread = 0;
-        blur.iterations = 3;
+        if (isActive)
+        {
+            blur.iterations = 3;
+        }
+        else
+        {
+            blur.iterations = 0;
+        }
     }
 
     void FillMenu()
@@ -117,7 +138,7 @@ public class NewMenu : MonoBehaviour
             {
                 go = (GameObject)Instantiate(go, new Vector2(0, 0), new Quaternion());
                 go.SetActive(true);
-                go.transform.SetParent(firstMenu.transform, false);
+                go.transform.SetParent(inventoryMenu.transform, false);
                 //go.transform.position = new Vector2 (initiaPos.x, initiaPos.y);
                 go.GetComponent<RectTransform>().transform.localPosition = new Vector2(initialPos.x, initialPos.y);
             }
@@ -291,7 +312,7 @@ public class NewMenu : MonoBehaviour
 
     public void EnterConfig()
     {
-        if(!inAnimation)
+        if (!inAnimation)
         {
             inAnimation = true;
 
@@ -320,7 +341,7 @@ public class NewMenu : MonoBehaviour
     {
         List<string> items = new List<string>();
 
-        if(!inGame)
+        if (!inGame)
         {
             items = new List<string> {
 			    Constants.PhoneItem,
