@@ -64,7 +64,7 @@ public class NewMenu : MonoBehaviour
         inventoryItemPictureP2 = itemInventory;
         inventoryItemPictureP3 = itemInventory;
         inventoryItemPictureP4 = itemInventory;
-        inventoryItemStockWood = itemInventory;
+        inventoryItemStockWood = HelperUtil.FindObject(smartphone, "ItemTora");
 
         FillMenu();
     }
@@ -322,7 +322,8 @@ public class NewMenu : MonoBehaviour
         {
             items = new List<string> {
 			    Constants.PhoneItem,
-			    Constants.PictureItem,
+			    Constants.StockWood,
+                Constants.PictureItem,
 			    Constants.PictureP1Item,
 			    Constants.PictureP2Item,
 			    Constants.PictureP3Item,
