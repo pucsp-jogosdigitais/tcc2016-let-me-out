@@ -221,6 +221,20 @@ public class NewMenu : MonoBehaviour
         }
     }
 
+    void GoingInConfigMenu()
+    {
+        transitionBgConfig.SetActive(true);
+        CanvasGroup cg = transitionBgConfig.GetComponent<CanvasGroup>();
+
+        cg.alpha -= 0.10f;
+
+        if (cg.alpha < 0.01)
+        {
+            CancelInvoke("GoingInConfigMenu");
+            transitionBgConfig.SetActive(false);
+        }
+    }
+
     public void EnterInventory()
     {
         if (!inAnimation)
@@ -259,11 +273,8 @@ public class NewMenu : MonoBehaviour
         {
             inAnimation = true;
 
-
-            //configMenu.SetActive(true);
-
             InvokeRepeating("GoingOutFirstMenu", 0.1f, 0.1f);
-            //InvokeRepeating("GoingInConfigMenu", 0.1f, 0.1f);
+            InvokeRepeating("GoingInConfigMenu", 1.2f, 0.1f);
         }
     }
 
