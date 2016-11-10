@@ -4,220 +4,249 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
 
-public class NewMenu : MonoBehaviour {
+public class NewMenu : MonoBehaviour
+{
 
-	public enum Menu {Default, Items, Config, Exit, None};
-	public Menu[] menusToShow;
-	Menu currMenu = Menu.Default;
+    public enum Menu { Default, Items, Config, Exit, None };
+    public Menu[] menusToShow;
+    Menu currMenu = Menu.Default;
 
-	public GameObject smartphone;
-	public GameObject firstMenu;
-	public GameObject exitMenu;
-	public GameObject exitLoadingMenu;
-	public GameObject inventoryMenu;
+    public bool inAnimation;
 
-	public GameObject itemsMenu;
-	public GameObject configMenu;
-	public GameObject quitMenu;
+    public GameObject smartphone;
+    public GameObject firstMenu;
+    public GameObject exitMenu;
+    public GameObject exitLoadingMenu;
+    public GameObject inventoryMenu;
 
-	public GameObject inventoryItemTemplate;
-	public GameObject inventoryItemPhone;
-	public GameObject inventoryItemPicture;
-	public GameObject inventoryItemPictureP1;
-	public GameObject inventoryItemPictureP2;
-	public GameObject inventoryItemPictureP3;
-	public GameObject inventoryItemPictureP4;
-	public GameObject inventoryItemStockWood;
+    public GameObject itemsMenu;
+    public GameObject configMenu;
+    public GameObject quitMenu;
 
-	public Camera defaultCamera;
+    public GameObject inventoryItemTemplate;
+    public GameObject inventoryItemPhone;
+    public GameObject inventoryItemPicture;
+    public GameObject inventoryItemPictureP1;
+    public GameObject inventoryItemPictureP2;
+    public GameObject inventoryItemPictureP3;
+    public GameObject inventoryItemPictureP4;
+    public GameObject inventoryItemStockWood;
 
-	// Use this for initializati1on
-	void Start () {
-		
-		firstMenu = GameObject.Find ("MenuPrincipal");
+    public Camera defaultCamera;
 
-		FillMenu ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetKeyDown (KeyCode.Space)) {
+    // Use this for initializati1on
+    void Start()
+    {
 
-		}
-	}
+        firstMenu = GameObject.Find("MenuPrincipal");
 
-	void DesactivateBlur()
-	{
-		UnityStandardAssets.ImageEffects.Blur blur = defaultCamera.GetComponent<UnityStandardAssets.ImageEffects.Blur>();
+        FillMenu();
+    }
 
-		blur.blurSpread = 0;
-		blur.iterations = 3;
-	}
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
 
-	void FillMenu()
-	{
-		Vector3 originalPos = new Vector2 (-110, 224);
-		Vector2 initialPos = new Vector2 (-110, 224);
-		int counter = 0;
+        }
+    }
+
+    void DesactivateBlur()
+    {
+        UnityStandardAssets.ImageEffects.Blur blur = defaultCamera.GetComponent<UnityStandardAssets.ImageEffects.Blur>();
+
+        blur.blurSpread = 0;
+        blur.iterations = 3;
+    }
+
+    void FillMenu()
+    {
+        Vector3 originalPos = new Vector2(-110, 224);
+        Vector2 initialPos = new Vector2(-110, 224);
+        int counter = 0;
         int incrementY = 0;
 
 
-		foreach(Menu menuItem in menusToShow)
-		{
-			counter += 1;
-			GameObject go = null;
+        foreach (Menu menuItem in menusToShow)
+        {
+            counter += 1;
+            GameObject go = null;
 
-			switch(menuItem)
-			{
-			case Menu.Items:
-				go = itemsMenu;
-				break;
+            switch (menuItem)
+            {
+                case Menu.Items:
+                    go = itemsMenu;
+                    break;
 
-			case Menu.Config:
-				go = configMenu;
-				break;
+                case Menu.Config:
+                    go = configMenu;
+                    break;
 
-			case Menu.Exit:
-				go = quitMenu;
-				break;
-			}
+                case Menu.Exit:
+                    go = quitMenu;
+                    break;
+            }
 
-			if (menuItem != Menu.Default && menuItem != Menu.None) {
-				go = (GameObject)Instantiate (go, new Vector2(0, 0), new Quaternion());
-				go.SetActive (true);
-				go.transform.SetParent(firstMenu.transform, false);
-				//go.transform.position = new Vector2 (initiaPos.x, initiaPos.y);
-				go.GetComponent<RectTransform>().transform.localPosition = new Vector2 (initialPos.x, initialPos.y);
-			}
-				
+            if (menuItem != Menu.Default && menuItem != Menu.None)
+            {
+                go = (GameObject)Instantiate(go, new Vector2(0, 0), new Quaternion());
+                go.SetActive(true);
+                go.transform.SetParent(firstMenu.transform, false);
+                //go.transform.position = new Vector2 (initiaPos.x, initiaPos.y);
+                go.GetComponent<RectTransform>().transform.localPosition = new Vector2(initialPos.x, initialPos.y);
+            }
 
-			initialPos = new Vector2 (initialPos.x + 120, initialPos.y);
 
-			if (counter % 3 == 0) {
-				//counter = 0;
-				initialPos = new Vector2(originalPos.x, originalPos.y);
+            initialPos = new Vector2(initialPos.x + 120, initialPos.y);
+
+            if (counter % 3 == 0)
+            {
+                //counter = 0;
+                initialPos = new Vector2(originalPos.x, originalPos.y);
                 incrementY -= 120;
                 initialPos.y += incrementY;
-			}
-		}
-	}
+            }
+        }
+    }
 
-	void GoingInMenu()
-	{
-		GameObject[] menuItems = GameObject.FindGameObjectsWithTag("FirstMenuItem");
+    void GoingInMenu()
+    {
+        GameObject[] menuItems = GameObject.FindGameObjectsWithTag("FirstMenuItem");
 
-		foreach(GameObject menuItem in menuItems)
-		{
-			CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
+        foreach (GameObject menuItem in menuItems)
+        {
+            CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
 
-			cg.alpha += 0.1f;
+            cg.alpha += 0.1f;
 
-			if (cg.alpha > 0.90) {
-				CancelInvoke ("GoingInMenu");
-			}
+            if (cg.alpha > 0.90)
+            {
+                inAnimation = false;
+                currMenu = Menu.Default;
+                CancelInvoke("GoingInMenu");
+            }
 
-		}
-	}
+        }
+    }
 
-	void GoingOutFirstMenu()
-	{
-		GameObject[] menuItems = GameObject.FindGameObjectsWithTag("FirstMenuItem");
+    void GoingOutFirstMenu()
+    {
+        GameObject[] menuItems = GameObject.FindGameObjectsWithTag("FirstMenuItem");
 
-		foreach(GameObject menuItem in menuItems)
-		{
-			CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
+        foreach (GameObject menuItem in menuItems)
+        {
+            CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
 
-			cg.alpha -= 0.1f;
+            cg.alpha -= 0.1f;
 
-			if (cg.alpha < 0.01) {
-				CancelInvoke ("GoingOutFirstMenu");
-			}
-		}
-	}
+            if (cg.alpha < 0.01)
+            {
+                CancelInvoke("GoingOutFirstMenu");
+            }
+        }
+    }
 
-	void GoingInInventory()
-	{
-		GameObject[] menuItems = GameObject.FindGameObjectsWithTag("ItemInventory");
+    void GoingInInventory()
+    {
+        GameObject[] menuItems = GameObject.FindGameObjectsWithTag("ItemInventory");
 
-		Debug.Log ("teste");
+        foreach (GameObject menuItem in menuItems)
+        {
+            CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
 
-		foreach(GameObject menuItem in menuItems)
-		{
-			CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
+            cg.alpha += 0.1f;
 
-			cg.alpha += 0.1f;
+            if (cg.alpha > 0.90)
+            {
+                inAnimation = false;
+                CancelInvoke("GoingInInventory");
+            }
 
-			if (cg.alpha > 0.90) {
-				CancelInvoke ("GoingInInventory");
-			}
+        }
+    }
 
-		}
-	}
+    void GoingInExit()
+    {
+        CanvasGroup cg = exitMenu.GetComponent<CanvasGroup>();
+        exitLoadingMenu.SetActive(true);
 
-	void GoingInExit()
-	{
-		CanvasGroup cg = exitMenu.GetComponent<CanvasGroup>();
-		exitLoadingMenu.SetActive (true);
+        cg.alpha += 0.1f;
 
-		cg.alpha += 0.1f;
+        inAnimation = true;
 
-		if (cg.alpha > 0.90) {
-			CancelInvoke ("GoingInExit");
-		}
-	}
+        if (cg.alpha > 0.99)
+        {
+            CancelInvoke("GoingInExit");
+        }
+    }
 
-	void GoingOutInventory()
-	{
-		GameObject[] menuItems = GameObject.FindGameObjectsWithTag("ItemInventory");
+    void GoingOutInventory()
+    {
+        GameObject[] menuItems = GameObject.FindGameObjectsWithTag("ItemInventory");
 
-		foreach(GameObject menuItem in menuItems)
-		{
-			CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
+        foreach (GameObject menuItem in menuItems)
+        {
+            CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
 
-			cg.alpha -= 0.1f;
+            cg.alpha -= 0.1f;
 
-			if (cg.alpha < 0.01) {
-				CancelInvoke ("GoingOutInventory");
-			}
-		}
-	}
+            if (cg.alpha < 0.01)
+            {
+                CancelInvoke("GoingOutInventory");
+            }
+        }
+    }
 
-	public void EnterInventory()
-	{
-		currMenu = Menu.Items;
-		InvokeRepeating ("GoingOutFirstMenu", 0.1f, 0.1f);
-		FillInventory ();
-		InvokeRepeating ("GoingInInventory", 1.4f, 0.1f);
-	}
+    public void EnterInventory()
+    {
+        if (!inAnimation)
+        {
+            inAnimation = true;
+            currMenu = Menu.Items;
+            InvokeRepeating("GoingOutFirstMenu", 0.1f, 0.1f);
+            FillInventory();
+            InvokeRepeating("GoingInInventory", 1.4f, 0.1f);
+        }
+    }
 
-	public void EnterBack()
-	{
-		switch (currMenu) {
-		case Menu.Items:
-			InvokeRepeating ("GoingOutInventory", 0.1f, 0.1f);
-			break;
-		}
+    public void EnterBack()
+    {
+        if (!inAnimation)
+        {
+            if (currMenu != Menu.Default)
+            {
+                inAnimation = true;
 
-		InvokeRepeating ("GoingInMenu", 1.4f, 0.1f);
-	}
+                switch (currMenu)
+                {
+                    case Menu.Items:
+                        InvokeRepeating("GoingOutInventory", 0.1f, 0.1f);
+                        break;
+                }
 
-	public void EnterExit()
-	{
-		currMenu = Menu.Exit;
-		exitMenu.SetActive (true);
+                InvokeRepeating("GoingInMenu", 1.4f, 0.1f);
+            }
+        }
+    }
 
-		CanvasGroup cg = exitMenu.GetComponent<CanvasGroup>();
-		cg.alpha = 0;
+    public void EnterExit()
+    {
+        currMenu = Menu.Exit;
+        exitMenu.SetActive(true);
 
-		cg = exitMenu.GetComponent<CanvasGroup>();
+        CanvasGroup cg = exitMenu.GetComponent<CanvasGroup>();
+        cg.alpha = 0;
 
-		InvokeRepeating ("GoingOutFirstMenu", 0.1f, 0.1f);
-		InvokeRepeating ("GoingInExit", 1.4f, 0.1f);
-	}
+        cg = exitMenu.GetComponent<CanvasGroup>();
 
-	void FillInventory()
-	{
-		List<string> items = new List<string> {
+        InvokeRepeating("GoingOutFirstMenu", 0.1f, 0.1f);
+        InvokeRepeating("GoingInExit", 1.4f, 0.1f);
+    }
+
+    void FillInventory()
+    {
+        List<string> items = new List<string> {
 			Constants.PhoneItem,
 			Constants.PictureItem,
 			Constants.PictureP1Item,
@@ -226,71 +255,73 @@ public class NewMenu : MonoBehaviour {
 			Constants.PictureP4Item
 		};
 
-		Vector2 originalPos = new Vector2(-243, 240);
-		Vector2 initialPos = new Vector2(0, 0);
+        Vector2 originalPos = new Vector2(-243, 240);
+        Vector2 initialPos = new Vector2(0, 0);
 
-		//Vector2 originalPos = new Vector2(-100, 160);
-		//Vector2 initialPos = new Vector2(-100, 160);
+        //Vector2 originalPos = new Vector2(-100, 160);
+        //Vector2 initialPos = new Vector2(-100, 160);
 
-		int incrementY = 0;
+        int incrementY = 0;
 
-		for (int i = 0; i < items.Count; i++) {
-			Vector2 newPos = new Vector2 (initialPos.x, initialPos.y);
-			//Vector2 newPos = new Vector2 (initialPos.x, initialPos.y + (i * -120));
+        for (int i = 0; i < items.Count; i++)
+        {
+            Vector2 newPos = new Vector2(initialPos.x, initialPos.y);
+            //Vector2 newPos = new Vector2 (initialPos.x, initialPos.y + (i * -120));
 
-			GameObject currItem = null;
+            GameObject currItem = null;
 
-			switch(items[i])
-			{
-			case Constants.PhoneItem:
-				currItem = (GameObject)Instantiate (inventoryItemPhone, firstMenu.transform.position, new Quaternion (0, 0, 0, 0));
-				break;
+            switch (items[i])
+            {
+                case Constants.PhoneItem:
+                    currItem = (GameObject)Instantiate(inventoryItemPhone, firstMenu.transform.position, new Quaternion(0, 0, 0, 0));
+                    break;
 
-			case Constants.StockWood:
-				currItem = (GameObject)Instantiate (inventoryItemStockWood, firstMenu.transform.position, new Quaternion (0, 0, 0, 0));
-				break;
+                case Constants.StockWood:
+                    currItem = (GameObject)Instantiate(inventoryItemStockWood, firstMenu.transform.position, new Quaternion(0, 0, 0, 0));
+                    break;
 
-			case Constants.PictureItem:
-				currItem = (GameObject)Instantiate (inventoryItemPicture, firstMenu.transform.position, new Quaternion (0, 0, 0, 0));
-				break;
+                case Constants.PictureItem:
+                    currItem = (GameObject)Instantiate(inventoryItemPicture, firstMenu.transform.position, new Quaternion(0, 0, 0, 0));
+                    break;
 
-			case Constants.PictureP1Item:
-				currItem = (GameObject)Instantiate (inventoryItemPictureP1, firstMenu.transform.position, new Quaternion (0, 0, 0, 0));
-				break;
+                case Constants.PictureP1Item:
+                    currItem = (GameObject)Instantiate(inventoryItemPictureP1, firstMenu.transform.position, new Quaternion(0, 0, 0, 0));
+                    break;
 
-			case Constants.PictureP2Item:
-				currItem = (GameObject)Instantiate (inventoryItemPictureP2, firstMenu.transform.position, new Quaternion (0, 0, 0, 0));
-				break;
+                case Constants.PictureP2Item:
+                    currItem = (GameObject)Instantiate(inventoryItemPictureP2, firstMenu.transform.position, new Quaternion(0, 0, 0, 0));
+                    break;
 
-			case Constants.PictureP3Item:
-				currItem = (GameObject)Instantiate (inventoryItemPictureP3, firstMenu.transform.position, new Quaternion (0, 0, 0, 0));
-				break;
+                case Constants.PictureP3Item:
+                    currItem = (GameObject)Instantiate(inventoryItemPictureP3, firstMenu.transform.position, new Quaternion(0, 0, 0, 0));
+                    break;
 
-			case Constants.PictureP4Item:
-				currItem = (GameObject)Instantiate (inventoryItemPictureP4, firstMenu.transform.position, new Quaternion (0, 0, 0, 0));
-				break;
+                case Constants.PictureP4Item:
+                    currItem = (GameObject)Instantiate(inventoryItemPictureP4, firstMenu.transform.position, new Quaternion(0, 0, 0, 0));
+                    break;
 
-			default:
-				currItem = (GameObject)Instantiate (inventoryItemTemplate, firstMenu.transform.position, new Quaternion (0, 0, 0, 0));
-				break;
-			}
+                default:
+                    currItem = (GameObject)Instantiate(inventoryItemTemplate, firstMenu.transform.position, new Quaternion(0, 0, 0, 0));
+                    break;
+            }
 
-			if (i % 3 == 0) {
-				initialPos = new Vector2(originalPos.x, originalPos.y);
-				incrementY -= 120;
-				initialPos.y += incrementY;
-			}
+            if (i % 3 == 0)
+            {
+                initialPos = new Vector2(originalPos.x, originalPos.y);
+                incrementY -= 120;
+                initialPos.y += incrementY;
+            }
 
-			initialPos = new Vector2 (initialPos.x + 120, initialPos.y);
+            initialPos = new Vector2(initialPos.x + 120, initialPos.y);
 
-			CanvasGroup cg = currItem.GetComponent<CanvasGroup>();
+            CanvasGroup cg = currItem.GetComponent<CanvasGroup>();
 
-			currItem.GetComponentInChildren<Text> ().text = items [i];
+            currItem.GetComponentInChildren<Text>().text = items[i];
 
-			currItem.transform.SetParent (firstMenu.transform, false);
-			currItem.GetComponent<RectTransform> ().transform.localPosition = new Vector3(initialPos.x, initialPos.y);
-			currItem.SetActive (true);
-			cg.alpha = 0;
-		}
-	}
+            currItem.transform.SetParent(firstMenu.transform, false);
+            currItem.GetComponent<RectTransform>().transform.localPosition = new Vector3(initialPos.x, initialPos.y);
+            currItem.SetActive(true);
+            cg.alpha = 0;
+        }
+    }
 }
