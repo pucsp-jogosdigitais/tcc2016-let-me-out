@@ -16,27 +16,27 @@ public class NewMenu : MonoBehaviour
 
     public bool inAnimation;
 
-    public GameObject smartphone;
-    public GameObject firstMenu;
-    public GameObject exitMenu;
-    public GameObject exitLoadingMenu;
-    public GameObject inventoryMenu;
-    public GameObject configMenu;
-    public GameObject transitionBgConfig;
+    GameObject smartphone;
+    GameObject firstMenu;
+    GameObject exitMenu;
+    GameObject exitLoadingMenu;
+    GameObject inventoryMenu;
+    GameObject configMenu;
+    GameObject transitionBgConfig;
 
-    public GameObject buttonItemsMenu;
-    public GameObject buttonConfigMenu;
-    public GameObject buttonExitMenu;
+    GameObject buttonItemsMenu;
+    GameObject buttonConfigMenu;
+    GameObject buttonExitMenu;
 
-    public GameObject inventoryItemTemplate;
-    public GameObject inventoryItemPhone;
-    public GameObject inventoryItemPicture;
-    public GameObject inventoryItemPictureP1;
-    public GameObject inventoryItemPictureP2;
-    public GameObject inventoryItemPictureP3;
-    public GameObject inventoryItemPictureP4;
-    public GameObject inventoryItemStockWood;
-    public GameObject inventoryItemKey;
+    GameObject inventoryItemTemplate;
+    GameObject inventoryItemPhone;
+    GameObject inventoryItemPicture;
+    GameObject inventoryItemPictureP1;
+    GameObject inventoryItemPictureP2;
+    GameObject inventoryItemPictureP3;
+    GameObject inventoryItemPictureP4;
+    GameObject inventoryItemStockWood;
+    GameObject inventoryItemKey;
 
     public Camera defaultCamera;
 
