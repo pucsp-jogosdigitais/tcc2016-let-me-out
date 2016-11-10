@@ -221,7 +221,7 @@ public class NewMenu : MonoBehaviour
         }
     }
 
-    void GoingInConfigMenu()
+    void GoingInConfig()
     {
         transitionBgConfig.SetActive(true);
         CanvasGroup cg = transitionBgConfig.GetComponent<CanvasGroup>();
@@ -230,10 +230,27 @@ public class NewMenu : MonoBehaviour
 
         if (cg.alpha < 0.01)
         {
-            CancelInvoke("GoingInConfigMenu");
+            inAnimation = false;
+            CancelInvoke("GoingInConfig");
             transitionBgConfig.SetActive(false);
         }
     }
+
+    void GoingOutConfig()
+    {
+        transitionBgConfig.SetActive(true);
+        CanvasGroup cg = transitionBgConfig.GetComponent<CanvasGroup>();
+
+        cg.alpha += 0.10f;
+
+        if (cg.alpha > 0.99)
+        {
+            inAnimation = false;
+            CancelInvoke("GoingOutConfig");
+            //transitionBgConfig.SetActive(false);
+        }
+    }
+
 
     public void EnterInventory()
     {
@@ -260,6 +277,9 @@ public class NewMenu : MonoBehaviour
                     case Menu.Items:
                         InvokeRepeating("GoingOutInventory", 0.1f, 0.1f);
                         break;
+                    case Menu.Config:
+                        InvokeRepeating("GoingOutConfig", 0.1f, 0.1f);
+                        break;
                 }
 
                 InvokeRepeating("GoingInMenu", 1.4f, 0.1f);
@@ -273,8 +293,10 @@ public class NewMenu : MonoBehaviour
         {
             inAnimation = true;
 
+            currMenu = Menu.Config;
+
             InvokeRepeating("GoingOutFirstMenu", 0.1f, 0.1f);
-            InvokeRepeating("GoingInConfigMenu", 1.2f, 0.1f);
+            InvokeRepeating("GoingInConfig", 1.2f, 0.1f);
         }
     }
 
