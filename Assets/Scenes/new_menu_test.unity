@@ -7069,6 +7069,8 @@ MonoBehaviour:
   isActive: 0
   menusToShow: 010000000200000003000000
   inAnimation: 0
+  tickAnim: 0.05
+  switchAnim: 0.6
   defaultCamera: {fileID: 513006009}
 --- !u!114 &2113311628
 MonoBehaviour:

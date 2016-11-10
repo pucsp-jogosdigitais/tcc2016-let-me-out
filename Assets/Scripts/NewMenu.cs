@@ -16,6 +16,8 @@ public class NewMenu : MonoBehaviour
     Menu currMenu = Menu.Default;
 
     public bool inAnimation;
+    public float tickAnim = 0.1f;
+    public float switchAnim = 0.8f;
 
     GameObject smartphone;
     GameObject wrapperSmartphone;
@@ -281,9 +283,9 @@ public class NewMenu : MonoBehaviour
         {
             inAnimation = true;
             currMenu = Menu.Items;
-            InvokeRepeating("GoingOutFirstMenu", 0.1f, 0.1f);
+            InvokeRepeating("GoingOutFirstMenu", 0, tickAnim);
             FillInventory();
-            InvokeRepeating("GoingInInventory", 1.4f, 0.1f);
+            InvokeRepeating("GoingInInventory", switchAnim, tickAnim);
         }
     }
 
@@ -298,10 +300,10 @@ public class NewMenu : MonoBehaviour
                 switch (currMenu)
                 {
                     case Menu.Items:
-                        InvokeRepeating("GoingOutInventory", 0.1f, 0.1f);
+                        InvokeRepeating("GoingOutInventory", 0, tickAnim);
                         break;
                     case Menu.Config:
-                        InvokeRepeating("GoingOutConfig", 0.1f, 0.1f);
+                        InvokeRepeating("GoingOutConfig", switchAnim, tickAnim);
                         break;
                 }
 
@@ -318,8 +320,8 @@ public class NewMenu : MonoBehaviour
 
             currMenu = Menu.Config;
 
-            InvokeRepeating("GoingOutFirstMenu", 0.1f, 0.1f);
-            InvokeRepeating("GoingInConfig", 1.2f, 0.1f);
+            InvokeRepeating("GoingOutFirstMenu", 0, tickAnim);
+            InvokeRepeating("GoingInConfig", switchAnim, tickAnim);
         }
     }
 
@@ -333,8 +335,8 @@ public class NewMenu : MonoBehaviour
 
         cg = exitMenu.GetComponent<CanvasGroup>();
 
-        InvokeRepeating("GoingOutFirstMenu", 0.1f, 0.1f);
-        InvokeRepeating("GoingInExit", 1.4f, 0.1f);
+        InvokeRepeating("GoingOutFirstMenu", 0, tickAnim);
+        InvokeRepeating("GoingInExit", switchAnim, tickAnim);
     }
 
     void FillInventory()
