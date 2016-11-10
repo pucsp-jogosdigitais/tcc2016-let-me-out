@@ -246,6 +246,13 @@ public class NewMenu : MonoBehaviour
         }
     }
 
+    public void EnterConfig()
+    {
+        GameObject go = GameObject.Find("MenuConfiguracoes");
+
+        go.SetActive(true);
+    }
+
     public void EnterExit()
     {
         currMenu = Menu.Exit;
