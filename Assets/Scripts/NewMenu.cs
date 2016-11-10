@@ -60,11 +60,11 @@ public class NewMenu : MonoBehaviour
 
         inventoryItemTemplate = itemInventory;
         inventoryItemPhone = itemInventory;
-        inventoryItemPicture = HelperUtil.FindObject(smartphone, "ItemTora");
-        inventoryItemPictureP1 = itemInventory;
-        inventoryItemPictureP2 = itemInventory;
-        inventoryItemPictureP3 = itemInventory;
-        inventoryItemPictureP4 = itemInventory;
+        inventoryItemPicture = HelperUtil.FindObject(smartphone, "ItemQuadroCompleto");
+        inventoryItemPictureP1 = HelperUtil.FindObject(smartphone, "ItemFoto1");
+        inventoryItemPictureP2 = HelperUtil.FindObject(smartphone, "ItemFoto2");
+        inventoryItemPictureP3 = HelperUtil.FindObject(smartphone, "ItemFoto3");
+        inventoryItemPictureP4 = HelperUtil.FindObject(smartphone, "ItemFoto4");
         inventoryItemStockWood = HelperUtil.FindObject(smartphone, "ItemTora");
         inventoryItemKey = HelperUtil.FindObject(smartphone, "ItemChave");
 
