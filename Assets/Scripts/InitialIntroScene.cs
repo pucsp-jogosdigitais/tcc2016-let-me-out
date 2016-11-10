@@ -4,11 +4,11 @@ using  UnityEngine.UI;
 
 public class InitialIntroScene : MonoBehaviour {
 
-	public RawImage[] introImages;
+	public Image[] introImages;
 	public string nextScene = "menu";
 
 	int  indexCurrImage = 0;
-	RawImage introImage;
+    Image introImage;
 
 	int multAlpha = 1;
 
@@ -57,7 +57,7 @@ public class InitialIntroScene : MonoBehaviour {
 
 	void DisableImages()
 	{
-		foreach(RawImage image in introImages)
+		foreach(Image image in introImages)
 		{
 			image.enabled = false;
 		}
