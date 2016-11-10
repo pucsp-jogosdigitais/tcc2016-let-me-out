@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
+using Assets.Scripts.Util;
 
 public class NewMenu : MonoBehaviour
 {
@@ -42,7 +43,21 @@ public class NewMenu : MonoBehaviour
         smartphone = GameObject.Find("SmartPhone");
         firstMenu = GameObject.Find("Principal");
 
-        FindExitMenu();
+        GameObject wrapperExit = GameObject.Find("MenuSair");
+
+        exitMenu = HelperUtil.FindObject(wrapperExit, "FundoPadraoSair");
+        exitLoadingMenu = HelperUtil.FindObject(wrapperExit, "AnimacaoSair");
+
+        GameObject itemInventory = HelperUtil.FindObject(smartphone, "ItemInventario");
+
+        inventoryItemTemplate = itemInventory;
+        inventoryItemPhone = itemInventory;
+        inventoryItemPicture = itemInventory;
+        inventoryItemPictureP1 = itemInventory;
+        inventoryItemPictureP2 = itemInventory;
+        inventoryItemPictureP3 = itemInventory;
+        inventoryItemPictureP4 = itemInventory;
+        inventoryItemStockWood = itemInventory;
 
         FillMenu();
     }
@@ -50,13 +65,7 @@ public class NewMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    void FindExitMenu()
-    {
-
-
+        //GameObject quitWrapper = GameObject.Find("MenuSair");
     }
 
     void DesactivateBlur()
@@ -253,14 +262,25 @@ public class NewMenu : MonoBehaviour
 
     void FillInventory()
     {
-        List<string> items = new List<string> {
-			Constants.PhoneItem,
-			Constants.PictureItem,
-			Constants.PictureP1Item,
-			Constants.PictureP2Item,
-			Constants.PictureP3Item,
-			Constants.PictureP4Item
-		};
+        List<string> items = new List<string>();
+
+        if(!inGame)
+        {
+            items = new List<string> {
+			    Constants.PhoneItem,
+			    Constants.PictureItem,
+			    Constants.PictureP1Item,
+			    Constants.PictureP2Item,
+			    Constants.PictureP3Item,
+			    Constants.PictureP4Item
+		    };
+        }
+        else
+        {
+            items = Player.GetInstance().Items;
+        }
+
+
 
         Vector2 originalPos = new Vector2(-243, 240);
         Vector2 initialPos = new Vector2(0, 0);
@@ -331,4 +351,6 @@ public class NewMenu : MonoBehaviour
             cg.alpha = 0;
         }
     }
+
+
 }
