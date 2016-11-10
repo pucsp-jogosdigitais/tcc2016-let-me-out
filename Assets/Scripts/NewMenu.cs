@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class NewMenu : MonoBehaviour
 {
+    [SerializeField]
+    bool inGame;
 
     public enum Menu { Default, Items, Config, Exit, None };
     public Menu[] menusToShow;
@@ -37,8 +39,10 @@ public class NewMenu : MonoBehaviour
     // Use this for initializati1on
     void Start()
     {
+        smartphone = GameObject.Find("SmartPhone");
+        firstMenu = GameObject.Find("Principal");
 
-        firstMenu = GameObject.Find("MenuPrincipal");
+        FindExitMenu();
 
         FillMenu();
     }
@@ -46,10 +50,13 @@ public class NewMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
 
-        }
+    }
+
+    void FindExitMenu()
+    {
+
+
     }
 
     void DesactivateBlur()
