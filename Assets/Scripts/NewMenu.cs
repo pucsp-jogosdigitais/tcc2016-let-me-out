@@ -21,10 +21,12 @@ public class NewMenu : MonoBehaviour
     public GameObject exitMenu;
     public GameObject exitLoadingMenu;
     public GameObject inventoryMenu;
-
-    public GameObject itemsMenu;
     public GameObject configMenu;
-    public GameObject quitMenu;
+    public GameObject transitionBgConfig;
+
+    public GameObject buttonItemsMenu;
+    public GameObject buttonConfigMenu;
+    public GameObject buttonExitMenu;
 
     public GameObject inventoryItemTemplate;
     public GameObject inventoryItemPhone;
@@ -42,11 +44,16 @@ public class NewMenu : MonoBehaviour
     {
         smartphone = GameObject.Find("SmartPhone");
         firstMenu = GameObject.Find("Principal");
+        
+        configMenu = GameObject.Find("MenuConfiguracoes");
+        transitionBgConfig = GameObject.Find("EfeitoTransicao");
 
-        GameObject wrapperExit = GameObject.Find("MenuSair");
+        buttonConfigMenu = HelperUtil.FindObject(smartphone, "BotaoConfiguracoes");
+        buttonItemsMenu = HelperUtil.FindObject(smartphone, "BotaoItens");
+        buttonExitMenu = HelperUtil.FindObject(smartphone, "BotaoSair");
 
-        exitMenu = HelperUtil.FindObject(wrapperExit, "FundoPadraoSair");
-        exitLoadingMenu = HelperUtil.FindObject(wrapperExit, "AnimacaoSair");
+        exitMenu = HelperUtil.FindObject(smartphone, "FundoPadraoSair");
+        exitLoadingMenu = HelperUtil.FindObject(smartphone, "AnimacaoSair");
 
         GameObject itemInventory = HelperUtil.FindObject(smartphone, "ItemInventario");
 
@@ -92,15 +99,15 @@ public class NewMenu : MonoBehaviour
             switch (menuItem)
             {
                 case Menu.Items:
-                    go = itemsMenu;
+                    go = buttonItemsMenu;
                     break;
 
                 case Menu.Config:
-                    go = configMenu;
+                    go = buttonConfigMenu;
                     break;
 
                 case Menu.Exit:
-                    go = quitMenu;
+                    go = buttonExitMenu;
                     break;
             }
 
@@ -248,9 +255,16 @@ public class NewMenu : MonoBehaviour
 
     public void EnterConfig()
     {
-        GameObject go = GameObject.Find("MenuConfiguracoes");
+        if(!inAnimation)
+        {
+            inAnimation = true;
 
-        go.SetActive(true);
+
+            //configMenu.SetActive(true);
+
+            InvokeRepeating("GoingOutFirstMenu", 0.1f, 0.1f);
+            //InvokeRepeating("GoingInConfigMenu", 0.1f, 0.1f);
+        }
     }
 
     public void EnterExit()
