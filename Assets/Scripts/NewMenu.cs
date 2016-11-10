@@ -36,6 +36,7 @@ public class NewMenu : MonoBehaviour
     public GameObject inventoryItemPictureP3;
     public GameObject inventoryItemPictureP4;
     public GameObject inventoryItemStockWood;
+    public GameObject inventoryItemKey;
 
     public Camera defaultCamera;
 
@@ -59,12 +60,13 @@ public class NewMenu : MonoBehaviour
 
         inventoryItemTemplate = itemInventory;
         inventoryItemPhone = itemInventory;
-        inventoryItemPicture = itemInventory;
+        inventoryItemPicture = HelperUtil.FindObject(smartphone, "ItemTora");
         inventoryItemPictureP1 = itemInventory;
         inventoryItemPictureP2 = itemInventory;
         inventoryItemPictureP3 = itemInventory;
         inventoryItemPictureP4 = itemInventory;
         inventoryItemStockWood = HelperUtil.FindObject(smartphone, "ItemTora");
+        inventoryItemKey = HelperUtil.FindObject(smartphone, "ItemChave");
 
         FillMenu();
     }
@@ -322,6 +324,7 @@ public class NewMenu : MonoBehaviour
         {
             items = new List<string> {
 			    Constants.PhoneItem,
+                Constants.Key,
 			    Constants.StockWood,
                 Constants.PictureItem,
 			    Constants.PictureP1Item,
@@ -356,6 +359,10 @@ public class NewMenu : MonoBehaviour
             {
                 case Constants.PhoneItem:
                     currItem = (GameObject)Instantiate(inventoryItemPhone, firstMenu.transform.position, new Quaternion(0, 0, 0, 0));
+                    break;
+
+                case Constants.Key:
+                    currItem = (GameObject)Instantiate(inventoryItemKey, firstMenu.transform.position, new Quaternion(0, 0, 0, 0));
                     break;
 
                 case Constants.StockWood:

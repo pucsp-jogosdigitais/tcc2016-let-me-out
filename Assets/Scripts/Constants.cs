@@ -13,6 +13,8 @@ public static class Constants
     public const string PictureP3Item = "Picture #3";
     public const string PictureP4Item = "Picture #4";
 
+    public const string Key = "Key";
+
     public const string Fireplace = "Fireplace";
     public const string StockWood = "Stock Wood";
     
