@@ -88,12 +88,16 @@ public class NewMenu : MonoBehaviour
         buttonResolution = GameObject.Find("BotaoJanela");
         textResolution = buttonResolution.GetComponentInChildren<Text>();
 
+        textResolution.text = GameInfo.fullScreen.ToString();
+        /*
         textResolution.text = fullScreenMode;
+
+        Debug.Log();
 
         if(!GameInfo.fullScreen)
         {
             textResolution.text = windowedMode;
-        }
+        }*/
 
         buttonResolution.GetComponent<Button>().onClick.AddListener(delegate {
                 ChangeScreenSize();
