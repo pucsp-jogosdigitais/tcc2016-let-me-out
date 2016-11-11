@@ -34,6 +34,8 @@ public class NewMenu : MonoBehaviour
     GameObject buttonConfigMenu;
     GameObject buttonExitMenu;
 
+    GameObject buttonResolution;
+
     GameObject inventoryItemTemplate;
     GameObject inventoryItemPhone;
     GameObject inventoryItemPicture;
@@ -43,6 +45,11 @@ public class NewMenu : MonoBehaviour
     GameObject inventoryItemPictureP4;
     GameObject inventoryItemStockWood;
     GameObject inventoryItemKey;
+
+    [SerializeField]
+    string windowedMode = "JANELA";
+    [SerializeField]
+    public string fullScreenMode = "TELA CHEIA";
 
     public Camera defaultCamera;
 
@@ -77,6 +84,14 @@ public class NewMenu : MonoBehaviour
         inventoryItemPictureP4 = HelperUtil.FindObject(smartphone, "ItemFoto4");
         inventoryItemStockWood = HelperUtil.FindObject(smartphone, "ItemTora");
         inventoryItemKey = HelperUtil.FindObject(smartphone, "ItemChave");
+
+        buttonResolution = GameObject.Find("BotaoJanela");
+
+        buttonResolution.GetComponent<Button>().onClick.AddListener(delegate {
+                ChangeScreenSize();
+            }
+        );
+
 
         wrapperSmartphone.SetActive(false);
         SetBlur(false);
@@ -369,6 +384,20 @@ public class NewMenu : MonoBehaviour
 
         InvokeRepeating("GoingOutFirstMenu", 0, tickAnim);
         InvokeRepeating("GoingInExit", switchAnim, tickAnim);
+    }
+    public void ChangeScreenSize()
+    {
+        Screen.fullScreen = !Screen.fullScreen;
+        Text txt = buttonResolution.GetComponentInChildren<Text>();
+
+        if (Screen.fullScreen)
+        {
+            txt.text = fullScreenMode;
+        }
+        else
+        {
+            txt.text = windowedMode;
+        }
     }
 
     void FillInventory()

@@ -234,7 +234,7 @@ GameObject:
   - 114: {fileID: 98571109}
   - 114: {fileID: 98571108}
   m_Layer: 5
-  m_Name: ButtonJanela
+  m_Name: BotaoJanela
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7071,6 +7071,8 @@ MonoBehaviour:
   inAnimation: 0
   tickAnim: 0.04
   switchAnim: 0.3
+  windowedMode: JANELA
+  fullScreenMode: TELA CHEIA
   defaultCamera: {fileID: 513006009}
 --- !u!114 &2113311628
 MonoBehaviour:
