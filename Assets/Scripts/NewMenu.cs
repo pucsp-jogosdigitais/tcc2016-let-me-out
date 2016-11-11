@@ -34,6 +34,7 @@ public class NewMenu : MonoBehaviour
     GameObject buttonConfigMenu;
     GameObject buttonExitMenu;
 
+    Slider sliderSensivity;
     GameObject buttonResolution;
     Text textResolution;
     [SerializeField]
@@ -89,8 +90,8 @@ public class NewMenu : MonoBehaviour
         textResolution = buttonResolution.GetComponentInChildren<Text>();
 
         textResolution.text = fullScreenMode;
-        
-        if(!Screen.fullScreen)
+
+        if (!Screen.fullScreen)
         {
             textResolution.text = windowedMode;
         }
@@ -99,6 +100,12 @@ public class NewMenu : MonoBehaviour
                 ChangeScreenSize();
             }
         );
+
+        sliderSensivity = HelperUtil.FindObject(smartphone, "SliderSensibilidade").GetComponent<Slider>();
+
+        sliderSensivity.GetComponent<Slider>().onValueChanged.AddListener(delegate {
+            OnChangeSensivity();
+        });
 
 
         wrapperSmartphone.SetActive(false);
@@ -393,6 +400,14 @@ public class NewMenu : MonoBehaviour
         InvokeRepeating("GoingOutFirstMenu", 0, tickAnim);
         InvokeRepeating("GoingInExit", switchAnim, tickAnim);
     }
+
+    public void OnChangeSensivity()
+    {
+        PlayerPrefs.SetFloat("mouseSensivity", sliderSensivity.value * 10);
+        PlayerPrefs.Save();
+        GameInfo.mouseSensivity = sliderSensivity.value * 10;
+    }
+
     public void ChangeScreenSize()
     {
         Screen.fullScreen = !Screen.fullScreen;
