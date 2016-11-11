@@ -101,7 +101,7 @@ public class NewMenu : MonoBehaviour
                     wrapperSmartphone.SetActive(true);
                     SetBlur(true);
                     animatorSmartphone.SetTrigger("bounce");
-                    Invoke("DesactivateSmartPhone", 2.1f);
+                    Invoke("ActivateSmartPhone", 2.1f);
                 }
                 else
                 {
