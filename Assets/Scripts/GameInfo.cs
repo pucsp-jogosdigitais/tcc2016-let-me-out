@@ -15,7 +15,5 @@ public static class GameInfo {
 	public static float mouseSensivity = 2;
 	public static float volumeEffects = 1;
 
-	public static bool fullScreen = false;
-
     public static float brightness = 0;
 }
