@@ -28,6 +28,8 @@ public class NewMenu : MonoBehaviour
     GameObject configMenu;
     GameObject transitionBgConfig;
 
+    Animator animatorSmartphone;
+
     GameObject buttonItemsMenu;
     GameObject buttonConfigMenu;
     GameObject buttonExitMenu;
@@ -76,8 +78,9 @@ public class NewMenu : MonoBehaviour
         inventoryItemStockWood = HelperUtil.FindObject(smartphone, "ItemTora");
         inventoryItemKey = HelperUtil.FindObject(smartphone, "ItemChave");
 
-        wrapperSmartphone.SetActive(isActive);
-        SetBlur(isActive);
+        wrapperSmartphone.SetActive(false);
+        SetBlur(false);
+        animatorSmartphone = wrapperSmartphone.GetComponent<Animator>();
 
         FillMenu();
     }
@@ -88,9 +91,18 @@ public class NewMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isActive = !isActive;
-            wrapperSmartphone.SetActive(isActive);
-            SetBlur(isActive);
+            //SetBlur(isActive);
+
+            if (isActive)
+            {
+                wrapperSmartphone.SetActive(true);
+                animatorSmartphone.SetTrigger("bounce");
+            } else
+            {
+                animatorSmartphone.SetTrigger("bounceOut");
+            }
         }
+
         //GameObject quitWrapper = GameObject.Find("MenuSair");
     }
 
