@@ -511,7 +511,8 @@ public class NewMenu : MonoBehaviour
 
             CanvasGroup cg = currItem.GetComponent<CanvasGroup>();
 
-            currItem.GetComponentInChildren<Text>().text = items[i];
+            //currItem.GetComponentInChildren<Text>().text = items[i];
+            currItem.GetComponentInChildren<Text>().text = "";
 
             currItem.transform.SetParent(firstMenu.transform, false);
             currItem.GetComponent<RectTransform>().transform.localPosition = new Vector3(initialPos.x, initialPos.y);
