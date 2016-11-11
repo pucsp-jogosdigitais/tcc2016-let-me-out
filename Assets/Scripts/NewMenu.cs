@@ -447,6 +447,7 @@ public class NewMenu : MonoBehaviour
 
         InvokeRepeating("GoingOutFirstMenu", 0, tickAnim);
         InvokeRepeating("GoingInExit", switchAnim, tickAnim);
+        Invoke("ExitGame", switchAnim * 10);
     }
 
     public void OnChangeSensivity()
@@ -468,6 +469,11 @@ public class NewMenu : MonoBehaviour
         {
             textResolution.text = windowedMode;
         }
+    }
+
+    void ExitGame()
+    {
+        Application.Quit();
     }
 
     void FillInventory()
