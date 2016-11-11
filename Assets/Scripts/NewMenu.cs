@@ -68,8 +68,13 @@ public class NewMenu : MonoBehaviour
         transitionBgConfig = GameObject.Find("EfeitoTransicao");
 
         buttonConfigMenu = HelperUtil.FindGameObject(smartphone, "BotaoConfiguracoes");
+        //buttonConfigMenu.GetComponent<Button>().onClick.AddListener(EnterConfig);
+        
         buttonItemsMenu = HelperUtil.FindGameObject(smartphone, "BotaoItens");
+        buttonConfigMenu.GetComponent<Button>().onClick.AddListener(EnterInventory);
+        
         buttonExitMenu = HelperUtil.FindGameObject(smartphone, "BotaoSair");
+        buttonExitMenu.GetComponent<Button>().onClick.AddListener(EnterExit);
 
         exitMenu = HelperUtil.FindGameObject(smartphone, "FundoPadraoSair");
         exitLoadingMenu = HelperUtil.FindGameObject(smartphone, "AnimacaoSair");
@@ -97,9 +102,9 @@ public class NewMenu : MonoBehaviour
         }
 
         buttonResolution.GetComponent<Button>().onClick.AddListener(delegate
-        {
-            ChangeScreenSize();
-        }
+            {
+                ChangeScreenSize();
+            }
         );
 
         sliderSensivity = HelperUtil.FindGameObject(smartphone, "SliderSensibilidade").GetComponent<Slider>();
@@ -203,6 +208,21 @@ public class NewMenu : MonoBehaviour
             if (menuItem != Menu.Default && menuItem != Menu.None)
             {
                 go = (GameObject)Instantiate(go, new Vector2(0, 0), new Quaternion());
+
+                switch (menuItem)
+                {
+                    case Menu.Items:
+                        go.GetComponent<Button>().onClick.AddListener(EnterInventory);
+                        break;
+                    case Menu.Config:
+                        go.GetComponent<Button>().onClick.AddListener(EnterConfig);
+                        break;
+
+                    case Menu.Exit:
+                        go.GetComponent<Button>().onClick.AddListener(EnterExit);
+                        break;
+                }
+
                 go.SetActive(true);
                 go.transform.SetParent(inventoryMenu.transform, false);
                 //go.transform.position = new Vector2 (initiaPos.x, initiaPos.y);
