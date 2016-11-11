@@ -96,14 +96,16 @@ public class NewMenu : MonoBehaviour
             textResolution.text = windowedMode;
         }
 
-        buttonResolution.GetComponent<Button>().onClick.AddListener(delegate {
-                ChangeScreenSize();
-            }
+        buttonResolution.GetComponent<Button>().onClick.AddListener(delegate
+        {
+            ChangeScreenSize();
+        }
         );
 
         sliderSensivity = HelperUtil.FindGameObject(smartphone, "SliderSensibilidade").GetComponent<Slider>();
 
-        sliderSensivity.GetComponent<Slider>().onValueChanged.AddListener(delegate {
+        sliderSensivity.GetComponent<Slider>().onValueChanged.AddListener(delegate
+        {
             OnChangeSensivity();
         });
 
@@ -120,7 +122,7 @@ public class NewMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(!inAnimation)
+            if (!inAnimation)
             {
                 inAnimation = true;
                 isActive = !isActive;
@@ -224,6 +226,8 @@ public class NewMenu : MonoBehaviour
     {
         GameObject[] menuItems = GameObject.FindGameObjectsWithTag("FirstMenuItem");
 
+        bool alphaIsOne = false;
+
         foreach (GameObject menuItem in menuItems)
         {
             CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
@@ -232,17 +236,29 @@ public class NewMenu : MonoBehaviour
 
             if (cg.alpha > 0.90)
             {
-                inAnimation = false;
-                currMenu = Menu.Default;
-                CancelInvoke("GoingInMenu");
+                alphaIsOne = true;
             }
 
+        }
+
+        if (alphaIsOne)
+        {
+            inAnimation = false;
+            currMenu = Menu.Default;
+            CancelInvoke("GoingInMenu");
+
+            foreach (GameObject menuItem in menuItems)
+            {
+                menuItem.GetComponent<Button>().enabled = true;
+            }
         }
     }
 
     void GoingOutFirstMenu()
     {
         GameObject[] menuItems = GameObject.FindGameObjectsWithTag("FirstMenuItem");
+        //List<GameObject> menuItems = HelperUtil.FindGameObjectsWithTag(smartphone, "FirstMenuItem");
+
         bool alphaIsZero = false;
 
         foreach (GameObject menuItem in menuItems)
@@ -254,12 +270,18 @@ public class NewMenu : MonoBehaviour
             if (cg.alpha < 0.01)
             {
                 alphaIsZero = true;
+                //CancelInvoke("GoingOutFirstMenu");
             }
         }
 
-        if(alphaIsZero)
+        if (alphaIsZero)
         {
             CancelInvoke("GoingOutFirstMenu");
+
+            foreach (GameObject menuItem in menuItems)
+            {
+                menuItem.GetComponent<Button>().enabled = false;
+            }
         }
     }
 

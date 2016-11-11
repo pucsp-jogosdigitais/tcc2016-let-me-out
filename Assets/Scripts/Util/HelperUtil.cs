@@ -42,7 +42,7 @@ namespace Assets.Scripts.Util
         /// <param name="parent">GameObject pai</param>
         /// <param name="name">Nome da tag procurada</param>
         /// <returns></returns>
-        public static IList<GameObject> FindGameObjectsWithTag(GameObject parent, string tagName)
+        public static List<GameObject> FindGameObjectsWithTag(GameObject parent, string tagName)
         {
             Component[] cmps = parent.GetComponentsInChildren(typeof(Transform), true);
             List<Transform> trs = new List<Transform>();
