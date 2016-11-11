@@ -90,20 +90,40 @@ public class NewMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            isActive = !isActive;
-            //SetBlur(isActive);
+            if(!inAnimation)
+            {
+                inAnimation = true;
+                isActive = !isActive;
+                //SetBlur(isActive);
 
-            if (isActive)
-            {
-                wrapperSmartphone.SetActive(true);
-                animatorSmartphone.SetTrigger("bounce");
-            } else
-            {
-                animatorSmartphone.SetTrigger("bounceOut");
+                if (isActive)
+                {
+                    wrapperSmartphone.SetActive(true);
+                    SetBlur(true);
+                    animatorSmartphone.SetTrigger("bounce");
+                    Invoke("DesactivateSmartPhone", 2.1f);
+                }
+                else
+                {
+                    animatorSmartphone.SetTrigger("bounceOut");
+                    Invoke("DesactivateSmartPhone", 2.1f);
+                }
             }
         }
 
         //GameObject quitWrapper = GameObject.Find("MenuSair");
+    }
+
+    private void ActivateSmartPhone()
+    {
+        inAnimation = false;
+    }
+
+    private void DesactivateSmartPhone()
+    {
+        wrapperSmartphone.SetActive(true);
+        SetBlur(false);
+        inAnimation = false;
     }
 
     private void SetBlur(bool isActive)
