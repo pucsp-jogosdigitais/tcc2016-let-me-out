@@ -9,9 +9,9 @@ public static class Constants
 
     public const string PictureItem = "Quadro";
 	public const string PictureP1Item = "Pedaço #1";
-    public const string PictureP2Item = "Picture #2";
-    public const string PictureP3Item = "Picture #3";
-    public const string PictureP4Item = "Picture #4";
+    public const string PictureP2Item = "Pedaço #2";
+    public const string PictureP3Item = "Pedaço #3";
+    public const string PictureP4Item = "Pedaço #4";
 
     public const string Key = "Key";
 
