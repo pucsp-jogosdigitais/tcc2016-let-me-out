@@ -6881,10 +6881,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currType: 0
+  hide: 0
   codItem: item1
   sub: Pegou item 1
   subRelatedItem: 
   relatedItemCod: 
+  eventItem: 
 --- !u!1 &228992428
 GameObject:
   m_ObjectHideFlags: 0
@@ -8527,10 +8529,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currType: 0
+  hide: 0
   codItem: Q1
   sub: Pegou P1
   subRelatedItem: 
   relatedItemCod: 
+  eventItem: 
 --- !u!82 &306359997
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11408,10 +11412,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currType: 0
+  hide: 0
   codItem: Q2
   sub: Pegou P2
   subRelatedItem: 
   relatedItemCod: 
+  eventItem: 
 --- !u!23 &443839096
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13135,10 +13141,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currType: 2
+  hide: 0
   codItem: quadro
   sub: pegou o quadro
   subRelatedItem: 
   relatedItemCod: 
+  eventItem: 
 --- !u!82 &516021760
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13386,10 +13394,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currType: 0
+  hide: 0
   codItem: Q4
   sub: Pegou P4
   subRelatedItem: 
   relatedItemCod: 
+  eventItem: 
 --- !u!23 &528573290
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19563,10 +19573,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currType: 0
+  hide: 0
   codItem: phone
   sub: Menu ativado.
   subRelatedItem: 
   relatedItemCod: 
+  eventItem: 
 --- !u!23 &869905619
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22150,10 +22162,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currType: 1
+  hide: 0
   codItem: item2
   sub: Pegou item 2
   subRelatedItem: Pegue o Item 1
   relatedItemCod: item1
+  eventItem: 
 --- !u!23 &1034878137
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34761,10 +34775,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currType: 0
+  hide: 0
   codItem: Q3
   sub: Pegou P3
   subRelatedItem: 
   relatedItemCod: 
+  eventItem: 
 --- !u!23 &1722168434
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36743,7 +36759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1843537540
 Animator:
   serializedVersion: 3
@@ -37939,11 +37955,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMenu: 1
-  spawnTimeMinutes: 2
-  persecutionTimeSeconds: 30
-  counterMinutes: 0
-  counterSeconds: 0
-  txtTime: {fileID: 933105849}
   babyMonster: {fileID: 441403276}
   menuCelular: {fileID: 401676681}
   menu: {fileID: 1671907344}
@@ -37957,6 +37968,7 @@ MonoBehaviour:
   sliderMouseSensivity: {fileID: 344058840}
   sliderEfeitosSonoros: {fileID: 713871138}
   brightness: {fileID: 1758244642}
+  itemTemplate: {fileID: 0}
   gameOverImage: {fileID: 788349796}
   animSmartPhone: {fileID: 391579008}
   cursor: {fileID: 2800000, guid: e0560841a62ce854fa70e3e896f8aca7, type: 3}
