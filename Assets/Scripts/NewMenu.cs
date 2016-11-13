@@ -31,6 +31,9 @@ public class NewMenu : MonoBehaviour
 
     Animator animatorSmartphone;
 
+    GameObject callWait;
+    GameObject callDialog;
+
     GameObject buttonItemsMenu;
     GameObject buttonConfigMenu;
     GameObject buttonExitMenu;
@@ -60,9 +63,9 @@ public class NewMenu : MonoBehaviour
     {
         smartphone = GameObject.Find("SmartPhone");
         wrapperSmartphone = GameObject.Find("WrapperSmartphone");
-
         firstMenu = GameObject.Find("Principal");
 
+        animatorSmartphone = wrapperSmartphone.GetComponent<Animator>();
         switch (context)
         {
             case MenuContext.InGame:
@@ -72,13 +75,17 @@ public class NewMenu : MonoBehaviour
                 break;
 
             case MenuContext.Intro:
+                firstMenu.SetActive(false);
+                callWait = GameObject.Find("ChamadaRecebida");
+                callDialog = GameObject.Find("LigacaoEmAndamento");
 
+                //InitDialog();
+                Invoke("InitDialog", 10);
                 break;
         }
 
         wrapperSmartphone.SetActive(false);
         SetBlur(false);
-        animatorSmartphone = wrapperSmartphone.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -135,6 +142,12 @@ public class NewMenu : MonoBehaviour
         {
             blur.iterations = 0;
         }
+    }
+
+    public void InitDialog()
+    {
+        wrapperSmartphone.SetActive(true);
+        animatorSmartphone.SetTrigger("bounce");
     }
 
     void BindMenu()

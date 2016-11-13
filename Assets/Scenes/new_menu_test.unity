@@ -545,7 +545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &187641056
 RectTransform:
   m_ObjectHideFlags: 0
@@ -564,7 +564,7 @@ RectTransform:
   - {fileID: 539378179}
   - {fileID: 1597541298}
   m_Father: {fileID: 1597984344}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1083,7 +1083,7 @@ RectTransform:
   - {fileID: 731629389}
   - {fileID: 1768935881}
   m_Father: {fileID: 1597984344}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2589,7 +2589,7 @@ RectTransform:
   m_Father: {fileID: 196017433}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5019,8 +5019,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 187641056}
   - {fileID: 475984927}
+  - {fileID: 187641056}
   - {fileID: 737804325}
   - {fileID: 1908992806}
   - {fileID: 1275668824}
@@ -5756,7 +5756,7 @@ RectTransform:
   m_Father: {fileID: 288338854}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6211,7 +6211,7 @@ RectTransform:
   m_Father: {fileID: 104458003}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6582,7 +6582,7 @@ RectTransform:
   m_Father: {fileID: 894062836}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7249,7 +7249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ebd9076002fd14a931e9964fe4755c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  context: 1
+  context: 0
   isActive: 0
   menusToShow: 010000000200000003000000
   inAnimation: 0
