@@ -79,6 +79,8 @@ public class EventManager : MonoBehaviour {
                 Invoke("ActivateCameraOpenRoom", 1.2f);
                 Invoke("FadeOutScreen", 1.8f);
 
+                Invoke("OpenClosedRoom", 1.4f);
+
                 Invoke("FadeInScreen", 4.8f);
                 Invoke("FadeOutScreen", 5.5f);
                 Invoke("DesactivateCameraOpenRoom", 5.5f);
@@ -239,6 +241,15 @@ public class EventManager : MonoBehaviour {
     {
         HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
         GameObject.Find("CameraLockClosedRoom").GetComponent<Camera>().enabled = false;
+    }
+
+    private void OpenClosedRoom()
+    {
+        GameObject porta = GameObject.Find("PortaChave");
+
+        porta.GetComponent<DoorWrapper>().doorAnim.SetTrigger("open");
+        porta.GetComponent<AudioSource>().playOnAwake = false;
+        porta.GetComponent<AudioSource>().clip = AudioRepository.GetInstance().doorOpen;
     }
 
     private void DesactivateAllCameras()
