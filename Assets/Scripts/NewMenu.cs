@@ -84,30 +84,31 @@ public class NewMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(context == MenuContext.Menu || context == MenuContext.InGame)
         {
-            if (!inAnimation)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                inAnimation = true;
-                isActive = !isActive;
-                //SetBlur(isActive);
+                if (!inAnimation)
+                {
+                    inAnimation = true;
+                    isActive = !isActive;
+                    //SetBlur(isActive);
 
-                if (isActive)
-                {
-                    wrapperSmartphone.SetActive(true);
-                    SetBlur(true);
-                    animatorSmartphone.SetTrigger("bounce");
-                    Invoke("ActivateSmartPhone", 2.1f);
-                }
-                else
-                {
-                    animatorSmartphone.SetTrigger("bounceOut");
-                    Invoke("DesactivateSmartPhone", 2.1f);
+                    if (isActive)
+                    {
+                        wrapperSmartphone.SetActive(true);
+                        SetBlur(true);
+                        animatorSmartphone.SetTrigger("bounce");
+                        Invoke("ActivateSmartPhone", 2.1f);
+                    }
+                    else
+                    {
+                        animatorSmartphone.SetTrigger("bounceOut");
+                        Invoke("DesactivateSmartPhone", 2.1f);
+                    }
                 }
             }
         }
-
-        //GameObject quitWrapper = GameObject.Find("MenuSair");
     }
 
     private void ActivateSmartPhone()
