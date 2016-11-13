@@ -42,6 +42,7 @@ public class Main : MonoBehaviour
     string[] test = new string[] { "Muito baixa", "Baixa", "Normal", "Alta", "Muito Alta" };
 
     public bool hasActivate;
+    public bool hasDesactivate;
 
     public static Main GetInstance()
     {
@@ -197,7 +198,7 @@ public class Main : MonoBehaviour
                 {
                     GameObject.Find("IconeSmartphone").GetComponent<Animator>().SetTrigger("desactivate");
 
-                    EventManager.GetInstance().SetEvent("activateIconSmartPhone");
+                    hasActivate = true;
                 }
 
                 menu.SetActive(active);
@@ -220,10 +221,21 @@ public class Main : MonoBehaviour
             }
             else
             {
-                animSmartPhone.SetTrigger("bounceOut");
+                if(!hasDesactivate)
+                {
+                    hasDesactivate = true;
+                    Invoke("ActivateFlashLightIcon", 0.8f);
+                }    
+
+                    animSmartPhone.SetTrigger("bounceOut");
                 StartCoroutine("ExitSmartPhone");
             }
         }
+    }
+
+    void ActivateFlashLightIcon()
+    {
+        EventManager.GetInstance().SetEvent("activateIconFlashLight");
     }
 
     void OnApplicationFocus(bool focusStatus)

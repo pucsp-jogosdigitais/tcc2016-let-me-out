@@ -27,6 +27,7 @@ public class EventManager : MonoBehaviour {
         switch(eventName)
         {
             case "activateIconFlashLight":
+                Debug.Log("dsadas");
                 ActivateIconFlash();
         break;
 

@@ -27,18 +27,20 @@ public class FlashLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameInfo.paused && Player.GetInstance().Items.Contains(Constants.PhoneItem) && !Main.GetInstance().hasActivate)
+        if (!GameInfo.paused && Player.GetInstance().Items.Contains(Constants.PhoneItem) && Main.GetInstance().hasActivate)
         { 
 
             //if (Input.GetButtonDown("Fire1"))
             if (Input.GetKeyDown(KeyCode.F))
             {
-            /*
-                if (!hasActivate)
-                {
-                    hasActivate = true;
-                    EventManager.GetInstance().SetEvent("activateIconFlashLight");
-                }*/
+                GameObject.Find("IconeLanterna").GetComponent<Animator>().SetTrigger("desactivate");
+
+                /*
+                    if (!hasActivate)
+                    {
+                        hasActivate = true;
+                        EventManager.GetInstance().SetEvent("activateIconFlashLight");
+                    }*/
 
                 flashLight.enabled = !flashLight.enabled;
                 //Debug.Log("clicou");
