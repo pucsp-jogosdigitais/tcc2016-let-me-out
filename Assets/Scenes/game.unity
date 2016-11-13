@@ -11460,6 +11460,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2.0374174
       objectReference: {fileID: 0}
+    - target: {fileID: 11440880, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
+      propertyPath: relatedItem
+      value: flashlight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
   m_IsPrefabParent: 0
@@ -34283,6 +34287,8 @@ MonoBehaviour:
   gameOverImage: {fileID: 788349796}
   animSmartPhone: {fileID: 391579008}
   cursor: {fileID: 2800000, guid: e0560841a62ce854fa70e3e896f8aca7, type: 3}
+  hasActivate: 0
+  hasDesactivate: 0
 --- !u!4 &1909321460
 Transform:
   m_ObjectHideFlags: 0

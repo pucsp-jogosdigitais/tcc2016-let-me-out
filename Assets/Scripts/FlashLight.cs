@@ -35,6 +35,11 @@ public class FlashLight : MonoBehaviour
             {
                 GameObject.Find("IconeLanterna").GetComponent<Animator>().SetTrigger("desactivate");
 
+                if(!hasActivate)
+                {
+                    Player.GetInstance().Items.Add("flashlight");
+                }
+
                 /*
                     if (!hasActivate)
                     {
