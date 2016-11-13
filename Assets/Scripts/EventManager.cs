@@ -26,6 +26,10 @@ public class EventManager : MonoBehaviour {
     {
         switch(eventName)
         {
+            case "desactivateAllCameras":
+                DesactivateAllCameras();
+                break;
+
             case "lockDoors":
                 LockDoors();
                 break;
@@ -70,6 +74,16 @@ public class EventManager : MonoBehaviour {
 
                 ActivatePartPicture(Constants.PictureP3Item);
                 GameObject.Find("PortaChave").GetComponent<DoorWrapper>().typeAnim = DoorWrapper.DoorAnim.Locked;
+
+                FadeInScreen();
+                Invoke("ActivateCameraOpenRoom", 1.2f);
+                Invoke("FadeOutScreen", 1.8f);
+
+                Invoke("FadeInScreen", 4.8f);
+                Invoke("FadeOutScreen", 5.5f);
+                Invoke("DesactivateCameraOpenRoom", 5.5f);
+
+                //FadeInScreen();
 
                 break;
 
@@ -207,10 +221,30 @@ public class EventManager : MonoBehaviour {
         GameObject.Find("CameraLockCameraPicture1").GetComponent<Animator>().SetTrigger("activate");
     }
 
+    private void ActivateCameraOpenRoom()
+    {
+        HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
+
+        GameObject.Find("CameraLockClosedRoom").GetComponent<Camera>().enabled = true;
+        GameObject.Find("CameraLockClosedRoom").GetComponent<Animator>().SetTrigger("activate");
+    }
+
     private void DesactivateCameraEventPicture()
     {
         HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
         GameObject.Find("CameraLockCameraPicture1").GetComponent<Camera>().enabled = false;
+    }
+
+    private void DesactivateCameraOpenRoom()
+    {
+        HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
+        GameObject.Find("CameraLockClosedRoom").GetComponent<Camera>().enabled = false;
+    }
+
+    private void DesactivateAllCameras()
+    {
+        GameObject.Find("CameraLockCameraPicture1").GetComponent<Camera>().enabled = false;
+        GameObject.Find("CameraLockClosedRoom").GetComponent<Camera>().enabled = false;
     }
 
     private void InitialEvent()
