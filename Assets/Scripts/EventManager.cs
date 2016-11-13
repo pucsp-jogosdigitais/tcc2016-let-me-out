@@ -27,7 +27,6 @@ public class EventManager : MonoBehaviour {
         switch(eventName)
         {
             case "activateIconFlashLight":
-                Debug.Log("dsadas");
                 ActivateIconFlash();
         break;
 
@@ -43,6 +42,16 @@ public class EventManager : MonoBehaviour {
 
 			//Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
 
+                break;
+
+            case "lockCameraPicture1":
+                FadeInScreen();
+                Invoke("ActivateCameraEventPicture", 1.2f);
+                Invoke("FadeOutScreen", 1.8f);
+
+                Invoke("FadeInScreen", 4.8f);
+                Invoke("FadeOutScreen", 5.5f);
+                Invoke("DesactivateCameraEventPicture", 5.5f);
                 break;
 
             case "activatePart2":
@@ -129,6 +138,71 @@ public class EventManager : MonoBehaviour {
         {
             Invoke("ContinueIconSmartPhone", 0.10f);
         }
+    }
+
+    private void FadeInScreen()
+    {
+        GameObject fadeImage = GameObject.Find("FadeImage");
+
+        fadeImage.GetComponent<CanvasGroup>().alpha = 0;
+
+        ContinueFadeInScreen();
+    }
+
+    private void ContinueFadeInScreen()
+    {
+        GameObject fadeImage = GameObject.Find("FadeImage");
+        fadeImage.GetComponent<CanvasGroup>().alpha += 0.10f;
+
+        if (fadeImage.GetComponent<CanvasGroup>().alpha < 0.99)
+        {
+            Invoke("ContinueFadeInScreen", 0.04f);
+        }
+    }
+
+    private void FadeOutScreen()
+    {
+        GameObject fadeImage = GameObject.Find("FadeImage");
+        fadeImage.GetComponent<CanvasGroup>().alpha = 1;
+
+        ContinueFadeOutScreen();
+    }
+
+    private void ContinueFadeOutScreen()
+    {
+        GameObject fadeImage = GameObject.Find("FadeImage");
+        fadeImage.GetComponent<CanvasGroup>().alpha -= 0.10f;
+
+        if (fadeImage.GetComponent<CanvasGroup>().alpha > 0)
+        {
+            Invoke("ContinueFadeOutScreen", 0.04f);
+        }
+    }
+
+    private void ActivatePlayerCamera()
+    {
+        Player.GetCamera().enabled = true;
+        HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
+    }
+
+    private void DesactivatePlayerCamera()
+    {
+        Player.GetCamera().enabled = false;
+        HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
+    }
+
+    private void ActivateCameraEventPicture()
+    {
+        HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
+        
+        GameObject.Find("CameraLockCameraPicture1").GetComponent<Camera>().enabled = true;
+        GameObject.Find("CameraLockCameraPicture1").GetComponent<Animator>().SetTrigger("activate");
+    }
+
+    private void DesactivateCameraEventPicture()
+    {
+        HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
+        GameObject.Find("CameraLockCameraPicture1").GetComponent<Camera>().enabled = false;
     }
 
     private void InitialEvent()

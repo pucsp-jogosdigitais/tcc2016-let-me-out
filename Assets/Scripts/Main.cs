@@ -52,6 +52,8 @@ public class Main : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        GameObject.Find("CameraLockCameraPicture1").GetComponent<Camera>().enabled = false;
+
         //Cursor.visible = true;
         instance = this;
 
