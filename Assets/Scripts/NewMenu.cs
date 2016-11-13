@@ -33,6 +33,9 @@ public class NewMenu : MonoBehaviour
 
     GameObject callWait;
     GameObject callDialog;
+    public float callInit = 2;
+    public float changeImageWait = 2;
+    public float goToGame = 1;
 
     GameObject buttonItemsMenu;
     GameObject buttonConfigMenu;
@@ -80,7 +83,7 @@ public class NewMenu : MonoBehaviour
                 callDialog = GameObject.Find("LigacaoEmAndamento");
 
                 //InitDialog();
-                Invoke("InitDialog", 10);
+                Invoke("InitDialog", callInit);
                 break;
         }
 
@@ -148,6 +151,33 @@ public class NewMenu : MonoBehaviour
     {
         wrapperSmartphone.SetActive(true);
         animatorSmartphone.SetTrigger("bounce");
+        smartphone.GetComponent<AudioSource>().Play();
+
+        Invoke("ChangeImageInitialDialog", changeImageWait);
+    }
+
+    public void ChangeImageInitialDialog()
+    {
+        callWait.SetActive(false);
+
+        Invoke("EndingInitialDialog", 0.1f);
+    }
+
+    public void EndingInitialDialog()
+    {
+        if (smartphone.GetComponent<AudioSource>().isPlaying)
+        {
+            Invoke("EndingInitialDialog", 0.1f);
+        } else
+        {
+            animatorSmartphone.SetTrigger("bounceOut");
+            Invoke("GoToGame", goToGame);
+        }
+    }
+
+    void GoToGame()
+    {
+        Application.LoadLevel("game");
     }
 
     void BindMenu()
