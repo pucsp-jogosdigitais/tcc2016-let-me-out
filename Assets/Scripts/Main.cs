@@ -41,6 +41,9 @@ public class Main : MonoBehaviour
 
     string[] test = new string[] { "Muito baixa", "Baixa", "Normal", "Alta", "Muito Alta" };
 
+    public bool hasActivate;
+    public bool hasDesactivate;
+
     public static Main GetInstance()
     {
         return instance;
@@ -49,6 +52,8 @@ public class Main : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        GameObject.Find("CameraLockCameraPicture1").GetComponent<Camera>().enabled = false;
+
         //Cursor.visible = true;
         instance = this;
 
@@ -183,12 +188,21 @@ public class Main : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C) && Player.GetInstance().Items.Contains(Constants.PhoneItem))
         {
+            
+
             active = !active;
             //menu.SetActive(active);
             Cursor.visible = active;
 
             if (active)
             {
+                if(!hasActivate)
+                {
+                    GameObject.Find("IconeSmartphone").GetComponent<Animator>().SetTrigger("desactivate");
+
+                    hasActivate = true;
+                }
+
                 menu.SetActive(active);
                 BackMenuPrincipal();
                 blur.iterations = 5;
@@ -209,10 +223,21 @@ public class Main : MonoBehaviour
             }
             else
             {
-                animSmartPhone.SetTrigger("bounceOut");
+                if(!hasDesactivate)
+                {
+                    hasDesactivate = true;
+                    Invoke("ActivateFlashLightIcon", 0.8f);
+                }    
+
+                    animSmartPhone.SetTrigger("bounceOut");
                 StartCoroutine("ExitSmartPhone");
             }
         }
+    }
+
+    void ActivateFlashLightIcon()
+    {
+        EventManager.GetInstance().SetEvent("activateIconFlashLight");
     }
 
     void OnApplicationFocus(bool focusStatus)
@@ -456,7 +481,7 @@ public class Main : MonoBehaviour
 
     public void EntrarGame()
     {
-        Application.LoadLevel("intro");
+        Application.LoadLevel("new_Intro");
 
         Debug.Log("clicou");
     }

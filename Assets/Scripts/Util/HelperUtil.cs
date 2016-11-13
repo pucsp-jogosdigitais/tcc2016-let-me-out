@@ -17,9 +17,9 @@ namespace Assets.Scripts.Util
         public static GameObject FindGameObject(GameObject parent, string name)
         {
             Component[] cmps = parent.GetComponentsInChildren(typeof(Transform), true);
-            List<Transform> trs = new List<Transform>();       
+            List<Transform> trs = new List<Transform>();
 
-            foreach(Component c in cmps)
+            foreach (Component c in cmps)
             {
                 Transform t = c as Transform;
 
@@ -34,6 +34,21 @@ namespace Assets.Scripts.Util
                 }
             }
             return null;
+        }
+
+        /// <summary>
+        /// Ativa/Desativa Renderer GameObject
+        /// </summary>
+        /// <param name="parent"></param>
+        /// <param name="visibility"></param>
+        public static void SetVisibility(GameObject parent, bool visibility)
+        {
+            Renderer[] rs = parent.GetComponentsInChildren<Renderer>();
+
+            foreach (Renderer r in rs)
+            {
+                r.enabled = visibility;
+            }
         }
 
         /// <summary>

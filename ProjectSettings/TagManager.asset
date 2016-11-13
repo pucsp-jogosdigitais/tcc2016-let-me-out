@@ -12,6 +12,9 @@ TagManager:
   - SpawnPoint
   - ItemInventory
   - FirstMenuItem
+  - Fireplace
+  - InventoryMenuItem
+  - CamerasEvent
   layers:
   - Default
   - TransparentFX

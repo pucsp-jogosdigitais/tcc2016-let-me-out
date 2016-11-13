@@ -7,8 +7,9 @@ using Assets.Scripts.Util;
 
 public class NewMenu : MonoBehaviour
 {
-    [SerializeField]
-    bool inGame;
+    public enum MenuContext { Intro, Menu, InGame };
+    public MenuContext context;
+
     public bool isActive;
 
     public enum Menu { Default, Items, Config, Exit, None };
@@ -29,6 +30,12 @@ public class NewMenu : MonoBehaviour
     GameObject transitionBgConfig;
 
     Animator animatorSmartphone;
+
+    GameObject callWait;
+    GameObject callDialog;
+    public float callInit = 2;
+    public float changeImageWait = 2;
+    public float goToGame = 1;
 
     GameObject buttonItemsMenu;
     GameObject buttonConfigMenu;
@@ -59,9 +66,122 @@ public class NewMenu : MonoBehaviour
     {
         smartphone = GameObject.Find("SmartPhone");
         wrapperSmartphone = GameObject.Find("WrapperSmartphone");
-
         firstMenu = GameObject.Find("Principal");
 
+        animatorSmartphone = wrapperSmartphone.GetComponent<Animator>();
+        switch (context)
+        {
+            case MenuContext.InGame:
+            case MenuContext.Menu:
+                BindMenu();
+                FillMenu();
+                break;
+
+            case MenuContext.Intro:
+                firstMenu.SetActive(false);
+                callWait = GameObject.Find("ChamadaRecebida");
+                callDialog = GameObject.Find("LigacaoEmAndamento");
+
+                //InitDialog();
+                Invoke("InitDialog", callInit);
+                break;
+        }
+
+        wrapperSmartphone.SetActive(false);
+        SetBlur(false);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(context == MenuContext.Menu || context == MenuContext.InGame)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (!inAnimation)
+                {
+                    inAnimation = true;
+                    isActive = !isActive;
+                    //SetBlur(isActive);
+
+                    if (isActive)
+                    {
+                        wrapperSmartphone.SetActive(true);
+                        SetBlur(true);
+                        animatorSmartphone.SetTrigger("bounce");
+                        Invoke("ActivateSmartPhone", 2.1f);
+                    }
+                    else
+                    {
+                        animatorSmartphone.SetTrigger("bounceOut");
+                        Invoke("DesactivateSmartPhone", 2.1f);
+                    }
+                }
+            }
+        }
+    }
+
+    private void ActivateSmartPhone()
+    {
+        inAnimation = false;
+    }
+
+    private void DesactivateSmartPhone()
+    {
+        wrapperSmartphone.SetActive(true);
+        SetBlur(false);
+        inAnimation = false;
+    }
+
+    private void SetBlur(bool isActive)
+    {
+        UnityStandardAssets.ImageEffects.Blur blur = defaultCamera.GetComponent<UnityStandardAssets.ImageEffects.Blur>();
+
+        if (isActive)
+        {
+            blur.iterations = 3;
+        }
+        else
+        {
+            blur.iterations = 0;
+        }
+    }
+
+    public void InitDialog()
+    {
+        wrapperSmartphone.SetActive(true);
+        animatorSmartphone.SetTrigger("bounce");
+        smartphone.GetComponent<AudioSource>().Play();
+
+        Invoke("ChangeImageInitialDialog", changeImageWait);
+    }
+
+    public void ChangeImageInitialDialog()
+    {
+        callWait.SetActive(false);
+
+        Invoke("EndingInitialDialog", 0.1f);
+    }
+
+    public void EndingInitialDialog()
+    {
+        if (smartphone.GetComponent<AudioSource>().isPlaying)
+        {
+            Invoke("EndingInitialDialog", 0.1f);
+        } else
+        {
+            animatorSmartphone.SetTrigger("bounceOut");
+            Invoke("GoToGame", goToGame);
+        }
+    }
+
+    void GoToGame()
+    {
+        Application.LoadLevel("game");
+    }
+
+    void BindMenu()
+    {
         inventoryMenu = GameObject.Find("MenuInventario");
 
         configMenu = GameObject.Find("MenuConfiguracoes");
@@ -69,10 +189,10 @@ public class NewMenu : MonoBehaviour
 
         buttonConfigMenu = HelperUtil.FindGameObject(smartphone, "BotaoConfiguracoes");
         //buttonConfigMenu.GetComponent<Button>().onClick.AddListener(EnterConfig);
-        
+
         buttonItemsMenu = HelperUtil.FindGameObject(smartphone, "BotaoItens");
         buttonConfigMenu.GetComponent<Button>().onClick.AddListener(EnterInventory);
-        
+
         buttonExitMenu = HelperUtil.FindGameObject(smartphone, "BotaoSair");
         buttonExitMenu.GetComponent<Button>().onClick.AddListener(EnterExit);
 
@@ -102,9 +222,9 @@ public class NewMenu : MonoBehaviour
         }
 
         buttonResolution.GetComponent<Button>().onClick.AddListener(delegate
-            {
-                ChangeScreenSize();
-            }
+        {
+            ChangeScreenSize();
+        }
         );
 
         sliderSensivity = HelperUtil.FindGameObject(smartphone, "SliderSensibilidade").GetComponent<Slider>();
@@ -113,68 +233,6 @@ public class NewMenu : MonoBehaviour
         {
             OnChangeSensivity();
         });
-
-
-        wrapperSmartphone.SetActive(false);
-        SetBlur(false);
-        animatorSmartphone = wrapperSmartphone.GetComponent<Animator>();
-
-        FillMenu();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (!inAnimation)
-            {
-                inAnimation = true;
-                isActive = !isActive;
-                //SetBlur(isActive);
-
-                if (isActive)
-                {
-                    wrapperSmartphone.SetActive(true);
-                    SetBlur(true);
-                    animatorSmartphone.SetTrigger("bounce");
-                    Invoke("ActivateSmartPhone", 2.1f);
-                }
-                else
-                {
-                    animatorSmartphone.SetTrigger("bounceOut");
-                    Invoke("DesactivateSmartPhone", 2.1f);
-                }
-            }
-        }
-
-        //GameObject quitWrapper = GameObject.Find("MenuSair");
-    }
-
-    private void ActivateSmartPhone()
-    {
-        inAnimation = false;
-    }
-
-    private void DesactivateSmartPhone()
-    {
-        wrapperSmartphone.SetActive(true);
-        SetBlur(false);
-        inAnimation = false;
-    }
-
-    private void SetBlur(bool isActive)
-    {
-        UnityStandardAssets.ImageEffects.Blur blur = defaultCamera.GetComponent<UnityStandardAssets.ImageEffects.Blur>();
-
-        if (isActive)
-        {
-            blur.iterations = 3;
-        }
-        else
-        {
-            blur.iterations = 0;
-        }
     }
 
     void FillMenu()
@@ -480,7 +538,7 @@ public class NewMenu : MonoBehaviour
     {
         List<string> items = new List<string>();
 
-        if (!inGame)
+        if (context == MenuContext.Menu)
         {
             items = new List<string> {
 			    Constants.PhoneItem,

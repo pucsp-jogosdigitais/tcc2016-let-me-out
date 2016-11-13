@@ -3,6 +3,12 @@ using System.Collections;
 
 public class Event : MonoBehaviour {
 
+    public enum TypeEvent { Default, CustomSound };
+
+    public TypeEvent type;
+
+    public AudioClip audioSource;
+
     [SerializeField]
     string eventName;
 
@@ -23,7 +29,20 @@ public class Event : MonoBehaviour {
         if (collision.transform.tag == "Player" && !interact)
         {
             interact = true;
-            EventManager.GetInstance().SetEvent(eventName);
+
+            switch (type)
+            {
+                case TypeEvent.Default:
+                    EventManager.GetInstance().SetEvent(eventName);
+                    break;
+                    case TypeEvent.CustomSound:
+                    gameObject.AddComponent<AudioSource>().playOnAwake = false;
+                    gameObject.GetComponent<AudioSource>().clip = audioSource;
+                    gameObject.GetComponent<AudioSource>().Play();
+
+                    break;
+
+            }
         }
 
         //gameObject.SetActive(false);

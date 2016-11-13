@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityStandardAssets.ImageEffects;
 using System.Collections.Generic;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -38,6 +39,11 @@ public class Player : MonoBehaviour
         return GameObject.Find("Player").GetComponent<CameraShake>();
     }
 
+    public static VignetteAndChromaticAberration GetVignette()
+    {
+        return GameObject.Find("FirstPersonCharacter").GetComponent<VignetteAndChromaticAberration>();
+    }
+
     public static MotionBlur GetMotionBlur()
     {
         return GameObject.Find("FirstPersonCharacter").GetComponent<MotionBlur>();
@@ -47,6 +53,25 @@ public class Player : MonoBehaviour
     {
         instance = this;
         items = new List<string>();
+
+        InitAnimViggete();
+    }
+
+    private void InitAnimViggete()
+    {
+        GetVignette().intensity = 1;
+
+        Invoke("ContinueAnimViggete", 0.10f);
+    }
+
+    private void ContinueAnimViggete()
+    {
+        GetVignette().intensity -= 0.01f;
+
+        if(GetVignette().intensity > 0)
+        {
+            Invoke("ContinueAnimViggete", 0.02f);
+        }
     }
 
     void Update()
