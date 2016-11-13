@@ -26,6 +26,9 @@ public class Item : MonoBehaviour
 
     int pictureCounter = 4;
 
+    int clickCounter = 0;
+    bool hasClicked = false;
+
     void Start()
     {
 
@@ -132,6 +135,23 @@ public class Item : MonoBehaviour
 
                 case ItemType.Picture:
 
+                    clickCounter += 1;
+
+                    Debug.Log(clickCounter);
+
+                    if (clickCounter > 2)
+                    {
+                        AudioRepository audioRepo = AudioRepository.GetInstance();
+
+                        if(!audioRepo.gameObject.GetComponent<AudioSource>().isPlaying)
+                        {
+                            audioRepo.gameObject.GetComponent<AudioSource>().clip = audioRepo.incompletePictureAudio;
+                            audioRepo.gameObject.GetComponent<AudioSource>().Play();
+                        }
+                    }
+
+                    Invoke("ResetCounter", 30f);
+
                     string[] partsPicture = new string[] {
                         Constants.PictureP1Item,
                         Constants.PictureP2Item,
@@ -155,6 +175,11 @@ public class Item : MonoBehaviour
                     break;
             }
         }
+    }
+
+    void ResetCounter()
+    {
+        clickCounter = 0;
     }
 
     void FillPicture(string codPicture)

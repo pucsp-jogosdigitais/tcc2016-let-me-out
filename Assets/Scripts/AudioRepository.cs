@@ -7,6 +7,8 @@ public class AudioRepository : MonoBehaviour {
 
     public AudioClip babyAudio;
 
+    public AudioClip incompletePictureAudio;
+
     public static AudioRepository GetInstance()
     {
         return instance;
