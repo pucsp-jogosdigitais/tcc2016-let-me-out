@@ -5,11 +5,11 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/initialIntro.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/menu.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/new_Intro.unity
   - enabled: 0
     path: Assets/Scenes/intro.unity

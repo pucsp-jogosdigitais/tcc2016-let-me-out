@@ -41,6 +41,8 @@ public class Main : MonoBehaviour
 
     string[] test = new string[] { "Muito baixa", "Baixa", "Normal", "Alta", "Muito Alta" };
 
+    public bool hasActivate;
+
     public static Main GetInstance()
     {
         return instance;
@@ -183,12 +185,21 @@ public class Main : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C) && Player.GetInstance().Items.Contains(Constants.PhoneItem))
         {
+            
+
             active = !active;
             //menu.SetActive(active);
             Cursor.visible = active;
 
             if (active)
             {
+                if(!hasActivate)
+                {
+                    GameObject.Find("IconeSmartphone").GetComponent<Animator>().SetTrigger("desactivate");
+
+                    EventManager.GetInstance().SetEvent("activateIconSmartPhone");
+                }
+
                 menu.SetActive(active);
                 BackMenuPrincipal();
                 blur.iterations = 5;

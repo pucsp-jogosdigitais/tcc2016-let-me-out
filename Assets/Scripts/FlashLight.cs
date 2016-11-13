@@ -15,6 +15,8 @@ public class FlashLight : MonoBehaviour
 
     public GameObject menuLanterna;
 
+    bool hasActivate = false;
+
     // Use this for initialization
     void Start()
     {
@@ -25,11 +27,19 @@ public class FlashLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameInfo.paused && Player.GetInstance().Items.Contains(Constants.PhoneItem))
-        {
+        if (!GameInfo.paused && Player.GetInstance().Items.Contains(Constants.PhoneItem) && !Main.GetInstance().hasActivate)
+        { 
+
             //if (Input.GetButtonDown("Fire1"))
             if (Input.GetKeyDown(KeyCode.F))
             {
+            /*
+                if (!hasActivate)
+                {
+                    hasActivate = true;
+                    EventManager.GetInstance().SetEvent("activateIconFlashLight");
+                }*/
+
                 flashLight.enabled = !flashLight.enabled;
                 //Debug.Log("clicou");
 

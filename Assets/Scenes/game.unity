@@ -9304,6 +9304,7 @@ GameObject:
   - 114: {fileID: 401676684}
   - 114: {fileID: 401676683}
   - 225: {fileID: 401676682}
+  - 95: {fileID: 401676687}
   m_Layer: 5
   m_Name: IconeSmartphone
   m_TagString: Untagged
@@ -9318,7 +9319,7 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 401676681}
   m_Enabled: 1
-  m_Alpha: 0.4
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -9398,6 +9399,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &401676687
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 401676681}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de79b635aa01b7146b2469cac96f5c52, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &405143085
 GameObject:
   m_ObjectHideFlags: 0
@@ -12601,9 +12619,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 401676686}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 53, y: -377}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -592.9, y: -235.6}
   m_SizeDelta: {x: 30, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &575113419
@@ -17290,14 +17308,14 @@ RectTransform:
   m_GameObject: {fileID: 855086063}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 2.2, y: 2.2, z: 2}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1728596967}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 144.1, y: -377}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -511.9, y: -234.6}
   m_SizeDelta: {x: 30, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &855086065
@@ -24958,7 +24976,7 @@ MonoBehaviour:
   sub: Menu ativado.
   subRelatedItem: 
   relatedItemCod: 
-  eventItem: 
+  eventItem: activateIconSmartPhone
 --- !u!82 &1290906853
 AudioSource:
   m_ObjectHideFlags: 0
@@ -31354,6 +31372,7 @@ GameObject:
   - 114: {fileID: 1728596965}
   - 114: {fileID: 1728596964}
   - 225: {fileID: 1728596968}
+  - 95: {fileID: 1728596969}
   m_Layer: 5
   m_Name: IconeLanterna
   m_TagString: Untagged
@@ -31444,10 +31463,27 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1728596963}
   m_Enabled: 1
-  m_Alpha: 0.4
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!95 &1728596969
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1728596963}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7b8c1c9d99fc725438ca20f56e3cfd5a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1745540725
 GameObject:
   m_ObjectHideFlags: 0

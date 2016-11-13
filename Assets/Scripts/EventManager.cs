@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Util;
 
 public class EventManager : MonoBehaviour {
 
@@ -25,7 +26,15 @@ public class EventManager : MonoBehaviour {
     {
         switch(eventName)
         {
-		case "initialEvent":
+            case "activateIconFlashLight":
+                ActivateIconFlash();
+        break;
+
+            case "activateIconSmartPhone":
+                ActivateIconSmartPhone();
+                break;
+
+            case "initialEvent":
 
 			Invoke ("InitialEvent", 3);
 			Invoke ("BabyCry", 5);
@@ -82,6 +91,42 @@ public class EventManager : MonoBehaviour {
                     return;
                 }
             }
+        }
+    }
+
+    private void ActivateIconFlash()
+    {
+        GameObject.Find("IconeLanterna").GetComponent<CanvasGroup>().alpha = 0;
+        GameObject.Find("IconeLanterna").GetComponent<Animator>().SetTrigger("activate");
+
+        Invoke("ContinueIconFlash", 0.10f);
+    }
+
+    private void ContinueIconFlash()
+    {
+        GameObject.Find("IconeLanterna").GetComponent<CanvasGroup>().alpha += 0.01f;
+        
+        if (GameObject.Find("IconeLanterna").GetComponent<CanvasGroup>().alpha < 0.5)
+        {
+            Invoke("ContinueIconFlash", 0.10f);
+        }
+    }
+
+    private void ActivateIconSmartPhone()
+    {
+        GameObject.Find("IconeSmartphone").GetComponent<CanvasGroup>().alpha = 0;
+        GameObject.Find("IconeSmartphone").GetComponent<Animator>().SetTrigger("activate");
+
+        Invoke("ContinueIconSmartPhone", 0.10f);
+    }
+
+    private void ContinueIconSmartPhone()
+    {
+        GameObject.Find("IconeSmartphone").GetComponent<CanvasGroup>().alpha += 0.01f;
+
+        if (GameObject.Find("IconeSmartphone").GetComponent<CanvasGroup>().alpha < 0.5)
+        {
+            Invoke("ContinueIconSmartPhone", 0.10f);
         }
     }
 
