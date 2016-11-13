@@ -7077,7 +7077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ebd9076002fd14a931e9964fe4755c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inGame: 0
+  context: 1
   isActive: 0
   menusToShow: 010000000200000003000000
   inAnimation: 0

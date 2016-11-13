@@ -7,8 +7,9 @@ using Assets.Scripts.Util;
 
 public class NewMenu : MonoBehaviour
 {
-    [SerializeField]
-    bool inGame;
+    public enum MenuContext { Intro, Menu, InGame };
+    public MenuContext context;
+
     public bool isActive;
 
     public enum Menu { Default, Items, Config, Exit, None };
@@ -62,64 +63,22 @@ public class NewMenu : MonoBehaviour
 
         firstMenu = GameObject.Find("Principal");
 
-        inventoryMenu = GameObject.Find("MenuInventario");
-
-        configMenu = GameObject.Find("MenuConfiguracoes");
-        transitionBgConfig = GameObject.Find("EfeitoTransicao");
-
-        buttonConfigMenu = HelperUtil.FindGameObject(smartphone, "BotaoConfiguracoes");
-        //buttonConfigMenu.GetComponent<Button>().onClick.AddListener(EnterConfig);
-        
-        buttonItemsMenu = HelperUtil.FindGameObject(smartphone, "BotaoItens");
-        buttonConfigMenu.GetComponent<Button>().onClick.AddListener(EnterInventory);
-        
-        buttonExitMenu = HelperUtil.FindGameObject(smartphone, "BotaoSair");
-        buttonExitMenu.GetComponent<Button>().onClick.AddListener(EnterExit);
-
-        exitMenu = HelperUtil.FindGameObject(smartphone, "FundoPadraoSair");
-        exitLoadingMenu = HelperUtil.FindGameObject(smartphone, "AnimacaoSair");
-
-        GameObject itemInventory = HelperUtil.FindGameObject(smartphone, "ItemInventario");
-
-        inventoryItemTemplate = itemInventory;
-        inventoryItemPhone = itemInventory;
-        inventoryItemPicture = HelperUtil.FindGameObject(smartphone, "ItemQuadroCompleto");
-        inventoryItemPictureP1 = HelperUtil.FindGameObject(smartphone, "ItemFoto1");
-        inventoryItemPictureP2 = HelperUtil.FindGameObject(smartphone, "ItemFoto2");
-        inventoryItemPictureP3 = HelperUtil.FindGameObject(smartphone, "ItemFoto3");
-        inventoryItemPictureP4 = HelperUtil.FindGameObject(smartphone, "ItemFoto4");
-        inventoryItemStockWood = HelperUtil.FindGameObject(smartphone, "ItemTora");
-        inventoryItemKey = HelperUtil.FindGameObject(smartphone, "ItemChave");
-
-        buttonResolution = GameObject.Find("BotaoJanela");
-        textResolution = buttonResolution.GetComponentInChildren<Text>();
-
-        textResolution.text = fullScreenMode;
-
-        if (!Screen.fullScreen)
+        switch (context)
         {
-            textResolution.text = windowedMode;
+            case MenuContext.InGame:
+            case MenuContext.Menu:
+                BindMenu();
+                FillMenu();
+                break;
+
+            case MenuContext.Intro:
+
+                break;
         }
-
-        buttonResolution.GetComponent<Button>().onClick.AddListener(delegate
-            {
-                ChangeScreenSize();
-            }
-        );
-
-        sliderSensivity = HelperUtil.FindGameObject(smartphone, "SliderSensibilidade").GetComponent<Slider>();
-
-        sliderSensivity.GetComponent<Slider>().onValueChanged.AddListener(delegate
-        {
-            OnChangeSensivity();
-        });
-
 
         wrapperSmartphone.SetActive(false);
         SetBlur(false);
         animatorSmartphone = wrapperSmartphone.GetComponent<Animator>();
-
-        FillMenu();
     }
 
     // Update is called once per frame
@@ -175,6 +134,61 @@ public class NewMenu : MonoBehaviour
         {
             blur.iterations = 0;
         }
+    }
+
+    void BindMenu()
+    {
+        inventoryMenu = GameObject.Find("MenuInventario");
+
+        configMenu = GameObject.Find("MenuConfiguracoes");
+        transitionBgConfig = GameObject.Find("EfeitoTransicao");
+
+        buttonConfigMenu = HelperUtil.FindGameObject(smartphone, "BotaoConfiguracoes");
+        //buttonConfigMenu.GetComponent<Button>().onClick.AddListener(EnterConfig);
+
+        buttonItemsMenu = HelperUtil.FindGameObject(smartphone, "BotaoItens");
+        buttonConfigMenu.GetComponent<Button>().onClick.AddListener(EnterInventory);
+
+        buttonExitMenu = HelperUtil.FindGameObject(smartphone, "BotaoSair");
+        buttonExitMenu.GetComponent<Button>().onClick.AddListener(EnterExit);
+
+        exitMenu = HelperUtil.FindGameObject(smartphone, "FundoPadraoSair");
+        exitLoadingMenu = HelperUtil.FindGameObject(smartphone, "AnimacaoSair");
+
+        GameObject itemInventory = HelperUtil.FindGameObject(smartphone, "ItemInventario");
+
+        inventoryItemTemplate = itemInventory;
+        inventoryItemPhone = itemInventory;
+        inventoryItemPicture = HelperUtil.FindGameObject(smartphone, "ItemQuadroCompleto");
+        inventoryItemPictureP1 = HelperUtil.FindGameObject(smartphone, "ItemFoto1");
+        inventoryItemPictureP2 = HelperUtil.FindGameObject(smartphone, "ItemFoto2");
+        inventoryItemPictureP3 = HelperUtil.FindGameObject(smartphone, "ItemFoto3");
+        inventoryItemPictureP4 = HelperUtil.FindGameObject(smartphone, "ItemFoto4");
+        inventoryItemStockWood = HelperUtil.FindGameObject(smartphone, "ItemTora");
+        inventoryItemKey = HelperUtil.FindGameObject(smartphone, "ItemChave");
+
+        buttonResolution = GameObject.Find("BotaoJanela");
+        textResolution = buttonResolution.GetComponentInChildren<Text>();
+
+        textResolution.text = fullScreenMode;
+
+        if (!Screen.fullScreen)
+        {
+            textResolution.text = windowedMode;
+        }
+
+        buttonResolution.GetComponent<Button>().onClick.AddListener(delegate
+        {
+            ChangeScreenSize();
+        }
+        );
+
+        sliderSensivity = HelperUtil.FindGameObject(smartphone, "SliderSensibilidade").GetComponent<Slider>();
+
+        sliderSensivity.GetComponent<Slider>().onValueChanged.AddListener(delegate
+        {
+            OnChangeSensivity();
+        });
     }
 
     void FillMenu()
@@ -480,7 +494,7 @@ public class NewMenu : MonoBehaviour
     {
         List<string> items = new List<string>();
 
-        if (!inGame)
+        if (context == MenuContext.Menu)
         {
             items = new List<string> {
 			    Constants.PhoneItem,
