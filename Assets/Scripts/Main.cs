@@ -456,7 +456,7 @@ public class Main : MonoBehaviour
 
     public void EntrarGame()
     {
-        Application.LoadLevel("intro");
+        Application.LoadLevel("new_Intro");
 
         Debug.Log("clicou");
     }
