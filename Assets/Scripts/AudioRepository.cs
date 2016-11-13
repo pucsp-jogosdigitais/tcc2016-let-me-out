@@ -9,6 +9,10 @@ public class AudioRepository : MonoBehaviour {
 
     public AudioClip incompletePictureAudio;
 
+    public AudioClip doorLocked;
+    public AudioClip doorShaked;
+    public AudioClip doorOpen;
+
     public static AudioRepository GetInstance()
     {
         return instance;

@@ -26,6 +26,10 @@ public class EventManager : MonoBehaviour {
     {
         switch(eventName)
         {
+            case "lockDoors":
+                LockDoors();
+                break;
+
             case "activateIconFlashLight":
                 ActivateIconFlash();
         break;
@@ -52,6 +56,8 @@ public class EventManager : MonoBehaviour {
                 Invoke("FadeInScreen", 4.8f);
                 Invoke("FadeOutScreen", 5.5f);
                 Invoke("DesactivateCameraEventPicture", 5.5f);
+                LockDoors();
+
                 break;
 
             case "activatePart2":
@@ -63,12 +69,14 @@ public class EventManager : MonoBehaviour {
             case "activatePart3":
 
                 ActivatePartPicture(Constants.PictureP3Item);
+                GameObject.Find("PortaChave").GetComponent<DoorWrapper>().typeAnim = DoorWrapper.DoorAnim.Locked;
 
                 break;
 
             case "activatePart4":
 
                 ActivatePartPicture(Constants.PictureP4Item);
+                GameObject.Find("PortaEscritorio").GetComponent<DoorWrapper>().typeAnim = DoorWrapper.DoorAnim.Locked;
 
                 break;
 
@@ -228,5 +236,16 @@ public class EventManager : MonoBehaviour {
     private void ActivateBaby()
     {
         Monster.GetInstance().currActionState = Monster.MonsterActionState.Spawn;
+    }
+
+    private void LockDoors()
+    {
+        DoorWrapper[] doors = GameObject.Find("Portas").GetComponentsInChildren<DoorWrapper>();
+
+        foreach (DoorWrapper door in doors)
+        {
+            door.typeAnim = DoorWrapper.DoorAnim.Shaked;
+        }
+
     }
 }

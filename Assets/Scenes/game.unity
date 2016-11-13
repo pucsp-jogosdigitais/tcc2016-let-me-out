@@ -13737,7 +13737,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 182606, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
       propertyPath: m_Name
-      value: DoorWrapper (porta2 (8))
+      value: PortaEscritorio
       objectReference: {fileID: 0}
     - target: {fileID: 11440880, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
       propertyPath: doorAnim
@@ -20809,7 +20809,7 @@ Prefab:
       objectReference: {fileID: 1612877376}
     - target: {fileID: 182606, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
       propertyPath: m_Name
-      value: DoorWrapper (porta2)
+      value: PortaChave
       objectReference: {fileID: 0}
     - target: {fileID: 11440880, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
       propertyPath: relatedItem
@@ -20831,6 +20831,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2.037414
       objectReference: {fileID: 0}
+    - target: {fileID: 11440880, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
+      propertyPath: doorLocked
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c459226d37ac144aa440ef904cb84d5, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
   m_IsPrefabParent: 0
@@ -21612,7 +21616,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 182606, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
       propertyPath: m_Name
-      value: DoorWrapper (porta2 (8)) (2)
+      value: PortaBebe
       objectReference: {fileID: 0}
     - target: {fileID: 11440880, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
       propertyPath: doorAnim
@@ -21911,7 +21915,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 287.57
+      value: 287.78
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -21919,7 +21923,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 244.82
+      value: 248.07
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalRotation.x
@@ -21939,7 +21943,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_Name
@@ -27658,6 +27662,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2.037414
       objectReference: {fileID: 0}
+    - target: {fileID: 11440880, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
+      propertyPath: doorLocked
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c459226d37ac144aa440ef904cb84d5, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
   m_IsPrefabParent: 0
@@ -34832,6 +34840,9 @@ MonoBehaviour:
   babyAudio: {fileID: 8300000, guid: 0bc554f097602a64e9b84678801aaddf, type: 3}
   incompletePictureAudio: {fileID: 8300000, guid: 723389f714c634c4d8831a33fa370646,
     type: 3}
+  doorLocked: {fileID: 8300000, guid: 917342af886a6b443a5b7d07d0531ca2, type: 3}
+  doorShaked: {fileID: 8300000, guid: 2c459226d37ac144aa440ef904cb84d5, type: 3}
+  doorOpen: {fileID: 8300000, guid: 18e75f4aef3861a49b2e88a5ff17d9f6, type: 3}
 --- !u!82 &1909321465
 AudioSource:
   m_ObjectHideFlags: 0
