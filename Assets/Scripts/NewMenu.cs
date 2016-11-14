@@ -7,6 +7,8 @@ using Assets.Scripts.Util;
 
 public class NewMenu : MonoBehaviour
 {
+    static NewMenu instance;
+    
     public enum MenuContext { Intro, Menu, InGame };
     public MenuContext context;
 
@@ -68,9 +70,16 @@ public class NewMenu : MonoBehaviour
 
     public Camera defaultCamera;
 
+    public static NewMenu GetInstance()
+    {
+        return instance;
+    }
+
     // Use this for initializati1on
     void Start()
     {
+        instance = this;
+
         smartphone = GameObject.Find("SmartPhone");
         wrapperSmartphone = GameObject.Find("WrapperSmartphone");
         firstMenu = GameObject.Find("Principal");
