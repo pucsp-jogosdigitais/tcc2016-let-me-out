@@ -44,10 +44,10 @@ public class NewMenu : MonoBehaviour
     GameObject buttonExitMenu;
     GameObject dropDownResolucoes;
     GameObject dropDownQualidade;
-
-    Slider sliderSensivity;
+    GameObject sliderSensivity;
     GameObject buttonResolution;
     Text textResolution;
+    
     [SerializeField]
     string windowedMode = "JANELA";
     [SerializeField]
@@ -232,7 +232,7 @@ public class NewMenu : MonoBehaviour
         }
         );
 
-        sliderSensivity = HelperUtil.FindGameObject(smartphone, "SliderSensibilidade").GetComponent<Slider>();
+        sliderSensivity = HelperUtil.FindGameObject(smartphone, "SliderSensibilidade");
 
         sliderSensivity.GetComponent<Slider>().onValueChanged.AddListener(delegate
         {
@@ -294,6 +294,15 @@ public class NewMenu : MonoBehaviour
         {
             QualitySettings.SetQualityLevel(dropDownQualidadeAsDropDown.value);
         });
+
+        sliderSensivity = HelperUtil.FindGameObject(smartphone, "SliderSensibilidade");
+        Slider sliderSensivityAsSlider = sliderSensivity.GetComponent<Slider>();
+
+        sliderSensivityAsSlider.onValueChanged.AddListener(delegate
+        {
+            OnChangeSensivity();
+        });
+
 
         if (context == MenuContext.InGame)
         {
@@ -597,9 +606,9 @@ public class NewMenu : MonoBehaviour
 
     public void OnChangeSensivity()
     {
-        PlayerPrefs.SetFloat("mouseSensivity", sliderSensivity.value * 10);
+        PlayerPrefs.SetFloat("mouseSensivity", sliderSensivity.GetComponent<Slider>().value * 10);
         PlayerPrefs.Save();
-        GameInfo.mouseSensivity = sliderSensivity.value * 10;
+        GameInfo.mouseSensivity = sliderSensivity.GetComponent<Slider>().value * 10;
     }
 
     public void ChangeScreenSize()
