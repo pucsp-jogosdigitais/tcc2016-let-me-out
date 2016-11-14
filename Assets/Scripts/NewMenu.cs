@@ -27,6 +27,7 @@ public class NewMenu : MonoBehaviour
     GameObject exitLoadingMenu;
     GameObject inventoryMenu;
     GameObject configMenu;
+    GameObject tutorialMenu;
     GameObject transitionBgConfig;
 
     Animator animatorSmartphone;
@@ -37,6 +38,7 @@ public class NewMenu : MonoBehaviour
     public float changeImageWait = 2;
     public float goToGame = 1;
 
+    GameObject buttonTutorial;
     GameObject buttonItemsMenu;
     GameObject buttonConfigMenu;
     GameObject buttonExitMenu;
@@ -94,7 +96,7 @@ public class NewMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(context == MenuContext.Menu || context == MenuContext.InGame)
+        if (context == MenuContext.Menu || context == MenuContext.InGame)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -168,7 +170,8 @@ public class NewMenu : MonoBehaviour
         if (smartphone.GetComponent<AudioSource>().isPlaying)
         {
             Invoke("EndingInitialDialog", 0.1f);
-        } else
+        }
+        else
         {
             animatorSmartphone.SetTrigger("bounceOut");
             Invoke("GoToGame", goToGame);
@@ -233,6 +236,19 @@ public class NewMenu : MonoBehaviour
         {
             OnChangeSensivity();
         });
+
+        if (context == MenuContext.InGame)
+        {
+            tutorialMenu = HelperUtil.FindGameObject(smartphone, "Tutorial");
+            tutorialMenu.SetActive(true);
+            buttonTutorial = HelperUtil.FindGameObject(smartphone, "BotaoFecharTutorial");
+
+            buttonTutorial.GetComponent<Button>().onClick.AddListener(delegate
+            {
+                InvokeRepeating("GoingOutTutorial", 0, 0.1f);
+                //tutorialMenu.SetActive(false);
+            });
+        }
     }
 
     void FillMenu()
@@ -329,6 +345,19 @@ public class NewMenu : MonoBehaviour
             {
                 menuItem.GetComponent<Button>().enabled = true;
             }
+        }
+    }
+
+    void GoingOutTutorial()
+    {
+        CanvasGroup cg = tutorialMenu.GetComponent<CanvasGroup>();
+
+        cg.alpha -= 0.1f;
+
+        if (cg.alpha < 0.01)
+        {
+            tutorialMenu.SetActive(false);
+            CancelInvoke("GoingOutTutorial");
         }
     }
 
