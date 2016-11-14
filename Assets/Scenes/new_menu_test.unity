@@ -516,7 +516,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11464878, guid: 78c07f7933b52f34598ba3d8d9996595, type: 2}
       propertyPath: context
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11464878, guid: 78c07f7933b52f34598ba3d8d9996595, type: 2}
       propertyPath: goToGame
@@ -547,6 +547,26 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 142920, guid: 78c07f7933b52f34598ba3d8d9996595, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199118, guid: 78c07f7933b52f34598ba3d8d9996595, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 168818, guid: 78c07f7933b52f34598ba3d8d9996595, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 141844, guid: 78c07f7933b52f34598ba3d8d9996595, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 121928, guid: 78c07f7933b52f34598ba3d8d9996595, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 165776, guid: 78c07f7933b52f34598ba3d8d9996595, type: 2}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}

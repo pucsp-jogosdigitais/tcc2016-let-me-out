@@ -42,6 +42,8 @@ public class NewMenu : MonoBehaviour
     GameObject buttonItemsMenu;
     GameObject buttonConfigMenu;
     GameObject buttonExitMenu;
+    GameObject dropDownResolucoes;
+    GameObject dropDownQualidade;
 
     Slider sliderSensivity;
     GameObject buttonResolution;
@@ -236,6 +238,43 @@ public class NewMenu : MonoBehaviour
         {
             OnChangeSensivity();
         });
+
+        dropDownResolucoes = HelperUtil.FindGameObject(smartphone, "DropdownResolucoes");
+        Dropdown dropDownResolucoesAsDropDown = dropDownResolucoes.GetComponent<Dropdown>();
+        Resolution[] resolutions = Screen.resolutions;
+
+        foreach (Resolution res in resolutions)
+        {
+            if (res.height >= 960)
+            {
+                Dropdown.OptionData currRes = new Dropdown.OptionData();
+                currRes.text = res.width + "x" + res.height;
+
+                dropDownResolucoesAsDropDown.options.Add(currRes);
+            }
+        }
+
+        if (dropDownResolucoesAsDropDown.options.Count > 0)
+        {
+            dropDownResolucoesAsDropDown.captionText.text = dropDownResolucoesAsDropDown.options[0].text;
+
+            dropDownResolucoesAsDropDown.onValueChanged.AddListener(delegate {
+
+                string[] resolucao = dropDownResolucoesAsDropDown.options[dropDownResolucoesAsDropDown.value].text.Split('x');
+
+                int width = int.Parse(resolucao[0]);
+                int height = int.Parse(resolucao[1]);
+
+                Screen.SetResolution(width, height, Screen.fullScreen);
+
+            });
+        }
+        else
+        {
+            Debug.Log("Mudança de resolução não disponível dentro do Editor da Unity");
+        }
+
+
 
         if (context == MenuContext.InGame)
         {
