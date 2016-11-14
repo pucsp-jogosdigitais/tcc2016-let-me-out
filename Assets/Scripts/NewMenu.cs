@@ -275,6 +275,25 @@ public class NewMenu : MonoBehaviour
         }
 
 
+        dropDownQualidade = HelperUtil.FindGameObject(smartphone, "DropdownQualidade");
+        Dropdown dropDownQualidadeAsDropDown = dropDownQualidade.GetComponent<Dropdown>();
+
+        string[] qualitysTranslated = new string[] { "Muito baixa", "Baixa", "Normal", "Alta", "Muito Alta" };
+
+        for (int i = 0; i < qualitysTranslated.Length; i++)
+        {
+            Dropdown.OptionData currRes = new Dropdown.OptionData();
+            currRes.text = qualitysTranslated[i];
+
+            dropDownQualidadeAsDropDown.options.Add(currRes);
+        }
+
+        dropDownQualidadeAsDropDown.captionText.text = dropDownQualidadeAsDropDown.options[0].text;
+
+        dropDownQualidadeAsDropDown.onValueChanged.AddListener(delegate
+        {
+            QualitySettings.SetQualityLevel(dropDownQualidadeAsDropDown.value);
+        });
 
         if (context == MenuContext.InGame)
         {
