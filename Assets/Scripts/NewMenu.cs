@@ -29,7 +29,10 @@ public class NewMenu : MonoBehaviour
     GameObject configMenu;
     GameObject tutorialMenu;
     GameObject transitionBgConfig;
+    GameObject[] itemsDefaultMenu;
+    GameObject[] itemsInventory;
 
+    
     Animator animatorSmartphone;
 
     GameObject callWait;
@@ -380,17 +383,21 @@ public class NewMenu : MonoBehaviour
                 incrementY -= 120;
                 initialPos.y += incrementY;
             }
+
+            itemsDefaultMenu = GameObject.FindGameObjectsWithTag("FirstMenuItem");
         }
     }
 
     void GoingInMenu()
     {
-        GameObject[] menuItems = GameObject.FindGameObjectsWithTag("FirstMenuItem");
+        //GameObject[] menuItems = GameObject.FindGameObjectsWithTag("FirstMenuItem");
 
         bool alphaIsOne = false;
 
-        foreach (GameObject menuItem in menuItems)
+        foreach (GameObject menuItem in itemsDefaultMenu)
         {
+            menuItem.SetActive(true);
+
             CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
 
             cg.alpha += 0.1f;
@@ -408,7 +415,7 @@ public class NewMenu : MonoBehaviour
             currMenu = Menu.Default;
             CancelInvoke("GoingInMenu");
 
-            foreach (GameObject menuItem in menuItems)
+            foreach (GameObject menuItem in itemsDefaultMenu)
             {
                 menuItem.GetComponent<Button>().enabled = true;
             }
@@ -430,12 +437,12 @@ public class NewMenu : MonoBehaviour
 
     void GoingOutFirstMenu()
     {
-        GameObject[] menuItems = GameObject.FindGameObjectsWithTag("FirstMenuItem");
+        //GameObject[] menuItems = GameObject.FindGameObjectsWithTag("FirstMenuItem");
         //List<GameObject> menuItems = HelperUtil.FindGameObjectsWithTag(smartphone, "FirstMenuItem");
 
         bool alphaIsZero = false;
 
-        foreach (GameObject menuItem in menuItems)
+        foreach (GameObject menuItem in itemsDefaultMenu)
         {
             CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
 
@@ -452,20 +459,22 @@ public class NewMenu : MonoBehaviour
         {
             CancelInvoke("GoingOutFirstMenu");
 
-            foreach (GameObject menuItem in menuItems)
+            foreach (GameObject menuItem in itemsDefaultMenu)
             {
-                menuItem.GetComponent<Button>().enabled = false;
+                menuItem.SetActive(false);
+                //menuItem.GetComponent<Button>().enabled = false;
             }
         }
     }
 
     void GoingInInventory()
     {
-        GameObject[] menuItems = GameObject.FindGameObjectsWithTag("ItemInventory");
+        //GameObject[] menuItems = GameObject.FindGameObjectsWithTag("ItemInventory");
 
-        foreach (GameObject menuItem in menuItems)
+        foreach (GameObject menuItem in itemsInventory)
         {
             CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
+            menuItem.SetActive(true);
 
             cg.alpha += 0.1f;
 
@@ -505,6 +514,7 @@ public class NewMenu : MonoBehaviour
 
             if (cg.alpha < 0.01)
             {
+                menuItem.SetActive(false);
                 CancelInvoke("GoingOutInventory");
             }
         }
@@ -726,6 +736,7 @@ public class NewMenu : MonoBehaviour
             currItem.GetComponent<RectTransform>().transform.localPosition = new Vector3(initialPos.x, initialPos.y);
             currItem.SetActive(true);
             cg.alpha = 0;
+            itemsInventory = GameObject.FindGameObjectsWithTag("ItemInventory");
         }
     }
 
