@@ -784,7 +784,7 @@ public class NewMenu : MonoBehaviour
             if (i % 3 == 0)
             {
                 initialPos = new Vector2(originalPos.x, originalPos.y);
-                incrementY -= 120;
+                incrementY -= 140;
                 initialPos.y += incrementY;
             }
 
