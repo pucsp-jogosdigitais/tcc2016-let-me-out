@@ -727,7 +727,7 @@ public class NewMenu : MonoBehaviour
 
 
 
-        Vector2 originalPos = new Vector2(-243, 240);
+        Vector2 originalPos = new Vector2(-238, 285);
         Vector2 initialPos = new Vector2(0, 0);
 
         //Vector2 originalPos = new Vector2(-100, 160);
