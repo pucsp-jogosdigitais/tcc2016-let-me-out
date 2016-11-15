@@ -12,14 +12,13 @@ public static class InitialConfig {
 	{
 		if (PlayerPrefs.HasKey ("volumeEffects")) {
 			GameInfo.volumeEffects = PlayerPrefs.GetFloat("volumeEffects");
-			AudioListener.volume = GameInfo.volumeEffects;
 		}
 
 		if (PlayerPrefs.HasKey ("mouseSensivity")) {
 			GameInfo.mouseSensivity = PlayerPrefs.GetFloat("mouseSensivity");
-
-
 		}
+
+		AudioListener.volume = GameInfo.volumeEffects;
 	}
 
 	public static void RestoreKeyboardConfiguration()

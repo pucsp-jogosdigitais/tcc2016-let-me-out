@@ -85,6 +85,8 @@ public class NewMenu : MonoBehaviour
 
 		InitialConfig.RestoreConfiguration();
 
+		//Debug.Log (QualitySettings.GetQualityLevel());
+
         smartphone = GameObject.Find("SmartPhone");
         wrapperSmartphone = GameObject.Find("WrapperSmartphone");
         firstMenu = GameObject.Find("Principal");
@@ -130,7 +132,7 @@ public class NewMenu : MonoBehaviour
                     if (isActive)
                     {
                         wrapperSmartphone.SetActive(true);
-                        SetBlur(true);
+						SetBlur(true);
                         animatorSmartphone.SetTrigger("bounce");
                         Invoke("ActivateSmartPhone", 2.1f);
 
@@ -223,6 +225,8 @@ public class NewMenu : MonoBehaviour
 	{
 		sliderSensivity.GetComponent<Slider>().value = GameInfo.mouseSensivity / 10;
 		sliderSound.GetComponent<Slider>().value = GameInfo.volumeEffects;
+
+		dropDownQualidade.GetComponent<Dropdown> ().value = QualitySettings.GetQualityLevel();
 	}
 
     void BindMenu()
