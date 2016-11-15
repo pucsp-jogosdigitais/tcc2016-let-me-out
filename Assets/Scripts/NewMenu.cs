@@ -383,8 +383,8 @@ public class NewMenu : MonoBehaviour
 
     void FillMenu()
     {
-        Vector3 originalPos = new Vector2(-110, 224);
-        Vector2 initialPos = new Vector2(-110, 224);
+        Vector3 originalPos = new Vector2(-118, 224);
+        Vector2 initialPos = new Vector2(-118, 224);
         int counter = 0;
         int incrementY = 0;
 
