@@ -10,6 +10,9 @@ public class NewIntro : MonoBehaviour {
 	Text textYear;
 	Image image;
 
+	public AudioClip babySound;
+	public AudioClip womanSound;
+
 	// Use this for initialization
 	void Start () {
 		textYear = GameObject.Find("Text").GetComponent<Text>();
@@ -18,7 +21,6 @@ public class NewIntro : MonoBehaviour {
 		image = GameObject.Find("Image").GetComponent<Image>();
 
 		Invoke ("activeText", 2);
-		Invoke ("fadeOutText", 4f);
 	}
 	
 	// Update is called once per frame
@@ -32,7 +34,7 @@ public class NewIntro : MonoBehaviour {
 
 		cg.alpha = 0;
 
-		fadeInText ();
+		InvokeRepeating("fadeInText", 0, 0.10f);
 	}
 
 	private void fadeInText()
@@ -41,8 +43,9 @@ public class NewIntro : MonoBehaviour {
 
 		cg.alpha += 0.10f;
 
-		if (cg.alpha < 0.99f) {
-			Invoke ("fadeInText", 0.10f);
+		if (cg.alpha > 0.99f) {
+			CancelInvoke("fadeInText");
+			InvokeRepeating("fadeOutText", 2, 0.10f);
 		}
 	}
 
@@ -52,11 +55,14 @@ public class NewIntro : MonoBehaviour {
 
 		cg.alpha -= 0.10f;
 
-		if (cg.alpha > 0) {
-			Invoke ("fadeOutText", 0.10f);
+		if (cg.alpha < 0.09) {
+			CancelInvoke("fadeOutText");
+
 
 			if (textYear.GetComponent<Text> ().text != newYear) {
-				Invoke ("fadeInImage", 2);
+				InvokeRepeating ("fadeInImage", 0.8f, 0.10f);
+				Invoke ("playWoman", 1.4f);
+				//Invoke ("playBaby", 5f);
 			}
 		}
 	}
@@ -67,10 +73,11 @@ public class NewIntro : MonoBehaviour {
 
 		cg.alpha += 0.10f;
 
-		if (cg.alpha < 0.99f) {
-			Invoke ("fadeInImage", 0.10f);
-		} else {
-			Invoke ("fadeOutImage", 4f);
+		Debug.Log ("dfsdfdsfd");
+
+		if (cg.alpha > 0.99f) {
+			CancelInvoke ("fadeInImage");
+			InvokeRepeating ("fadeOutImage", 2, 0.10f);
 		}
 	}
 
@@ -80,12 +87,38 @@ public class NewIntro : MonoBehaviour {
 
 		cg.alpha -= 0.10f;
 
+		if (cg.alpha < 0.09) {
+			CancelInvoke ("fadeOutImage");
+			textYear.text = newYear;
+			InvokeRepeating("fadeInText", 0, 0.10f);
+		}
+		/*
 		if (cg.alpha > 0) {
-			Invoke ("fadeOutImage", 2);
+			Invoke ("fadeOutImage", 0.10f);
 		} else {
 				textYear.GetComponent<Text> ().text = newYear;
 				Invoke ("activeText", 0.10f);
 				Invoke ("fadeOutText", 2f);
+		}*/
+	}
+
+	private void playBaby()
+	{
+		AudioSource audio = GameObject.Find ("Canvas").GetComponent<AudioSource> ();
+
+		if (!audio.isPlaying) {
+			audio.clip = babySound;
+			audio.Play ();
+		}
+	}
+
+	private void playWoman()
+	{
+		AudioSource audio = GameObject.Find ("Canvas").GetComponent<AudioSource> ();
+
+		if (!audio.isPlaying) {
+			audio.clip = womanSound;
+			audio.Play ();
 		}
 	}
 }
