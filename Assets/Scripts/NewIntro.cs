@@ -9,6 +9,7 @@ public class NewIntro : MonoBehaviour {
 
 	Text textYear;
 	Image image;
+	Image imageSkip;
 
 	public AudioClip babySound;
 	public AudioClip womanSound;
@@ -18,14 +19,20 @@ public class NewIntro : MonoBehaviour {
 		textYear = GameObject.Find("Text").GetComponent<Text>();
 		textYear.GetComponent<Text> ().text = oldYear;
 
+
 		image = GameObject.Find("Image").GetComponent<Image>();
+		imageSkip = GameObject.Find("ImageSkip").GetComponent<Image>();
 
 		Invoke ("activeText", 2);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+		if(Input.GetKeyDown(KeyCode.C)) {
+			InvokeRepeating("fadeInImageSkip", 0, 0.10f);
+		}
+
 	}
 
 	private void activeText()
@@ -81,6 +88,18 @@ public class NewIntro : MonoBehaviour {
 		}
 	}
 
+	private void fadeInImageSkip()
+	{
+		CanvasGroup cg = imageSkip.GetComponent<CanvasGroup>();
+
+		cg.alpha += 0.10f;
+
+		if (cg.alpha > 0.99f) {
+			CancelInvoke ("fadeInImageSkip");
+			Application.LoadLevel("game");
+		}
+	}
+
 	private void fadeOutImage()
 	{
 		CanvasGroup cg = image.GetComponent<CanvasGroup>();
@@ -92,14 +111,6 @@ public class NewIntro : MonoBehaviour {
 			textYear.text = newYear;
 			InvokeRepeating("fadeInText", 0, 0.10f);
 		}
-		/*
-		if (cg.alpha > 0) {
-			Invoke ("fadeOutImage", 0.10f);
-		} else {
-				textYear.GetComponent<Text> ().text = newYear;
-				Invoke ("activeText", 0.10f);
-				Invoke ("fadeOutText", 2f);
-		}*/
 	}
 
 	private void playBaby()
