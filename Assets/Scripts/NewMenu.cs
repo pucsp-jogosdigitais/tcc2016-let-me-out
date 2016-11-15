@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
 using Assets.Scripts.Util;
+using System.Linq;
 
 public class NewMenu : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class NewMenu : MonoBehaviour
     GameObject tutorialMenu;
     GameObject transitionBgConfig;
     GameObject[] itemsDefaultMenu;
-    GameObject[] itemsInventory;
+	List<GameObject> itemsInventory;
 
     
     Animator animatorSmartphone;
@@ -480,6 +481,8 @@ public class NewMenu : MonoBehaviour
     {
         //GameObject[] menuItems = GameObject.FindGameObjectsWithTag("ItemInventory");
 
+
+
         foreach (GameObject menuItem in itemsInventory)
         {
             CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
@@ -745,7 +748,19 @@ public class NewMenu : MonoBehaviour
             currItem.GetComponent<RectTransform>().transform.localPosition = new Vector3(initialPos.x, initialPos.y);
             currItem.SetActive(true);
             cg.alpha = 0;
-            itemsInventory = GameObject.FindGameObjectsWithTag("ItemInventory");
+
+			GameObject bgTitleInventory = HelperUtil.FindGameObject(smartphone, "FundoTextoInventario");
+			GameObject titleInventory = HelperUtil.FindGameObject(smartphone, "TextoInventario");
+
+			bgTitleInventory.SetActive (true);
+			titleInventory.SetActive (true);
+
+			itemsInventory = GameObject.FindGameObjectsWithTag("ItemInventory").ToList();
+
+
+
+			//itemsInventory.Add (bgTitleInventory);
+			//itemsInventory.Add (titleInventory);
         }
     }
 
