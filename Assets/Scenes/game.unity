@@ -3476,6 +3476,30 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300170, guid: 50c608fe9fc271d4fb4de5fb7d7732f8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f8d86e7326a9bdd46801f10cbf1f0a55, type: 2}
+    - target: {fileID: 2300036, guid: 50c608fe9fc271d4fb4de5fb7d7732f8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ba2c00f62b66f904294f97385edfc760, type: 2}
+    - target: {fileID: 2300030, guid: 50c608fe9fc271d4fb4de5fb7d7732f8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c472bec27eccf44ba814bf0111014f9, type: 2}
+    - target: {fileID: 2300026, guid: 50c608fe9fc271d4fb4de5fb7d7732f8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d20d0d24032be9349bf137c4ccda7e4c, type: 2}
+    - target: {fileID: 2300022, guid: 50c608fe9fc271d4fb4de5fb7d7732f8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8083da8913f5a964b8f6c462b201b112, type: 2}
+    - target: {fileID: 2300048, guid: 50c608fe9fc271d4fb4de5fb7d7732f8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 35f84164a5083ba4c9e0346ae64b1273, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50c608fe9fc271d4fb4de5fb7d7732f8, type: 3}
   m_IsPrefabParent: 0
@@ -20641,7 +20665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1034878135
 AudioSource:
   m_ObjectHideFlags: 0
