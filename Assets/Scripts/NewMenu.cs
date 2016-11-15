@@ -7,6 +7,8 @@ using Assets.Scripts.Util;
 
 public class NewMenu : MonoBehaviour
 {
+    static NewMenu instance;
+    
     public enum MenuContext { Intro, Menu, InGame };
     public MenuContext context;
 
@@ -27,8 +29,12 @@ public class NewMenu : MonoBehaviour
     GameObject exitLoadingMenu;
     GameObject inventoryMenu;
     GameObject configMenu;
+    GameObject tutorialMenu;
     GameObject transitionBgConfig;
+    GameObject[] itemsDefaultMenu;
+    GameObject[] itemsInventory;
 
+    
     Animator animatorSmartphone;
 
     GameObject callWait;
@@ -37,13 +43,16 @@ public class NewMenu : MonoBehaviour
     public float changeImageWait = 2;
     public float goToGame = 1;
 
+    GameObject buttonTutorial;
     GameObject buttonItemsMenu;
     GameObject buttonConfigMenu;
     GameObject buttonExitMenu;
-
-    Slider sliderSensivity;
+    GameObject dropDownResolucoes;
+    GameObject dropDownQualidade;
+    GameObject sliderSensivity;
     GameObject buttonResolution;
     Text textResolution;
+    
     [SerializeField]
     string windowedMode = "JANELA";
     [SerializeField]
@@ -61,9 +70,16 @@ public class NewMenu : MonoBehaviour
 
     public Camera defaultCamera;
 
+    public static NewMenu GetInstance()
+    {
+        return instance;
+    }
+
     // Use this for initializati1on
     void Start()
     {
+        instance = this;
+
         smartphone = GameObject.Find("SmartPhone");
         wrapperSmartphone = GameObject.Find("WrapperSmartphone");
         firstMenu = GameObject.Find("Principal");
@@ -94,7 +110,7 @@ public class NewMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(context == MenuContext.Menu || context == MenuContext.InGame)
+        if (context == MenuContext.Menu || context == MenuContext.InGame)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -168,7 +184,8 @@ public class NewMenu : MonoBehaviour
         if (smartphone.GetComponent<AudioSource>().isPlaying)
         {
             Invoke("EndingInitialDialog", 0.1f);
-        } else
+        }
+        else
         {
             animatorSmartphone.SetTrigger("bounceOut");
             Invoke("GoToGame", goToGame);
@@ -227,12 +244,90 @@ public class NewMenu : MonoBehaviour
         }
         );
 
-        sliderSensivity = HelperUtil.FindGameObject(smartphone, "SliderSensibilidade").GetComponent<Slider>();
+        sliderSensivity = HelperUtil.FindGameObject(smartphone, "SliderSensibilidade");
 
         sliderSensivity.GetComponent<Slider>().onValueChanged.AddListener(delegate
         {
             OnChangeSensivity();
         });
+
+        dropDownResolucoes = HelperUtil.FindGameObject(smartphone, "DropdownResolucoes");
+        Dropdown dropDownResolucoesAsDropDown = dropDownResolucoes.GetComponent<Dropdown>();
+        Resolution[] resolutions = Screen.resolutions;
+
+        foreach (Resolution res in resolutions)
+        {
+            if (res.height >= 960)
+            {
+                Dropdown.OptionData currRes = new Dropdown.OptionData();
+                currRes.text = res.width + "x" + res.height;
+
+                dropDownResolucoesAsDropDown.options.Add(currRes);
+            }
+        }
+
+        if (dropDownResolucoesAsDropDown.options.Count > 0)
+        {
+            dropDownResolucoesAsDropDown.captionText.text = dropDownResolucoesAsDropDown.options[0].text;
+
+            dropDownResolucoesAsDropDown.onValueChanged.AddListener(delegate {
+
+                string[] resolucao = dropDownResolucoesAsDropDown.options[dropDownResolucoesAsDropDown.value].text.Split('x');
+
+                int width = int.Parse(resolucao[0]);
+                int height = int.Parse(resolucao[1]);
+
+                Screen.SetResolution(width, height, Screen.fullScreen);
+
+            });
+        }
+        else
+        {
+            Debug.Log("Mudança de resolução não disponível dentro do Editor da Unity");
+        }
+
+
+        dropDownQualidade = HelperUtil.FindGameObject(smartphone, "DropdownQualidade");
+        Dropdown dropDownQualidadeAsDropDown = dropDownQualidade.GetComponent<Dropdown>();
+
+        string[] qualitysTranslated = new string[] { "Muito baixa", "Baixa", "Normal", "Alta", "Muito Alta" };
+
+        for (int i = 0; i < qualitysTranslated.Length; i++)
+        {
+            Dropdown.OptionData currRes = new Dropdown.OptionData();
+            currRes.text = qualitysTranslated[i];
+
+            dropDownQualidadeAsDropDown.options.Add(currRes);
+        }
+
+        dropDownQualidadeAsDropDown.captionText.text = dropDownQualidadeAsDropDown.options[0].text;
+
+        dropDownQualidadeAsDropDown.onValueChanged.AddListener(delegate
+        {
+            QualitySettings.SetQualityLevel(dropDownQualidadeAsDropDown.value);
+        });
+
+        sliderSensivity = HelperUtil.FindGameObject(smartphone, "SliderSensibilidade");
+        Slider sliderSensivityAsSlider = sliderSensivity.GetComponent<Slider>();
+
+        sliderSensivityAsSlider.onValueChanged.AddListener(delegate
+        {
+            OnChangeSensivity();
+        });
+
+
+        if (context == MenuContext.InGame)
+        {
+            tutorialMenu = HelperUtil.FindGameObject(smartphone, "Tutorial");
+            tutorialMenu.SetActive(true);
+            buttonTutorial = HelperUtil.FindGameObject(smartphone, "BotaoFecharTutorial");
+
+            buttonTutorial.GetComponent<Button>().onClick.AddListener(delegate
+            {
+                InvokeRepeating("GoingOutTutorial", 0, 0.1f);
+                //tutorialMenu.SetActive(false);
+            });
+        }
     }
 
     void FillMenu()
@@ -297,17 +392,21 @@ public class NewMenu : MonoBehaviour
                 incrementY -= 120;
                 initialPos.y += incrementY;
             }
+
+            itemsDefaultMenu = GameObject.FindGameObjectsWithTag("FirstMenuItem");
         }
     }
 
     void GoingInMenu()
     {
-        GameObject[] menuItems = GameObject.FindGameObjectsWithTag("FirstMenuItem");
+        //GameObject[] menuItems = GameObject.FindGameObjectsWithTag("FirstMenuItem");
 
         bool alphaIsOne = false;
 
-        foreach (GameObject menuItem in menuItems)
+        foreach (GameObject menuItem in itemsDefaultMenu)
         {
+            menuItem.SetActive(true);
+
             CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
 
             cg.alpha += 0.1f;
@@ -325,21 +424,34 @@ public class NewMenu : MonoBehaviour
             currMenu = Menu.Default;
             CancelInvoke("GoingInMenu");
 
-            foreach (GameObject menuItem in menuItems)
+            foreach (GameObject menuItem in itemsDefaultMenu)
             {
                 menuItem.GetComponent<Button>().enabled = true;
             }
         }
     }
 
+    void GoingOutTutorial()
+    {
+        CanvasGroup cg = tutorialMenu.GetComponent<CanvasGroup>();
+
+        cg.alpha -= 0.1f;
+
+        if (cg.alpha < 0.01)
+        {
+            tutorialMenu.SetActive(false);
+            CancelInvoke("GoingOutTutorial");
+        }
+    }
+
     void GoingOutFirstMenu()
     {
-        GameObject[] menuItems = GameObject.FindGameObjectsWithTag("FirstMenuItem");
+        //GameObject[] menuItems = GameObject.FindGameObjectsWithTag("FirstMenuItem");
         //List<GameObject> menuItems = HelperUtil.FindGameObjectsWithTag(smartphone, "FirstMenuItem");
 
         bool alphaIsZero = false;
 
-        foreach (GameObject menuItem in menuItems)
+        foreach (GameObject menuItem in itemsDefaultMenu)
         {
             CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
 
@@ -356,20 +468,22 @@ public class NewMenu : MonoBehaviour
         {
             CancelInvoke("GoingOutFirstMenu");
 
-            foreach (GameObject menuItem in menuItems)
+            foreach (GameObject menuItem in itemsDefaultMenu)
             {
-                menuItem.GetComponent<Button>().enabled = false;
+                menuItem.SetActive(false);
+                //menuItem.GetComponent<Button>().enabled = false;
             }
         }
     }
 
     void GoingInInventory()
     {
-        GameObject[] menuItems = GameObject.FindGameObjectsWithTag("ItemInventory");
+        //GameObject[] menuItems = GameObject.FindGameObjectsWithTag("ItemInventory");
 
-        foreach (GameObject menuItem in menuItems)
+        foreach (GameObject menuItem in itemsInventory)
         {
             CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
+            menuItem.SetActive(true);
 
             cg.alpha += 0.1f;
 
@@ -409,6 +523,7 @@ public class NewMenu : MonoBehaviour
 
             if (cg.alpha < 0.01)
             {
+                menuItem.SetActive(false);
                 CancelInvoke("GoingOutInventory");
             }
         }
@@ -510,9 +625,9 @@ public class NewMenu : MonoBehaviour
 
     public void OnChangeSensivity()
     {
-        PlayerPrefs.SetFloat("mouseSensivity", sliderSensivity.value * 10);
+        PlayerPrefs.SetFloat("mouseSensivity", sliderSensivity.GetComponent<Slider>().value * 10);
         PlayerPrefs.Save();
-        GameInfo.mouseSensivity = sliderSensivity.value * 10;
+        GameInfo.mouseSensivity = sliderSensivity.GetComponent<Slider>().value * 10;
     }
 
     public void ChangeScreenSize()
@@ -630,6 +745,7 @@ public class NewMenu : MonoBehaviour
             currItem.GetComponent<RectTransform>().transform.localPosition = new Vector3(initialPos.x, initialPos.y);
             currItem.SetActive(true);
             cg.alpha = 0;
+            itemsInventory = GameObject.FindGameObjectsWithTag("ItemInventory");
         }
     }
 
