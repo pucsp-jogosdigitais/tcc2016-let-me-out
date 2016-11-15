@@ -309,12 +309,17 @@ public class NewMenu : MonoBehaviour
                 currRes.text = res.width + "x" + res.height;
 
                 dropDownResolucoesAsDropDown.options.Add(currRes);
+
+				if(res.width == Screen.width && res.height == Screen.height)
+				{
+					dropDownResolucoes.GetComponent<Dropdown>().value = dropDownResolucoes.GetComponent<Dropdown>().options.Count - 1;
+				}
             }
         }
 
         if (dropDownResolucoesAsDropDown.options.Count > 0)
         {
-            dropDownResolucoesAsDropDown.captionText.text = dropDownResolucoesAsDropDown.options[0].text;
+			dropDownResolucoesAsDropDown.captionText.text = dropDownResolucoesAsDropDown.options[dropDownResolucoes.GetComponent<Dropdown>().value].text;
 
             dropDownResolucoesAsDropDown.onValueChanged.AddListener(delegate {
 
