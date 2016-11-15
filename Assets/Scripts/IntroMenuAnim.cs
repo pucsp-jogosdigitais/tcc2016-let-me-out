@@ -7,7 +7,7 @@ public class IntroMenuAnim : MonoBehaviour {
     GameObject target;
 
     public bool orbit;
-
+	public float delta = 15;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +19,7 @@ public class IntroMenuAnim : MonoBehaviour {
 
         if (target != null && orbit)
         {
-            transform.RotateAround(target.transform.position, Vector3.down, Time.deltaTime * 15);
+			transform.RotateAround(target.transform.position, Vector3.down, Time.deltaTime * delta);
         }
 
 	}
