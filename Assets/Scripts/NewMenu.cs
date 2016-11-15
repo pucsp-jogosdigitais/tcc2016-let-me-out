@@ -51,6 +51,7 @@ public class NewMenu : MonoBehaviour
     GameObject dropDownResolucoes;
     GameObject dropDownQualidade;
     GameObject sliderSensivity;
+	GameObject sliderSound;
     GameObject buttonResolution;
     Text textResolution;
     
@@ -80,6 +81,8 @@ public class NewMenu : MonoBehaviour
     void Start()
     {
         instance = this;
+
+		InitialConfig.RestoreConfiguration();
 
         smartphone = GameObject.Find("SmartPhone");
         wrapperSmartphone = GameObject.Find("WrapperSmartphone");
@@ -198,6 +201,12 @@ public class NewMenu : MonoBehaviour
         Application.LoadLevel("game");
     }
 
+	void RestorePrevConfig()
+	{
+		sliderSensivity.GetComponent<Slider>().value = GameInfo.mouseSensivity / 10;
+		sliderSound.GetComponent<Slider>().value = GameInfo.volumeEffects;
+	}
+
     void BindMenu()
     {
         inventoryMenu = GameObject.Find("MenuInventario");
@@ -251,6 +260,20 @@ public class NewMenu : MonoBehaviour
         {
             OnChangeSensivity();
         });
+
+		sliderSound = HelperUtil.FindGameObject(smartphone, "SliderMusica");
+
+		sliderSound.GetComponent<Slider>().onValueChanged.AddListener(delegate
+		{
+			AudioListener.volume = sliderSound.GetComponent<Slider>().value;
+			GameInfo.volumeEffects = sliderSound.GetComponent<Slider>().value;
+			
+			PlayerPrefs.SetFloat("volumeEffects", sliderSound.GetComponent<Slider>().value);
+			PlayerPrefs.Save();
+
+				Debug.Log(PlayerPrefs.GetFloat("volumeEffects"));
+		});
+
 
         dropDownResolucoes = HelperUtil.FindGameObject(smartphone, "DropdownResolucoes");
         Dropdown dropDownResolucoesAsDropDown = dropDownResolucoes.GetComponent<Dropdown>();
@@ -608,6 +631,7 @@ public class NewMenu : MonoBehaviour
 
             InvokeRepeating("GoingOutFirstMenu", 0, tickAnim);
             InvokeRepeating("GoingInConfig", switchAnim, tickAnim);
+			RestorePrevConfig ();
         }
     }
 

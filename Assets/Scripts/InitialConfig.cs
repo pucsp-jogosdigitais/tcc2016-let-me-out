@@ -8,8 +8,18 @@ public static class InitialConfig {
 		RestoreKeyboardConfiguration();
 	}
 
+	public static void RestoreConfiguration()
+	{
+		if (PlayerPrefs.HasKey ("volumeEffects")) {
+			GameInfo.volumeEffects = PlayerPrefs.GetFloat("volumeEffects");
+			Debug.Log (GameInfo.volumeEffects);
+			AudioListener.volume = GameInfo.volumeEffects;
+		}
+	}
+
 	public static void RestoreKeyboardConfiguration()
 	{
+		/*
 		if (PlayerPrefs.HasKey ("forward")) {
 			GameInfo.forward = (KeyCode)(PlayerPrefs.GetInt("forward"));
 		}
@@ -28,18 +38,25 @@ public static class InitialConfig {
 
 		if (PlayerPrefs.HasKey ("light")) {
 			GameInfo.light = (KeyCode)(PlayerPrefs.GetInt("light"));
-		}
+		}*/
 
+		/*
 		if (PlayerPrefs.HasKey ("mouseSensivity")) {
 			GameInfo.mouseSensivity = PlayerPrefs.GetFloat("mouseSensivity");
-		}
+		}*/
 
+		/*
 		if (PlayerPrefs.HasKey ("volumeEffects")) {
 			GameInfo.volumeEffects = PlayerPrefs.GetFloat("volumeEffects");
 		}
 
 		if (PlayerPrefs.HasKey ("fullScreen")) {
 			GameInfo.volumeEffects = PlayerPrefs.GetFloat("volumeEffects");
-		}
+		}*/
+
+		/*
+		if (PlayerPrefs.HasKey ("volumeEffects")) {
+			GameInfo.volumeEffects = PlayerPrefs.GetFloat("volumeEffects");
+		}*/
 	}
 }
