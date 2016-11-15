@@ -5,6 +5,7 @@ using System;
 using UnityEngine.UI;
 using Assets.Scripts.Util;
 using System.Linq;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class NewMenu : MonoBehaviour
 {
@@ -114,6 +115,8 @@ public class NewMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		Player p = Player.GetInstance ();
+
         if (context == MenuContext.Menu || context == MenuContext.InGame)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -130,16 +133,31 @@ public class NewMenu : MonoBehaviour
                         SetBlur(true);
                         animatorSmartphone.SetTrigger("bounce");
                         Invoke("ActivateSmartPhone", 2.1f);
+
+						if (p != null) {
+							Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(0, 0);
+						}
                     }
                     else
                     {
                         animatorSmartphone.SetTrigger("bounceOut");
                         Invoke("DesactivateSmartPhone", 2.1f);
+						Invoke("ReactivatePlayer", 2.1f);
                     }
                 }
             }
         }
     }
+
+	private void ReactivatePlayer()
+	{
+		Player p = Player.GetInstance ();
+
+		if (p != null) {
+			Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(GameInfo.mouseSensivity * 10, GameInfo.mouseSensivity * 10);
+		}
+
+	}
 
     private void ActivateSmartPhone()
     {
