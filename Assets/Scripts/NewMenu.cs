@@ -730,7 +730,7 @@ public class NewMenu : MonoBehaviour
                         break;
                 }
 
-                InvokeRepeating("GoingInMenu", 1.4f, 0.1f);
+                InvokeRepeating("GoingInMenu", 0.8f, 0.1f);
             }
         }
     }
