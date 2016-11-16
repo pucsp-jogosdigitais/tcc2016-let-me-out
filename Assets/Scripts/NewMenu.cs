@@ -52,6 +52,7 @@ public class NewMenu : MonoBehaviour
     GameObject buttonExitYes;
     GameObject buttonExitNo;
     GameObject textConfirmExit;
+    GameObject contentConfirmExit;
     GameObject dropDownResolucoes;
     GameObject dropDownQualidade;
     GameObject sliderSensivity;
@@ -372,16 +373,22 @@ public class NewMenu : MonoBehaviour
         buttonExitYes = HelperUtil.FindGameObject(smartphone, "BotaoSairSim");
         buttonExitNo = HelperUtil.FindGameObject(smartphone, "BotaoSairNao");
         textConfirmExit = HelperUtil.FindGameObject(smartphone, "TextoSair");
-
+        contentConfirmExit = HelperUtil.FindGameObject(smartphone, "Confirm");
+            
         buttonExitYes.GetComponent<Button>().onClick.AddListener(delegate {
             Debug.Log("Yes");
-            //InvokeRepeating("GoingOutFirstMenu", 0, tickAnim);
+            InvokeRepeating("GoingOutExitConfirm", 0, tickAnim);
+            Invoke("GoingInRealExit", 0.8f);
+            Invoke("ExitGame", 1);
         });
 
         buttonExitNo.GetComponent<Button>().onClick.AddListener(delegate
         {
-            Debug.Log("No");
-            //InvokeRepeating("GoingOutFirstMenu", 0, tickAnim);
+            if (!inAnimation)
+            {
+                InvokeRepeating("GoingOutExit", 0, tickAnim);
+                InvokeRepeating("GoingInMenu", 0.8f, 0.1f);
+            }
         });
 
         if (context == MenuContext.InGame)
@@ -580,6 +587,7 @@ public class NewMenu : MonoBehaviour
 
         if (cg.alpha > 0.99)
         {
+            inAnimation = false;
             CancelInvoke("GoingInExit");
         }
     }
@@ -595,6 +603,46 @@ public class NewMenu : MonoBehaviour
         {
             inAnimation = false;
             CancelInvoke("GoingOutExit");
+            exitMenu.SetActive(false);
+            currMenu = Menu.Default;
+        }
+    }
+
+    void GoingOutExitConfirm()
+    {
+        CanvasGroup cg = contentConfirmExit.GetComponent<CanvasGroup>();
+
+        cg.alpha -= 0.10f;
+
+        if (cg.alpha < 0.01)
+        {
+            CancelInvoke("GoingOutExitConfirm");
+        }
+    }
+
+    void GoingInRealExit()
+    {
+        exitLoadingMenu.SetActive(true);
+        CanvasGroup cg = exitLoadingMenu.GetComponent<CanvasGroup>();
+        cg.alpha += 1;
+        /*
+        if (cg.alpha < 0.01)
+        {
+            CancelInvoke("GoingOutExitConfirm");
+        }*/
+    }
+
+    void GoingInConfig()
+    {
+        transitionBgConfig.SetActive(true);
+        CanvasGroup cg = transitionBgConfig.GetComponent<CanvasGroup>();
+
+        cg.alpha -= 0.10f;
+
+        if (cg.alpha < 0.01)
+        {
+            inAnimation = false;
+            CancelInvoke("GoingInConfig");
             transitionBgConfig.SetActive(false);
         }
     }
@@ -614,21 +662,6 @@ public class NewMenu : MonoBehaviour
                 menuItem.SetActive(false);
                 CancelInvoke("GoingOutInventory");
             }
-        }
-    }
-
-    void GoingInConfig()
-    {
-        transitionBgConfig.SetActive(true);
-        CanvasGroup cg = transitionBgConfig.GetComponent<CanvasGroup>();
-
-        cg.alpha -= 0.10f;
-
-        if (cg.alpha < 0.01)
-        {
-            inAnimation = false;
-            CancelInvoke("GoingInConfig");
-            transitionBgConfig.SetActive(false);
         }
     }
 
