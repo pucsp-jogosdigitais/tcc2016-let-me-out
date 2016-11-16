@@ -11,8 +11,9 @@ public class DoorWrapper : MonoBehaviour
     public AudioSource audioOpenDoor;
     bool opened;
 
-    [SerializeField]
-    string relatedItem;
+	public string doorAnimTrigger = "open2";
+
+	public string relatedItem;
 
     [SerializeField]
     string sub;
@@ -41,7 +42,7 @@ public class DoorWrapper : MonoBehaviour
 
                 if (!opened && isUnlocked())
                 {
-                    doorAnim.SetTrigger("open");
+				doorAnim.SetTrigger(doorAnimTrigger);
                     audio.clip = AudioRepository.GetInstance().doorOpen;
                     audioOpenDoor.Play();
                 } else

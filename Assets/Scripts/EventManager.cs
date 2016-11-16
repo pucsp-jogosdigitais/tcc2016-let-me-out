@@ -289,7 +289,8 @@ public class EventManager : MonoBehaviour {
 
         foreach (DoorWrapper door in doors)
         {
-            door.typeAnim = DoorWrapper.DoorAnim.Shaked;
+			door.typeAnim = DoorWrapper.DoorAnim.Shaked;
+			//door.relatedItem = string.Empty;
         }
 
     }
