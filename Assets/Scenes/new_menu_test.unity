@@ -616,7 +616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &231928262
 RectTransform:
   m_ObjectHideFlags: 0
@@ -635,7 +635,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 3.4500031, y: 22.399998}
-  m_SizeDelta: {x: 199.8, y: 74.9}
+  m_SizeDelta: {x: 199.8, y: 102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &231928263
 MonoBehaviour:
@@ -937,7 +937,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
@@ -2055,7 +2055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &788157985
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2074,7 +2074,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 3.4499817, y: 2.6000013}
-  m_SizeDelta: {x: 199.8, y: 74.9}
+  m_SizeDelta: {x: 199.8, y: 102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &788157986
 MonoBehaviour:
@@ -2586,7 +2586,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
@@ -2770,7 +2770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1346213128
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2787,8 +2787,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.875, y: 59.362495}
-  m_SizeDelta: {x: 198.09998, y: 33.350006}
+  m_AnchoredPosition: {x: 3.875, y: 59.668747}
+  m_SizeDelta: {x: 198.09998, y: 32.7375}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1346213129
 MonoBehaviour:
@@ -2813,7 +2813,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 18
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 1
     m_MaxSize: 198
