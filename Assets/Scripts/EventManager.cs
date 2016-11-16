@@ -293,5 +293,6 @@ public class EventManager : MonoBehaviour {
 			//door.relatedItem = string.Empty;
         }
 
+		GameObject.Find ("PortaBanheiro").GetComponent<DoorWrapper> ().typeAnim = DoorWrapper.DoorAnim.Locked;
     }
 }

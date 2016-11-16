@@ -31370,11 +31370,11 @@ Prefab:
       objectReference: {fileID: 347593450}
     - target: {fileID: 182606, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
       propertyPath: m_Name
-      value: DoorWrapper (porta2) (2)
+      value: PortaBanheiro
       objectReference: {fileID: 0}
     - target: {fileID: 11440880, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
       propertyPath: relatedItem
-      value: chave
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11440880, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
       propertyPath: sub
