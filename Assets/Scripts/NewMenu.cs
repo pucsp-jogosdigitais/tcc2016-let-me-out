@@ -49,6 +49,9 @@ public class NewMenu : MonoBehaviour
     GameObject buttonItemsMenu;
     GameObject buttonConfigMenu;
     GameObject buttonExitMenu;
+    GameObject buttonExitYes;
+    GameObject buttonExitNo;
+    GameObject textConfirmExit;
     GameObject dropDownResolucoes;
     GameObject dropDownQualidade;
     GameObject sliderSensivity;
@@ -366,6 +369,20 @@ public class NewMenu : MonoBehaviour
             OnChangeSensivity();
         });
 
+        buttonExitYes = HelperUtil.FindGameObject(smartphone, "BotaoSairSim");
+        buttonExitNo = HelperUtil.FindGameObject(smartphone, "BotaoSairNao");
+        textConfirmExit = HelperUtil.FindGameObject(smartphone, "TextoSair");
+
+        buttonExitYes.GetComponent<Button>().onClick.AddListener(delegate {
+            Debug.Log("Yes");
+            //InvokeRepeating("GoingOutFirstMenu", 0, tickAnim);
+        });
+
+        buttonExitNo.GetComponent<Button>().onClick.AddListener(delegate
+        {
+            Debug.Log("No");
+            //InvokeRepeating("GoingOutFirstMenu", 0, tickAnim);
+        });
 
         if (context == MenuContext.InGame)
         {
@@ -375,7 +392,7 @@ public class NewMenu : MonoBehaviour
 
             buttonTutorial.GetComponent<Button>().onClick.AddListener(delegate
             {
-                InvokeRepeating("GoingOutTutorial", 0, 0.1f);
+                InvokeRepeating("GoingOutExit", 0, 0.1f);
                 //tutorialMenu.SetActive(false);
             });
         }
@@ -552,7 +569,10 @@ public class NewMenu : MonoBehaviour
     void GoingInExit()
     {
         CanvasGroup cg = exitMenu.GetComponent<CanvasGroup>();
-        exitLoadingMenu.SetActive(true);
+        //exitLoadingMenu.SetActive(true);
+        buttonExitYes.SetActive(true);
+        buttonExitNo.SetActive(true);
+        textConfirmExit.SetActive(true);
 
         cg.alpha += 0.1f;
 
@@ -561,6 +581,21 @@ public class NewMenu : MonoBehaviour
         if (cg.alpha > 0.99)
         {
             CancelInvoke("GoingInExit");
+        }
+    }
+
+    void GoingOutExit()
+    {
+        exitMenu.SetActive(true);
+        CanvasGroup cg = exitMenu.GetComponent<CanvasGroup>();
+
+        cg.alpha -= 0.10f;
+
+        if (cg.alpha < 0.01)
+        {
+            inAnimation = false;
+            CancelInvoke("GoingOutExit");
+            transitionBgConfig.SetActive(false);
         }
     }
 
@@ -674,7 +709,7 @@ public class NewMenu : MonoBehaviour
 
         InvokeRepeating("GoingOutFirstMenu", 0, tickAnim);
         InvokeRepeating("GoingInExit", switchAnim, tickAnim);
-        Invoke("ExitGame", switchAnim * 10);
+        //Invoke("ExitGame", switchAnim * 10);
     }
 
     public void OnChangeSensivity()
