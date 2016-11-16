@@ -121,37 +121,69 @@ public class NewMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		Player p = Player.GetInstance ();
-
         if (context == MenuContext.Menu || context == MenuContext.InGame)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (!inAnimation)
                 {
-                    inAnimation = true;
+                    //inAnimation = true;
                     isActive = !isActive;
                     //SetBlur(isActive);
 
                     if (isActive)
                     {
-                        wrapperSmartphone.SetActive(true);
-						SetBlur(true);
-                        animatorSmartphone.SetTrigger("bounce");
-                        Invoke("ActivateSmartPhone", 2.1f);
+                        ActivateMenu();
+                        //wrapperSmartphone.SetActive(true);
+                        //SetBlur(true);
+                        //animatorSmartphone.SetTrigger("bounce");
+                        //Invoke("ActivateSmartPhone", 2.1f);
 
-						if (p != null) {
-							Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(0, 0);
-						}
+                        //if (p != null) {
+                        //    Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(0, 0);
+                        //}
                     }
                     else
                     {
-                        animatorSmartphone.SetTrigger("bounceOut");
-                        Invoke("DesactivateSmartPhone", 2.1f);
-						Invoke("ReactivatePlayer", 2.1f);
+                        DesactivateMenu();
+                        //animatorSmartphone.SetTrigger("bounceOut");
+                        //Invoke("DesactivateSmartPhone", 2.1f);
+                        //Invoke("ReactivatePlayer", 2.1f);
                     }
                 }
             }
+        }
+    }
+
+    public void ActivateMenu()
+    {
+        Player p = Player.GetInstance();
+
+        if (!inAnimation)
+        {
+            inAnimation = true;
+
+            wrapperSmartphone.SetActive(true);
+            SetBlur(true);
+            animatorSmartphone.SetTrigger("bounce");
+            Invoke("ActivateSmartPhone", 2.1f);
+
+            if (p != null)
+            {
+                Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(0, 0);
+            }
+        }
+    }
+
+    public void DesactivateMenu()
+    {
+        if (!inAnimation)
+        {
+            inAnimation = true;
+
+            animatorSmartphone.SetTrigger("bounceOut");
+            Invoke("DesactivateSmartPhone", 2.1f);
+            Invoke("ReactivatePlayer", 2.1f);
         }
     }
 
