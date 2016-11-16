@@ -127,28 +127,15 @@ public class NewMenu : MonoBehaviour
             {
                 if (!inAnimation)
                 {
-                    //inAnimation = true;
                     isActive = !isActive;
-                    //SetBlur(isActive);
 
                     if (isActive)
                     {
                         ActivateMenu();
-                        //wrapperSmartphone.SetActive(true);
-                        //SetBlur(true);
-                        //animatorSmartphone.SetTrigger("bounce");
-                        //Invoke("ActivateSmartPhone", 2.1f);
-
-                        //if (p != null) {
-                        //    Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(0, 0);
-                        //}
                     }
                     else
                     {
                         DesactivateMenu();
-                        //animatorSmartphone.SetTrigger("bounceOut");
-                        //Invoke("DesactivateSmartPhone", 2.1f);
-                        //Invoke("ReactivatePlayer", 2.1f);
                     }
                 }
             }
