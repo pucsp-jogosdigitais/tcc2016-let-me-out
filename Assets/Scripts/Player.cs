@@ -105,6 +105,11 @@ public class Player : MonoBehaviour
         {
             switch (hitInfo.collider.tag)
             {
+                case "InteractItem":
+                    ActivateAnimHand();
+                    GetInteractItem(hitInfo);
+                    break;
+
                 case "Item":
                     if (IsActiveItem(hitInfo))
                     {
@@ -210,6 +215,16 @@ public class Player : MonoBehaviour
            
             item.Destroy();
             DesactivateAnimHand();
+        }
+    }
+
+    public void GetInteractItem(RaycastHit hitInfo)
+    {
+        IItem item = hitInfo.collider.gameObject.GetComponent<IItem>();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            item.Interact();
         }
     }
 
