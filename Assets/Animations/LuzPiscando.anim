@@ -20,56 +20,46 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 3
-        inSlope: 30
-        outSlope: -6.047498
-        tangentMode: 1
+        value: 5
+        inSlope: -10
+        outSlope: -10
+        tangentMode: 10
       - time: 0.5
         value: 0
-        inSlope: -4.8853083
-        outSlope: 5.856778
+        inSlope: -11.084864
+        outSlope: 6.9879985
         tangentMode: 1
       - time: 0.95
-        value: 3.4913135
-        inSlope: 6.9622116
-        outSlope: -16.000866
+        value: 3.1061947
+        inSlope: 6.9498463
+        outSlope: -5.663182
         tangentMode: 1
-      - time: 1.15
-        value: 0
-        inSlope: -8.713035
-        outSlope: 10.687456
+      - time: 1.3166667
+        value: 0.9823008
+        inSlope: -0.5454659
+        outSlope: 5.5848627
         tangentMode: 1
-      - time: 1.35
-        value: 3
-        inSlope: 8.52978
-        outSlope: -10.361871
-        tangentMode: 1
-      - time: 1.4916667
-        value: 0
-        inSlope: -8.713035
-        outSlope: 5.610238
-        tangentMode: 1
-      - time: 2
-        value: 3
-        inSlope: 5.420864
-        outSlope: -9.073087
+      - time: 1.95
+        value: 5
+        inSlope: 8.755178
+        outSlope: 6
         tangentMode: 1
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Intensity
-    path: Point light
+    path: 
     classID: 108
     script: {fileID: 0}
   m_PPtrCurves: []
-  m_SampleRate: 120
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
     genericBindings:
-    - path: 3033001127
+    - path: 0
       attribute: 898800009
       script: {fileID: 0}
       classID: 108
@@ -81,7 +71,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2
+    m_StopTime: 1.95
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -101,45 +91,35 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 3
-        inSlope: 30
-        outSlope: -6.047498
-        tangentMode: 1
+        value: 5
+        inSlope: -10
+        outSlope: -10
+        tangentMode: 10
       - time: 0.5
         value: 0
-        inSlope: -4.8853083
-        outSlope: 5.856778
+        inSlope: -11.084864
+        outSlope: 6.9879985
         tangentMode: 1
       - time: 0.95
-        value: 3.4913135
-        inSlope: 6.9622116
-        outSlope: -16.000866
+        value: 3.1061947
+        inSlope: 6.9498463
+        outSlope: -5.663182
         tangentMode: 1
-      - time: 1.15
-        value: 0
-        inSlope: -8.713035
-        outSlope: 10.687456
+      - time: 1.3166667
+        value: 0.9823008
+        inSlope: -0.5454659
+        outSlope: 5.5848627
         tangentMode: 1
-      - time: 1.35
-        value: 3
-        inSlope: 8.52978
-        outSlope: -10.361871
-        tangentMode: 1
-      - time: 1.4916667
-        value: 0
-        inSlope: -8.713035
-        outSlope: 5.610238
-        tangentMode: 1
-      - time: 2
-        value: 3
-        inSlope: 5.420864
-        outSlope: -9.073087
+      - time: 1.95
+        value: 5
+        inSlope: 8.755178
+        outSlope: 6
         tangentMode: 1
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Intensity
-    path: Point light
+    path: 
     classID: 108
     script: {fileID: 0}
   m_EulerEditorCurves: []
