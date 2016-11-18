@@ -6,10 +6,21 @@ using System.Linq;
 public class MultipleInteractItem: MonoBehaviour, IItem
 {
     public Animator anim;
-    public string animTrigger = "interact";
+    public string animOpenTrigger = "interact";
+    public string animCloseTrigger = "interact";
+    private bool hasOpened = false;
 
     public void Interact()
     {
-        Debug.Log("interagiu");
+        string currAnimTrigger = animOpenTrigger;
+
+        if(hasOpened)
+        {
+            currAnimTrigger = animCloseTrigger;
+        }
+
+        anim.SetTrigger(currAnimTrigger);
+        hasOpened = !hasOpened;
+        //Debug.Log("interagiu");
     }
 }
