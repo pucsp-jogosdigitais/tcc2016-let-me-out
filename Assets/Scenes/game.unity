@@ -5263,7 +5263,7 @@ Animator:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 114479055}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: d2c2f0ea729810f458e6d4a4d3a2e38f, type: 3}
   m_Controller: {fileID: 9100000, guid: 3946699a5210f724da33e67390d3f145, type: 2}
   m_CullingMode: 0
@@ -10635,7 +10635,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.6195708, y: 0, z: 0.4182788}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 12.50442, z: 0}
   m_Children: []
   m_Father: {fileID: 912448093}
   m_RootOrder: 5
@@ -34651,7 +34651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4451c5dd051b5be438c44d446281dc69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animTrigger: interact
+  anim: {fileID: 0}
+  animTrigger: 696e746572616374
 --- !u!65 &1568703664
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35116,7 +35117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4451c5dd051b5be438c44d446281dc69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animTrigger: interact
+  anim: {fileID: 0}
+  animTrigger: 696e746572616374
 --- !u!4 &1597681767 stripped
 Transform:
   m_PrefabParentObject: {fileID: 429574, guid: a3f99d5268203004cb1c60155c09cf9b, type: 2}
@@ -39554,7 +39556,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.23290057, y: 0.0040975553, z: 0.4696993}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: -87.013336, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1913938395}
   m_RootOrder: 5
