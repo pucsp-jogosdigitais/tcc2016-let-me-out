@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &159486
 GameObject:
@@ -34,7 +34,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &175802
 GameObject:
@@ -52,7 +52,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &188362
 GameObject:
@@ -63,12 +63,14 @@ GameObject:
   m_Component:
   - 4: {fileID: 429574}
   - 95: {fileID: 9566484}
+  - 65: {fileID: 6512428}
+  - 114: {fileID: 11435040}
   m_Layer: 0
   m_Name: armario
-  m_TagString: Untagged
+  m_TagString: InteractItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &402076
 Transform:
@@ -92,8 +94,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.860992, y: -0.8250003, z: -11.091003}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -10.860992, y: 0.9169998, z: -11.091003}
+  m_LocalScale: {x: 1.3682842, y: 1.3682842, z: 1.0229338}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 402076}
@@ -236,6 +238,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.40666747, y: 0.8176077, z: 0.03567206}
   m_Center: {x: -0.21502697, y: -0.0030681165, z: 0.0015948713}
+--- !u!65 &6512428
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188362}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.97, y: 0.87, z: 0.88}
+  m_Center: {x: 0.19, y: 0.39, z: -0.09}
 --- !u!65 &6525676
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -277,6 +291,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11435040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4451c5dd051b5be438c44d446281dc69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animTrigger: interact
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
