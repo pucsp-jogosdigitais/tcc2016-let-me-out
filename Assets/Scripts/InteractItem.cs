@@ -6,7 +6,7 @@ using System.Linq;
 public class InteractItem : MonoBehaviour, IItem
 {
     Animator anim;
-    public string animTrigger;
+    public string animTrigger = "interact";
 
     void Start()
     {

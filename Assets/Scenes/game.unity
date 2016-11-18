@@ -7177,75 +7177,75 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100014, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100022, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100032, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100028, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100034, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100026, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100020, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100016, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100018, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100030, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100024, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_Controller
@@ -7297,7 +7297,11 @@ Prefab:
       objectReference: {fileID: 2100000, guid: ba29a7075a02dcf4f84da8505ab4dfe5, type: 2}
     - target: {fileID: 400034, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
+      propertyPath: m_TagString
+      value: InteractItem
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
@@ -34672,6 +34676,34 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &1568703662 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 0d9e030b30d68834cadcde6be0b00b22, type: 3}
+  m_PrefabInternal: {fileID: 244410123}
+--- !u!114 &1568703663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1568703662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4451c5dd051b5be438c44d446281dc69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animTrigger: interact
+--- !u!65 &1568703664
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1568703662}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.64, y: 3.02, z: 0.78}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1569486976
 GameObject:
   m_ObjectHideFlags: 0
