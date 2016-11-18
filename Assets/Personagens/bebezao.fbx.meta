@@ -2260,7 +2260,7 @@ ModelImporter:
       name: Attack Pose
       takeName: Take 001
       firstFrame: 226
-      lastFrame: 226
+      lastFrame: 227
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
