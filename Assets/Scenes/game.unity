@@ -23450,6 +23450,18 @@ Prefab:
       propertyPath: m_TagString
       value: InteractItem
       objectReference: {fileID: 0}
+    - target: {fileID: 148874, guid: a45b650133ac0184a8ea3684e9cfa60a, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159082, guid: a45b650133ac0184a8ea3684e9cfa60a, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 136330, guid: a45b650133ac0184a8ea3684e9cfa60a, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a45b650133ac0184a8ea3684e9cfa60a, type: 2}
   m_IsPrefabParent: 0
@@ -27145,7 +27157,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab6018a3cf7ef404a9b6eceeadd7e2eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 89.999794
+      value: 90.00006
       objectReference: {fileID: 0}
     - target: {fileID: 2300002, guid: ab6018a3cf7ef404a9b6eceeadd7e2eb, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -27157,7 +27169,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab6018a3cf7ef404a9b6eceeadd7e2eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 88.2849
+      value: 84.66595
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab6018a3cf7ef404a9b6eceeadd7e2eb, type: 3}
       propertyPath: m_LocalScale.z
@@ -27173,7 +27185,7 @@ Prefab:
       objectReference: {fileID: 9100000, guid: 445e27ef3566f3d40a76817f459b6108, type: 2}
     - target: {fileID: 400004, guid: ab6018a3cf7ef404a9b6eceeadd7e2eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 269.9996
+      value: 269.99985
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab6018a3cf7ef404a9b6eceeadd7e2eb, type: 3}
