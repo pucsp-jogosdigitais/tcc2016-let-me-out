@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: GuardaGavetaFechar
+  m_Name: GuardaGavetaParada
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -18,14 +18,9 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: -0.0052158823, y: -0.5790921, z: 0.334}
-        inSlope: {x: 0, y: 0, z: -0.09161678}
-        outSlope: {x: 0, y: 0, z: -0.09161678}
-        tangentMode: 0
-      - time: 1.7647059
         value: {x: -0.0052158823, y: -0.5790921, z: 0.17232332}
-        inSlope: {x: 0, y: 0, z: -0.09161678}
-        outSlope: {x: 0, y: 0, z: -0.09161678}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -34,7 +29,7 @@ AnimationClip:
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
-  m_SampleRate: 34
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -53,7 +48,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.7647059
+    m_StopTime: 0
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -77,11 +72,6 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 1.7647059
-        value: -0.0052158823
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -97,11 +87,6 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 1.7647059
-        value: -0.5790921
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -113,14 +98,9 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 0.334
-        inSlope: -0.09161678
-        outSlope: -0.09161678
-        tangentMode: 10
-      - time: 1.7647059
         value: 0.17232332
-        inSlope: -0.09161678
-        outSlope: -0.09161678
+        inSlope: 0
+        outSlope: 0
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
