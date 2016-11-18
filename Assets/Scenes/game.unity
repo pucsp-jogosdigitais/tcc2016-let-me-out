@@ -19458,9 +19458,11 @@ GameObject:
   - 4: {fileID: 814760995}
   - 33: {fileID: 814760997}
   - 23: {fileID: 814760996}
+  - 114: {fileID: 814760998}
+  - 65: {fileID: 814760999}
   m_Layer: 0
   m_Name: pasted__pCube3
-  m_TagString: Untagged
+  m_TagString: InteractItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19513,6 +19515,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 814760994}
   m_Mesh: {fileID: 4300008, guid: d2c2f0ea729810f458e6d4a4d3a2e38f, type: 3}
+--- !u!114 &814760998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 814760994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f5b9418fdcd29c4685923a5a1721dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 114479057}
+  animTrigger: interact3
+--- !u!65 &814760999
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 814760994}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.433055, y: 1.239516, z: 0.23}
+  m_Center: {x: 0.24077575, y: -0.031634986, z: 0.00014631449}
 --- !u!1001 &816150572
 Prefab:
   m_ObjectHideFlags: 0
