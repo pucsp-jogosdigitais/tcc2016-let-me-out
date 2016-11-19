@@ -78,6 +78,12 @@ public class EventManager : MonoBehaviour {
                 break;
 
             case "activatePart3":
+                Monster.GetInstance().CancelAttack();
+                Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
+                Monster.GetInstance().SetVisibility(true);
+                Monster.GetInstance().mosterNV.enabled = true;
+                Monster.GetInstance().gameObject.transform.position = new Vector3(271.5951f, 4.449f, 237.2929f);
+                Monster.GetInstance().mosterNV.destination = GameObject.Find("AlvoBebe").transform.position;
 
                 ActivatePartPicture(Constants.PictureP3Item);
                 GameObject.Find("PortaChave").GetComponent<DoorWrapper>().typeAnim = DoorWrapper.DoorAnim.Locked;
@@ -316,6 +322,10 @@ public class EventManager : MonoBehaviour {
 
     private void DesactivateCameraOpenRoom()
     {
+        Monster.GetInstance().currActionState = Monster.MonsterActionState.Spawn;
+        Monster.GetInstance().SetVisibility(false);
+        Monster.GetInstance().mosterNV.enabled = false;
+
         HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
         GameObject.Find("CameraLockClosedRoom").GetComponent<Camera>().enabled = false;
     }

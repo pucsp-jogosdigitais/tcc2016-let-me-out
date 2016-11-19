@@ -81,6 +81,7 @@ public class Monster : MonoBehaviour
             case MonsterActionState.Persecution:
 
                 SetVisibility(true);
+                mosterNV.enabled = true;
                 mosterNV.destination = Player.GetTransform().position;
 
                 break;
@@ -182,7 +183,7 @@ public class Monster : MonoBehaviour
         gameObject.transform.rotation = playerRotation;
     }
 
-    void SetVisibility(bool visibility)
+    public void SetVisibility(bool visibility)
     {
         Renderer[] rs = GetComponentsInChildren<Renderer>();
 
