@@ -170,6 +170,7 @@ public class Item : MonoBehaviour
                         EventManager.GetInstance().SetEvent("babyPersecution");
                         PartsToCompletePicture(partsPicture);
                         SubtitleManager.GetInstance().SetText("Quadro completo");
+                        gameObject.SetActive(false);
                     }
 
                     break;
