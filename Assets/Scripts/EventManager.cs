@@ -84,7 +84,7 @@ public class EventManager : MonoBehaviour {
 
                 FadeInScreen();
                 Invoke("ActivateCameraOpenRoom", 1.2f);
-                Invoke("FadeOutScreen", 1.8f);
+                Invoke("FadeOutScreen", 2);
 
                 Invoke("OpenClosedRoom", 1.4f);
 
