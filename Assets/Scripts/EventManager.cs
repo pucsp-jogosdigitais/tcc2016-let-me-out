@@ -67,7 +67,14 @@ public class EventManager : MonoBehaviour {
             case "activatePart2":
 
                 ActivatePartPicture(Constants.PictureP2Item);
+               
+                HelperUtil.FindGameObject(GameObject.Find("Eventos"), "Item2").SetActive(true);
 
+                break;
+
+            case "activateAnimPart2":
+                Debug.Log("anim porta 2");
+                HelperUtil.FindGameObject(GameObject.Find("Quadros de Enfeite"), "Q01").GetComponent<Animator>().SetTrigger("activate");
                 break;
 
             case "activatePart3":
@@ -127,9 +134,12 @@ public class EventManager : MonoBehaviour {
                 FadeInScreen();
                 Invoke("FadeOutScreen", 1.8f);
 
+                Invoke("ActivateSoundBaby", 2);
+
                 Invoke("ActivateCameraGameOver", 1.4f);
 
                 Invoke("FadeInScreen", 4.8f);
+                Invoke("ActivateSoundWoman", 7.2f);
                 //Invoke("FadeOutScreen", 5.5f);
 
                 break;
@@ -280,6 +290,22 @@ public class EventManager : MonoBehaviour {
         HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
         GameObject.Find("CameraLockBabyRoom").GetComponent<Camera>().enabled = true;
         GameObject.Find("CameraLockBabyRoom").GetComponent<Animator>().SetTrigger("activate");
+    }
+
+    private void ActivateSoundWoman()
+    {
+        AudioRepository audioRepository = AudioRepository.GetInstance();
+
+        audioRepository.gameObject.GetComponent<AudioSource>().clip = audioRepository.womanAudio;
+        audioRepository.gameObject.GetComponent<AudioSource>().Play();
+    }
+
+    private void ActivateSoundBaby()
+    {
+        AudioRepository audioRepository = AudioRepository.GetInstance();
+
+        audioRepository.gameObject.GetComponent<AudioSource>().clip = audioRepository.babyAudio2;
+        audioRepository.gameObject.GetComponent<AudioSource>().Play();
     }
 
     private void DesactivateCameraEventPicture()

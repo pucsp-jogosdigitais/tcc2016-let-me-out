@@ -6,6 +6,9 @@ public class AudioRepository : MonoBehaviour {
     static AudioRepository instance;
 
     public AudioClip babyAudio;
+    public AudioClip babyAudio2;
+
+    public AudioClip womanAudio;
 
     public AudioClip incompletePictureAudio;
 
