@@ -130,7 +130,7 @@ public class EventManager : MonoBehaviour {
                 Invoke("ActivateCameraGameOver", 1.4f);
 
                 Invoke("FadeInScreen", 4.8f);
-                Invoke("FadeOutScreen", 5.5f);
+                //Invoke("FadeOutScreen", 5.5f);
 
                 break;
         }
