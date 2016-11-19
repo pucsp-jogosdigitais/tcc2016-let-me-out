@@ -177,11 +177,6 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            EventManager.GetInstance().SetEvent("gameOver");
-        }
-
         if (GameInfo.gameOver)
         {
             alphaGameOver += 0.10f;
