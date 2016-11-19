@@ -110,6 +110,28 @@ public class EventManager : MonoBehaviour {
 
                 GameObject.Find("portaFinal").GetComponent<Animator>().SetTrigger("open2");
 
+                FadeInScreen();
+                Invoke("FadeOutScreen", 1.8f);
+
+                Invoke("ActivateCameraRoomBaby", 1.4f);
+
+                Invoke("FadeInScreen", 4.8f);
+                Invoke("FadeOutScreen", 5.5f);
+
+                Invoke("DesactivateCameraRoomBaby", 5.5f);
+
+                break;
+
+            case "gameOver":
+
+                FadeInScreen();
+                Invoke("FadeOutScreen", 1.8f);
+
+                Invoke("ActivateCameraGameOver", 1.4f);
+
+                Invoke("FadeInScreen", 4.8f);
+                Invoke("FadeOutScreen", 5.5f);
+
                 break;
         }
     }
@@ -237,6 +259,27 @@ public class EventManager : MonoBehaviour {
 
         GameObject.Find("CameraLockClosedRoom").GetComponent<Camera>().enabled = true;
         GameObject.Find("CameraLockClosedRoom").GetComponent<Animator>().SetTrigger("activate");
+    }
+
+    private void ActivateCameraRoomBaby()
+    {
+        HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
+        GameObject.Find("CameraLockOpenDoor").GetComponent<Camera>().enabled = true;
+        GameObject.Find("CameraLockOpenDoor").GetComponent<Animator>().SetTrigger("activate");
+    }
+
+    private void DesactivateCameraRoomBaby()
+    {
+        HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
+        GameObject.Find("CameraLockOpenDoor").GetComponent<Animator>().SetTrigger("activate");
+        GameObject.Find("CameraLockOpenDoor").GetComponent<Camera>().enabled = false;
+    }
+
+    private void ActivateCameraGameOver()
+    {
+        HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
+        GameObject.Find("CameraLockBabyRoom").GetComponent<Camera>().enabled = true;
+        GameObject.Find("CameraLockBabyRoom").GetComponent<Animator>().SetTrigger("activate");
     }
 
     private void DesactivateCameraEventPicture()
