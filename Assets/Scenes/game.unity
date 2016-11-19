@@ -23993,7 +23993,7 @@ Transform:
   - {fileID: 1058592109}
   - {fileID: 409570402}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
 --- !u!1 &1034878134
 GameObject:
   m_ObjectHideFlags: 0
@@ -27068,7 +27068,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 167390, guid: 471e958b354cbf942b01c58db2fde035, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 471e958b354cbf942b01c58db2fde035, type: 2}
@@ -41930,7 +41930,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1942201213}
   m_Enabled: 1
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 0.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

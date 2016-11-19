@@ -103,6 +103,14 @@ public class EventManager : MonoBehaviour {
                 Monster.GetInstance().PersecutionMode();
                 Player.GetMotionBlur().blurAmount = 0.6f;
                 break;
+
+            case "babyRest":
+                Monster.GetInstance().CancelAttack();
+                Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
+
+                GameObject.Find("portaFinal").GetComponent<Animator>().SetTrigger("open2");
+
+                break;
         }
     }
 

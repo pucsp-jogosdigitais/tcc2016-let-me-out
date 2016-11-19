@@ -143,6 +143,7 @@ public class Player : MonoBehaviour
                             else
                             {
                                 SubtitleManager.GetInstance().SetText("Quadro destruído.");
+                                EventManager.GetInstance().SetEvent("babyRest");
                             }
                         }
                         else
