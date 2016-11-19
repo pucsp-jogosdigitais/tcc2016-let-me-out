@@ -255,7 +255,7 @@ public class EventManager : MonoBehaviour {
     {
         GameObject porta = GameObject.Find("PortaChave");
 
-        porta.GetComponent<DoorWrapper>().doorAnim.SetTrigger("open");
+        porta.GetComponent<DoorWrapper>().doorAnim.SetTrigger("open2");
         porta.GetComponent<AudioSource>().playOnAwake = false;
         porta.GetComponent<AudioSource>().clip = AudioRepository.GetInstance().doorOpen;
     }
