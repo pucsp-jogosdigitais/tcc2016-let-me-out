@@ -27,7 +27,7 @@ public class FlashLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameInfo.paused && Player.GetInstance().Items.Contains(Constants.PhoneItem) && Main.GetInstance().hasActivate)
+		if (!GameInfo.paused && Player.GetInstance().Items.Contains("ativar lanterna") && Main.GetInstance().hasActivate)
         { 
 
             //if (Input.GetButtonDown("Fire1"))

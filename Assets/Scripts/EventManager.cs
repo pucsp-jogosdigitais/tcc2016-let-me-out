@@ -42,7 +42,7 @@ public class EventManager : MonoBehaviour {
                 ActivateIconSmartPhone();
                 break;
 
-            case "initialEvent":
+		case "initialEvent":
 
             Invoke ("InitialEvent", 3);
             Invoke("ActivateIconFlash", 3);
@@ -348,6 +348,8 @@ public class EventManager : MonoBehaviour {
 
     private void InitialEvent()
     {
+		Player.GetInstance ().Items.Add ("ativar lanterna");
+
         GameObject lightsFather = GameObject.Find("Desativaveis");
 
         Light[] lights = lightsFather.transform.GetComponentsInChildren<Light>();
