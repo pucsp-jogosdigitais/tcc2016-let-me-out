@@ -44,8 +44,9 @@ public class EventManager : MonoBehaviour {
 
             case "initialEvent":
 
-			Invoke ("InitialEvent", 3);
-			Invoke ("BabyCry", 5);
+            Invoke ("InitialEvent", 3);
+            Invoke("ActivateIconFlash", 3);
+            Invoke ("BabyCry", 5);
 			Invoke ("ActivateBaby", 6);
 
 			//Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;

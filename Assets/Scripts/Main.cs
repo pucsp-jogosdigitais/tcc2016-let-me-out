@@ -231,7 +231,8 @@ public class Main : MonoBehaviour
                 if(!hasDesactivate)
                 {
                     hasDesactivate = true;
-                    Invoke("ActivateFlashLightIcon", 0.8f);
+                    Player.GetInstance().Items.Add("Ativou celular");
+                    //Invoke("ActivateFlashLightIcon", 0.8f);
                 }    
 
                     animSmartPhone.SetTrigger("bounceOut");
