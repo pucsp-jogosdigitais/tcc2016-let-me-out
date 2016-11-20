@@ -179,7 +179,7 @@ public class Main : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.L))
         {
-            EventManager.GetInstance().SetEvent("gameOver");
+			EventManager.GetInstance().SetEvent("activatePart3");
         }
 
         if (GameInfo.gameOver)
