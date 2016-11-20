@@ -44,6 +44,9 @@ public class Main : MonoBehaviour
     public bool hasActivate;
     public bool hasDesactivate;
 
+	public float mass = 1;
+	public float drag = 1000;
+
     public static Main GetInstance()
     {
         return instance;
@@ -181,6 +184,30 @@ public class Main : MonoBehaviour
         {
             EventManager.GetInstance().SetEvent("gameOver");
         }
+
+		if(Input.GetKeyDown(KeyCode.H))
+		{
+			GameObject cabeca = new GameObject("cabeca");
+			
+            cabeca.AddComponent<Camera>();
+			cabeca.AddComponent<Rigidbody>();
+			cabeca.GetComponent<Camera> ().fieldOfView = 31.94735f;
+			cabeca.GetComponent<Rigidbody> ().mass = mass;
+			cabeca.GetComponent<Rigidbody> ().drag = drag;
+
+            CapsuleCollider cap=cabeca.AddComponent<CapsuleCollider>();
+			//cabeca.transform.position=transform.position+Vector3.up;
+
+			//Vector3 pos = Player.GetInstance().gameObject.transform.position+Vector3.up;
+			Vector3 pos = Player.GetInstance().gameObject.transform.position-Vector3.left;
+
+			cabeca.transform.position = pos;
+			//cabeca.transform.rotation = new Quaternion(0, 0, -2.3488f, 0);
+
+			cap.height=1.5f;
+
+			cabeca.GetComponent<Rigidbody> ().AddForce (new Vector3(0.2f, 0.2f, 0.2f));
+		}
 
         if (GameInfo.gameOver)
         {
