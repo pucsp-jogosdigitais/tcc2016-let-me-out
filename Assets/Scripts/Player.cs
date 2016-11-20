@@ -113,6 +113,10 @@ public class Player : MonoBehaviour
                 case "Item":
                     if (IsActiveItem(hitInfo))
                     {
+						if (hitInfo.collider.gameObject.name.Contains ("celular")) {
+							SubtitleManager.GetInstance ().SetText ("[ESPACO] para interagir");
+						}
+
                         ActivateAnimHand();
                         GetItem(hitInfo);
                     }
