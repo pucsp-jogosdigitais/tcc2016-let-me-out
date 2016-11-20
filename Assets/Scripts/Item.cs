@@ -29,6 +29,8 @@ public class Item : MonoBehaviour
     int clickCounter = 0;
     bool hasClicked = false;
 
+	bool hasCompletedPicture;
+
     void Start()
     {
 
@@ -133,11 +135,25 @@ public class Item : MonoBehaviour
 
                     break;
 
-                case ItemType.Picture:
+			case ItemType.Picture:
 
-                    clickCounter += 1;
+				string[] partsPicture = new string[] {
+					Constants.PictureP1Item,
+					Constants.PictureP2Item,
+					Constants.PictureP3Item,
+					Constants.PictureP4Item
+				};
 
-                    Debug.Log(clickCounter);
+				clickCounter += 1;
+
+				Debug.Log (clickCounter);
+
+				if (hasCompletedPicture) {
+					EventManager.GetInstance().SetEvent("babyPersecution");
+					PartsToCompletePicture(partsPicture);
+					SubtitleManager.GetInstance().SetText("Quadro completo");
+					gameObject.SetActive(false);
+				}
 
                     if (clickCounter > 2)
                     {
@@ -152,13 +168,6 @@ public class Item : MonoBehaviour
 
                     Invoke("ResetCounter", 30f);
 
-                    string[] partsPicture = new string[] {
-                        Constants.PictureP1Item,
-                        Constants.PictureP2Item,
-                        Constants.PictureP3Item,
-                        Constants.PictureP4Item
-                    };
-
                     AddPartsPicture(partsPicture);
 
                     if (pictureCounter > 0)
@@ -167,11 +176,16 @@ public class Item : MonoBehaviour
                     }
                     else
                     {
+						/*
                         EventManager.GetInstance().SetEvent("babyPersecution");
                         PartsToCompletePicture(partsPicture);
                         SubtitleManager.GetInstance().SetText("Quadro completo");
-                        gameObject.SetActive(false);
+                        gameObject.SetActive(false);*/
+
+					hasCompletedPicture = true;
                     }
+
+					
 
                     break;
             }
