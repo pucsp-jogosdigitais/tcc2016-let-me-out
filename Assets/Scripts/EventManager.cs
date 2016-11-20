@@ -65,7 +65,7 @@ public class EventManager : MonoBehaviour {
 
                 break;
 
-            case "activatePart2":
+		case "activatePart2":
 
                 ActivatePartPicture(Constants.PictureP2Item);
                
@@ -73,8 +73,9 @@ public class EventManager : MonoBehaviour {
 
                 break;
 
-            case "activateAnimPart2":
-                Debug.Log("anim porta 2");
+		case "activateAnimPart2":
+
+				Debug.Log("anim porta 2");
                 HelperUtil.FindGameObject(GameObject.Find("Quadros de Enfeite"), "Q01").GetComponent<Animator>().SetTrigger("activate");
                 break;
 
@@ -125,6 +126,8 @@ public class EventManager : MonoBehaviour {
                 Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
 
                 GameObject.Find("portaFinal").GetComponent<Animator>().SetTrigger("open2");
+
+				HelperUtil.FindGameObject (GameObject.Find ("Iluminação"), "luzParte3").GetComponentInChildren<Light> ().range = 4;
 
                 FadeInScreen();
                 Invoke("FadeOutScreen", 1.8f);
