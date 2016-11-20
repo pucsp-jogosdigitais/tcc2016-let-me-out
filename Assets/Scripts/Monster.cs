@@ -63,8 +63,11 @@ public class Monster : MonoBehaviour
                         Player.GetMotionBlur().blurAmount = 0.6f;
                         //Player.GetShake().shakeDuration = 5;
 
+					Debug.Log (counterAttackTime);
+
                         if (counterAttackTime < 0)
                         {
+						//SubtitleManager.GetInstance ().SetText ("Matou");
                             Debug.Log("Matou player");
                             Main.GetInstance().GameOver();
                             //Player.GetInstance().Die();
@@ -72,6 +75,7 @@ public class Monster : MonoBehaviour
                     }
                     else
                     {
+					Debug.Log ("Saiu da tela");
                         //Player.GetShake().shakeDuration = 0;
                         counterAttackTime = attackTimeTick;
                     }
@@ -129,7 +133,7 @@ public class Monster : MonoBehaviour
     public void InitAttackTime()
     {
         attackTime = true;
-        attackTimeTick = Random.Range(1, 4);
+        attackTimeTick = Random.Range(1, 2);
 
         //Invoke("Attack", 5);
         Invoke("CancelAttack", 5);

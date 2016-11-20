@@ -67,8 +67,6 @@ public class MonsterSpawnManager : MonoBehaviour
         pos = new Vector3(rndX, transform.position.y, rndZ);
 
         Monster.GetInstance().PreSpawn(pos);
-
-        Debug.Log("Spawn Monster" + Time.deltaTime);
     }
 
     List<GameObject> GetNextSpawnPoints()
