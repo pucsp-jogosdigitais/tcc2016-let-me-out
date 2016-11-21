@@ -19,7 +19,7 @@ public class DefaultMenu : MonoBehaviour {
 
         buttonPlay.GetComponent<Button>().onClick.AddListener(delegate
         {
-            Application.LoadLevel("game");
+            Application.LoadLevel("new_Intro");
         });
 
         buttonCredits.GetComponent<Button>().onClick.AddListener(delegate
