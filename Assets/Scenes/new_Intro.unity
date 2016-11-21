@@ -469,9 +469,9 @@ MonoBehaviour:
   oldYear: 1979
   newYear: 2016
   fadeOutTimeImage: 5
-  delayWoman: 4
+  delayWoman: 3
   babySound: {fileID: 0}
-  womanSound: {fileID: 8300000, guid: 6b8701ea7feaab34689b06fb2464e855, type: 3}
+  womanSound: {fileID: 8300000, guid: 833c2f7c2b1a8a743a2bf37dc125a981, type: 3}
 --- !u!82 &476449951
 AudioSource:
   m_ObjectHideFlags: 0
