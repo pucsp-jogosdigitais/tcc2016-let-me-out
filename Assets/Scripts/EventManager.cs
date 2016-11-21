@@ -27,11 +27,11 @@ public class EventManager : MonoBehaviour {
         switch(eventName)
         {
 		case "espacoParaInteragir":
-			SubtitleManager.GetInstance ().SetText ("Pegue o celular.");
+			SubtitleManager.GetInstance ().SetText ("Pegue o celular");
 			break;
 
 		case "espacoParaInteragir2":
-			SubtitleManager.GetInstance ().SetText ("[ESPACO] para interagir.");
+			SubtitleManager.GetInstance ().SetText ("Pressione ESPAÇO para interagir");
 			break;
 
             case "desactivateAllCameras":
