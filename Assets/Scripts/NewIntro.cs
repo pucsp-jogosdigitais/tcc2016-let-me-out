@@ -7,6 +7,9 @@ public class NewIntro : MonoBehaviour {
 	public string oldYear;
 	public string newYear;
 
+    public float fadeOutTimeImage = 2;
+    public float delayWoman = 1.4f;
+
 	Text textYear;
 	Image image;
 	Image imageSkip;
@@ -68,7 +71,7 @@ public class NewIntro : MonoBehaviour {
 
 			if (textYear.GetComponent<Text> ().text != newYear) {
 				InvokeRepeating ("fadeInImage", 0.8f, 0.10f);
-				Invoke ("playWoman", 1.4f);
+                Invoke("playWoman", delayWoman);
 				//Invoke ("playBaby", 5f);
 			}
 		}
@@ -84,7 +87,7 @@ public class NewIntro : MonoBehaviour {
 
 		if (cg.alpha > 0.99f) {
 			CancelInvoke ("fadeInImage");
-			InvokeRepeating ("fadeOutImage", 2, 0.10f);
+            InvokeRepeating("fadeOutImage", fadeOutTimeImage, 0.10f);
 		}
 	}
 

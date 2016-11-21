@@ -296,7 +296,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11464878, guid: 78c07f7933b52f34598ba3d8d9996595, type: 2}
       propertyPath: callInit
-      value: 14
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 22450218, guid: 78c07f7933b52f34598ba3d8d9996595, type: 2}
       propertyPath: m_AnchorMax.y
@@ -468,7 +468,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oldYear: 1979
   newYear: 2016
-  babySound: {fileID: 8300000, guid: 0bc554f097602a64e9b84678801aaddf, type: 3}
+  fadeOutTimeImage: 5
+  delayWoman: 4
+  babySound: {fileID: 0}
   womanSound: {fileID: 8300000, guid: 6b8701ea7feaab34689b06fb2464e855, type: 3}
 --- !u!82 &476449951
 AudioSource:
