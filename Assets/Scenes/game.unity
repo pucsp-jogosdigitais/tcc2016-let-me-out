@@ -5629,7 +5629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &136378449
 Light:
   m_ObjectHideFlags: 0
@@ -8382,7 +8382,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 293706603}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -15060,7 +15060,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8b338a089eb645247adf504705f31aeb, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -17805,7 +17805,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8b338a089eb645247adf504705f31aeb, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -17874,7 +17874,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1825015059}
+    m_TransformParent: {fileID: 2083146360}
     m_Modifications:
     - target: {fileID: 405122, guid: 927c7c53fbe20f44fb7a2263ec545218, type: 2}
       propertyPath: m_LocalPosition.x
@@ -21183,7 +21183,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8b338a089eb645247adf504705f31aeb, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -21868,7 +21868,7 @@ Transform:
   m_LocalScale: {x: 0.33224234, y: 0.33224246, z: 0.33224246}
   m_LocalEulerAnglesHint: {x: 60.0933, y: -270.0001, z: -90}
   m_Children: []
-  m_Father: {fileID: 1825015059}
+  m_Father: {fileID: 2083146360}
   m_RootOrder: 1
 --- !u!23 &888684637
 MeshRenderer:
@@ -23915,7 +23915,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8b338a089eb645247adf504705f31aeb, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -25110,7 +25110,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1825015059}
+    m_TransformParent: {fileID: 2083146360}
     m_Modifications:
     - target: {fileID: 454766, guid: d5e680f81aaf61f408246e1df8bdca1a, type: 2}
       propertyPath: m_LocalPosition.x
@@ -32229,7 +32229,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1825015059}
+    m_TransformParent: {fileID: 2083146360}
     m_Modifications:
     - target: {fileID: 405122, guid: 927c7c53fbe20f44fb7a2263ec545218, type: 2}
       propertyPath: m_LocalPosition.x
@@ -37224,7 +37224,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8b338a089eb645247adf504705f31aeb, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -39912,7 +39912,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8b338a089eb645247adf504705f31aeb, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -40129,12 +40129,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1953314201}
-  - {fileID: 888684636}
-  - {fileID: 1367896875}
-  - {fileID: 1936090731}
-  - {fileID: 1042075503}
-  - {fileID: 742536712}
+  - {fileID: 2083146360}
   m_Father: {fileID: 0}
   m_RootOrder: 37
 --- !u!4 &1825562262 stripped
@@ -43053,7 +43048,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1825015059}
+    m_TransformParent: {fileID: 2083146360}
     m_Modifications:
     - target: {fileID: 454766, guid: d5e680f81aaf61f408246e1df8bdca1a, type: 2}
       propertyPath: m_LocalPosition.x
@@ -43089,11 +43084,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 454766, guid: d5e680f81aaf61f408246e1df8bdca1a, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.42475763
+      value: 0.42475766
       objectReference: {fileID: 0}
     - target: {fileID: 454766, guid: d5e680f81aaf61f408246e1df8bdca1a, type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.42475763
+      value: 0.42475766
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5e680f81aaf61f408246e1df8bdca1a, type: 2}
@@ -43534,10 +43529,10 @@ Transform:
   m_GameObject: {fileID: 1953314200}
   m_LocalRotation: {x: -0.694003, y: 0.13549805, z: 0.13549852, w: -0.6940031}
   m_LocalPosition: {x: 2.262024, y: 1.382, z: 6.6769867}
-  m_LocalScale: {x: 0.35539797, y: 0.355398, z: 0.355398}
+  m_LocalScale: {x: 0.35539794, y: 0.355398, z: 0.355398}
   m_LocalEulerAnglesHint: {x: 67.9049, y: 270, z: -90}
   m_Children: []
-  m_Father: {fileID: 1825015059}
+  m_Father: {fileID: 2083146360}
   m_RootOrder: 0
 --- !u!23 &1953314202
 MeshRenderer:
@@ -45883,6 +45878,40 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.15249255, y: 2.256649, z: 1.29045}
   m_Center: {x: 0.07287204, y: 0.08421987, z: 0.59895515}
+--- !u!1 &2083146359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2083146360}
+  m_Layer: 0
+  m_Name: SangueContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2083146360
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2083146359}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1953314201}
+  - {fileID: 888684636}
+  - {fileID: 1367896875}
+  - {fileID: 1936090731}
+  - {fileID: 1042075503}
+  - {fileID: 742536712}
+  m_Father: {fileID: 1825015059}
+  m_RootOrder: 0
 --- !u!1 &2092040624 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 0394e5eab794f0645ab41d2fe44681bc, type: 3}

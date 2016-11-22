@@ -135,7 +135,8 @@ public class EventManager : MonoBehaviour {
 
                 GameObject.Find("portaFinal").GetComponent<Animator>().SetTrigger("open2");
 
-				HelperUtil.FindGameObject (GameObject.Find ("Iluminação"), "luzParte3").GetComponentInChildren<Light> ().range = 4;
+                HelperUtil.FindGameObject(GameObject.Find("Iluminação"), "spotPortaBebe").SetActive(true);
+                HelperUtil.FindGameObject (GameObject.Find ("Iluminação"), "luzParte3").GetComponentInChildren<Light> ().range = 4;
 
                 FadeInScreen();
                 Invoke("FadeOutScreen", 1.8f);

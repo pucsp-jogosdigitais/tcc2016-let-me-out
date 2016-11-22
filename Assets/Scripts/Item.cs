@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Util;
 
 public class Item : MonoBehaviour
 {
@@ -183,6 +184,8 @@ public class Item : MonoBehaviour
                         gameObject.SetActive(false);*/
 
 					hasCompletedPicture = true;
+
+                        HelperUtil.FindGameObject(GameObject.Find("Sangue pós quarta foto"), "SangueContainer").SetActive(true);
                     }
 
 					
