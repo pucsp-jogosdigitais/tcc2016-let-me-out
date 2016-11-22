@@ -44,6 +44,8 @@ public class Main : MonoBehaviour
     public bool hasActivate;
     public bool hasDesactivate;
 
+    public GameObject hairCross;
+
     public static Main GetInstance()
     {
         return instance;
@@ -193,14 +195,22 @@ public class Main : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C) && Player.GetInstance().Items.Contains(Constants.PhoneItem))
         {
-            
-
             active = !active;
+            hairCross.SetActive(false);
             //menu.SetActive(active);
             Cursor.visible = active;
 
-            if (active)
+            if(active)
             {
+                if (!hasActivate)
+                {
+                    GameObject.Find("IconeSmartphone").GetComponent<Animator>().SetTrigger("desactivate");
+                    hasActivate = true;
+                }
+            }
+
+            /*if (active)
+            {    
                 if(!hasActivate)
                 {
                     GameObject.Find("IconeSmartphone").GetComponent<Animator>().SetTrigger("desactivate");
@@ -237,7 +247,7 @@ public class Main : MonoBehaviour
 
                     animSmartPhone.SetTrigger("bounceOut");
                 StartCoroutine("ExitSmartPhone");
-            }
+            }*/
         }
     }
 

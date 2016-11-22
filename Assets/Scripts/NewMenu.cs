@@ -123,7 +123,7 @@ public class NewMenu : MonoBehaviour
     {
         if (context == MenuContext.Menu || context == MenuContext.InGame)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.C))
             {
                 if (!inAnimation)
                 {
@@ -158,6 +158,7 @@ public class NewMenu : MonoBehaviour
             if (p != null)
             {
                 Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(0, 0);
+                Player.GetInstance().GetComponent<FirstPersonController>().enabled = false;
             }
         }
     }
@@ -180,6 +181,7 @@ public class NewMenu : MonoBehaviour
 
 		if (p != null) {
 			Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(GameInfo.mouseSensivity * 10, GameInfo.mouseSensivity * 10);
+            Player.GetInstance().GetComponent<FirstPersonController>().enabled = false;
 		}
 
 	}
