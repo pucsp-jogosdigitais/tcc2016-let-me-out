@@ -181,7 +181,7 @@ public class NewMenu : MonoBehaviour
 
 		if (p != null) {
 			Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(GameInfo.mouseSensivity * 10, GameInfo.mouseSensivity * 10);
-            Player.GetInstance().GetComponent<FirstPersonController>().enabled = false;
+            Player.GetInstance().GetComponent<FirstPersonController>().enabled = true;
 		}
 
 	}
@@ -420,7 +420,9 @@ public class NewMenu : MonoBehaviour
 
             buttonTutorial.GetComponent<Button>().onClick.AddListener(delegate
             {
-                InvokeRepeating("GoingOutExit", 0, 0.1f);
+                Debug.Log("Teste");
+                InvokeRepeating("GoingOutTutorial", 0, 0.1f);
+                //InvokeRepeating("GoingOutExit", 0, 0.1f);
                 //tutorialMenu.SetActive(false);
             });
         }
