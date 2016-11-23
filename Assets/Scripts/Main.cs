@@ -7,7 +7,6 @@ using System;
 
 public class Main : MonoBehaviour
 {
-    public bool isMenu = true;
     public bool active;
     public bool hasActivate;
 
@@ -95,10 +94,7 @@ public class Main : MonoBehaviour
 
     void OnApplicationFocus(bool focusStatus)
     {
-        if (!isMenu)
-        {
-            Cursor.visible = false;
-        }
+        Cursor.visible = false;
     }
 
     public void GameOver()
