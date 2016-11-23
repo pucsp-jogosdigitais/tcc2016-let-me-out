@@ -13305,7 +13305,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 182606, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
       propertyPath: m_Name
-      value: DoorWrapper (porta2 (8)) (3)
+      value: PortaInicio
       objectReference: {fileID: 0}
     - target: {fileID: 11440880, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
       propertyPath: doorAnim
@@ -24352,7 +24352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   audioSource: {fileID: 0}
-  eventName: espacoParaInteragir
+  eventName: pegueOCelular
 --- !u!1 &1013743587
 GameObject:
   m_ObjectHideFlags: 0
@@ -37784,8 +37784,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1684523134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.427, y: 0.6204572, z: 3.7705994}
-  m_LocalScale: {x: 0.67528886, y: 1.4007981, z: 0.9880078}
+  m_LocalPosition: {x: 18.525, y: 0.6204572, z: 3.7705994}
+  m_LocalScale: {x: 1.074818, y: 1.4007981, z: 0.9880078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2045776132}
@@ -37803,7 +37803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   audioSource: {fileID: 0}
-  eventName: 
+  eventName: espacoParaInteragir
 --- !u!1 &1684818973
 GameObject:
   m_ObjectHideFlags: 0

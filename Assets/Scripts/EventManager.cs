@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Util;
 
-public class EventManager : MonoBehaviour {
+public class EventManager : MonoBehaviour
+{
 
     static EventManager instance;
 
@@ -13,26 +14,28 @@ public class EventManager : MonoBehaviour {
     }
 
     // Use this for initialization
-	void Start () {
+    void Start()
+    {
         instance = this;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void SetEvent(string eventName)
     {
-        switch(eventName)
+        switch (eventName)
         {
-		case "espacoParaInteragir":
-			SubtitleManager.GetInstance ().SetText ("Pegue o celular");
-			break;
+            case "pegueOCelular":
+                SubtitleManager.GetInstance().SetText("Pegue o celular");
+                break;
 
-		case "espacoParaInteragir2":
-			SubtitleManager.GetInstance ().SetText ("Pressione ESPAÇO para interagir");
-			break;
+            case "espacoParaInteragir":
+                SubtitleManager.GetInstance().SetText("Pressione [ESPAÇO] para interagir");
+                break;
 
             case "desactivateAllCameras":
                 DesactivateAllCameras();
@@ -44,20 +47,22 @@ public class EventManager : MonoBehaviour {
 
             case "activateIconFlashLight":
                 ActivateIconFlash();
-        break;
+                break;
 
             case "activateIconSmartPhone":
+                GameObject.Find("tutorial").SetActive(false);
+                GameObject.Find("tutorial2").SetActive(false);
                 ActivateIconSmartPhone();
                 break;
 
-		case "initialEvent":
+            case "initialEvent":
 
-            Invoke ("InitialEvent", 3);
-            Invoke("ActivateIconFlash", 3);
-            Invoke ("BabyCry", 5);
-			Invoke ("ActivateBaby", 6);
+                Invoke("InitialEvent", 3);
+                Invoke("ActivateIconFlash", 3);
+                Invoke("BabyCry", 5);
+                Invoke("ActivateBaby", 6);
 
-			//Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
+                //Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
 
                 break;
 
@@ -73,17 +78,17 @@ public class EventManager : MonoBehaviour {
 
                 break;
 
-		case "activatePart2":
+            case "activatePart2":
 
                 ActivatePartPicture(Constants.PictureP2Item);
-               
+
                 HelperUtil.FindGameObject(GameObject.Find("Eventos"), "Item2").SetActive(true);
 
                 break;
 
-		case "activateAnimPart2":
+            case "activateAnimPart2":
 
-				Debug.Log("anim porta 2");
+                Debug.Log("anim porta 2");
                 HelperUtil.FindGameObject(GameObject.Find("Quadros de Enfeite"), "Q01").GetComponent<Animator>().SetTrigger("activate");
                 break;
 
@@ -93,7 +98,7 @@ public class EventManager : MonoBehaviour {
                 Monster.GetInstance().SetVisibility(true);
                 Monster.GetInstance().mosterNV.enabled = true;
 
-				Monster.GetInstance().gameObject.transform.position = new Vector3(270.67f, 4.449f, 237.2929f);
+                Monster.GetInstance().gameObject.transform.position = new Vector3(270.67f, 4.449f, 237.2929f);
                 //Monster.GetInstance().gameObject.transform.position = new Vector3(271.5951f, 4.449f, 237.2929f);
                 Monster.GetInstance().mosterNV.destination = GameObject.Find("AlvoBebe").transform.position;
 
@@ -136,7 +141,7 @@ public class EventManager : MonoBehaviour {
                 GameObject.Find("portaFinal").GetComponent<Animator>().SetTrigger("open2");
 
                 HelperUtil.FindGameObject(GameObject.Find("Iluminação"), "spotPortaBebe").SetActive(true);
-                HelperUtil.FindGameObject (GameObject.Find ("Iluminação"), "luzParte3").GetComponentInChildren<Light> ().range = 4;
+                HelperUtil.FindGameObject(GameObject.Find("Iluminação"), "luzParte3").GetComponentInChildren<Light>().range = 4;
 
                 FadeInScreen();
                 Invoke("FadeOutScreen", 1.8f);
@@ -179,7 +184,7 @@ public class EventManager : MonoBehaviour {
             {
                 if (item.CodItem.Contains(itemCod))
                 {
-                    if(item.hide)
+                    if (item.hide)
                     {
                         item.Show();
                     }
@@ -200,7 +205,7 @@ public class EventManager : MonoBehaviour {
     private void ContinueIconFlash()
     {
         GameObject.Find("IconeLanterna").GetComponent<CanvasGroup>().alpha += 0.01f;
-        
+
         if (GameObject.Find("IconeLanterna").GetComponent<CanvasGroup>().alpha < 0.5)
         {
             Invoke("ContinueIconFlash", 0.10f);
@@ -279,7 +284,7 @@ public class EventManager : MonoBehaviour {
     private void ActivateCameraEventPicture()
     {
         HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
-        
+
         GameObject.Find("CameraLockCameraPicture1").GetComponent<Camera>().enabled = true;
         GameObject.Find("CameraLockCameraPicture1").GetComponent<Animator>().SetTrigger("activate");
     }
@@ -362,7 +367,7 @@ public class EventManager : MonoBehaviour {
 
     private void InitialEvent()
     {
-		Player.GetInstance ().Items.Add ("ativar lanterna");
+        Player.GetInstance().Items.Add("ativar lanterna");
 
         GameObject lightsFather = GameObject.Find("Desativaveis");
 
@@ -393,10 +398,10 @@ public class EventManager : MonoBehaviour {
 
         foreach (DoorWrapper door in doors)
         {
-			door.typeAnim = DoorWrapper.DoorAnim.Shaked;
-			//door.relatedItem = string.Empty;
+            door.typeAnim = DoorWrapper.DoorAnim.Shaked;
+            //door.relatedItem = string.Empty;
         }
 
-		GameObject.Find ("PortaBanheiro").GetComponent<DoorWrapper> ().typeAnim = DoorWrapper.DoorAnim.Locked;
+        GameObject.Find("PortaBanheiro").GetComponent<DoorWrapper>().typeAnim = DoorWrapper.DoorAnim.Locked;
     }
 }

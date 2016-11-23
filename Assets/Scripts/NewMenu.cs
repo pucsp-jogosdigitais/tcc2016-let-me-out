@@ -121,7 +121,8 @@ public class NewMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (context == MenuContext.Menu || context == MenuContext.InGame)
+        if (context == MenuContext.InGame && Player.GetInstance().Items.Contains(Constants.PhoneItem))
+        //if (context == MenuContext.Menu || context == MenuContext.InGame)
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
@@ -832,6 +833,11 @@ public class NewMenu : MonoBehaviour
             //Vector2 newPos = new Vector2 (initialPos.x, initialPos.y + (i * -120));
 
             GameObject currItem = null;
+
+            //if(items[i] == Constants.PhoneItem)
+            //{
+            //    continue;
+            //}
 
             switch (items[i])
             {

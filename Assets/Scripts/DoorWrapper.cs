@@ -87,7 +87,7 @@ public class DoorWrapper : MonoBehaviour
     {
         bool unlucked = false;
 
-        if (string.IsNullOrEmpty(relatedItem) || Player.GetInstance().Items.Contains(relatedItem))
+        if (string.IsNullOrEmpty(relatedItem) || Player.GetInstance().Items.Contains(relatedItem) || Player.GetInstance().Actions.Contains(relatedItem))
         {
             unlucked = true;
             Debug.Log("aberto");

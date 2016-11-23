@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public GameObject hairCross;
 
     List<string> items;
+    List<string> actions;
 
     public static Player GetInstance()
     {
@@ -53,6 +54,7 @@ public class Player : MonoBehaviour
     {
         instance = this;
         items = new List<string>();
+        actions = new List<string>();
 
         InitAnimViggete();
     }
@@ -113,9 +115,9 @@ public class Player : MonoBehaviour
                 case "Item":
                     if (IsActiveItem(hitInfo))
                     {
-						if (hitInfo.collider.gameObject.name.Contains ("celular")) {
-							SubtitleManager.GetInstance ().SetText ("[ESPACO] para interagir");
-						}
+                        //if (hitInfo.collider.gameObject.name.Contains ("celular")) {
+                        //    SubtitleManager.GetInstance ().SetText ("[ESPACO] para interagir");
+                        //}
 
                         ActivateAnimHand();
                         GetItem(hitInfo);
@@ -248,5 +250,10 @@ public class Player : MonoBehaviour
     public List<string> Items
     {
         get { return items; }
+    }
+
+    public List<string> Actions
+    {
+        get { return actions; }
     }
 }

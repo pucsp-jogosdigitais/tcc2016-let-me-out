@@ -205,7 +205,9 @@ public class Main : MonoBehaviour
                 if (!hasActivate)
                 {
                     GameObject.Find("IconeSmartphone").GetComponent<Animator>().SetTrigger("desactivate");
+
                     hasActivate = true;
+                    
                 }
             }
 
