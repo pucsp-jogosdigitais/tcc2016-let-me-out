@@ -17,5 +17,6 @@ public static class Constants
 
     public const string Fireplace = "Fireplace";
     public const string StockWood = "Stock Wood";
-    
+
+    public const string ActionGetPhone = "ativou_celular";
 }
