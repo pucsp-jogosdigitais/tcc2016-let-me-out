@@ -83,13 +83,10 @@ public class EventManager : MonoBehaviour
                 ActivatePartPicture(Constants.PictureP2Item);
 
                 HelperUtil.FindGameObject(GameObject.Find("Eventos"), "Item2").SetActive(true);
-
                 break;
 
             case "activateAnimPart2":
-
-                Debug.Log("anim porta 2");
-                HelperUtil.FindGameObject(GameObject.Find("Quadros de Enfeite"), "Q01").GetComponent<Animator>().SetTrigger("activate");
+                HelperUtil.FindGameObject(GameObject.Find("Quadros de Enfeite"), "Q01").GetComponent<Animator>().SetTrigger("activate");                
                 break;
 
             case "activatePart3":
