@@ -364,7 +364,7 @@ public class EventManager : MonoBehaviour
 
     private void InitialEvent()
     {
-        Player.GetInstance().Items.Add("ativar lanterna");
+        Player.GetInstance().Actions.Add(Constants.ActionGetFlashLight);
 
         GameObject lightsFather = GameObject.Find("Desativaveis");
 

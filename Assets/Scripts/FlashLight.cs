@@ -27,7 +27,7 @@ public class FlashLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (!GameInfo.paused && Player.GetInstance().Items.Contains("ativar lanterna") && Main.GetInstance().hasActivate)
+		if (!GameInfo.paused && Player.GetInstance().Actions.Contains(Constants.ActionGetFlashLight) && Main.GetInstance().hasActivate)
         { 
 
             //if (Input.GetButtonDown("Fire1"))
@@ -35,10 +35,10 @@ public class FlashLight : MonoBehaviour
             {
                 GameObject.Find("IconeLanterna").GetComponent<Animator>().SetTrigger("desactivate");
 
-                if(!hasActivate)
-                {
-                    Player.GetInstance().Items.Add("flashlight");
-                }
+                //if(!hasActivate)
+                //{
+                //    Player.GetInstance().Items.Add("flashlight");
+                //}
 
                 /*
                     if (!hasActivate)

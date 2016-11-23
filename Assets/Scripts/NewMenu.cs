@@ -839,6 +839,8 @@ public class NewMenu : MonoBehaviour
             //    continue;
             //}
 
+            Debug.Log(items[i]);
+
             switch (items[i])
             {
                 case Constants.PhoneItem:
@@ -903,13 +905,14 @@ public class NewMenu : MonoBehaviour
 			bgTitleInventory.SetActive (true);
 			titleInventory.SetActive (true);
 
-			itemsInventory = GameObject.FindGameObjectsWithTag("ItemInventory").ToList();
-
+            //itemsInventory = GameObject.FindGameObjectsWithTag("ItemInventory").ToList();
 
 
 			//itemsInventory.Add (bgTitleInventory);
 			//itemsInventory.Add (titleInventory);
         }
+
+        itemsInventory = GameObject.FindGameObjectsWithTag("ItemInventory").ToList();
     }
 
 

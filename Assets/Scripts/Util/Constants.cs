@@ -13,10 +13,11 @@ public static class Constants
     public const string PictureP3Item = "Pedaço #3";
     public const string PictureP4Item = "Pedaço #4";
 
-    public const string Key = "Key";
+    public const string Key = "Chave";
 
     public const string Fireplace = "Fireplace";
     public const string StockWood = "Stock Wood";
 
     public const string ActionGetPhone = "ativou_celular";
+    public const string ActionGetFlashLight = "ativou_lanterna";
 }

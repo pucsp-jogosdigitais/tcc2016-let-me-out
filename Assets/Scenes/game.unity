@@ -16023,7 +16023,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11440880, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
       propertyPath: relatedItem
-      value: chave
+      value: Chave
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
@@ -17908,7 +17908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currType: 0
   hide: 0
-  codItem: chave
+  codItem: Chave
   sub: Pegou a chave
   subRelatedItem: 
   relatedItemCod: 
@@ -42289,27 +42289,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6329d632d376ec849a82718b7bf3af39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMenu: 0
-  babyMonster: {fileID: 441403276}
-  menuCelular: {fileID: 401676681}
-  menu: {fileID: 1671907344}
-  menuPrincipal: {fileID: 694517420}
-  menuItens: {fileID: 2000911033}
-  menuConfig: {fileID: 77788789}
-  menuSair: {fileID: 982557078}
   active: 0
-  dropDownResolucoes: {fileID: 1466030096}
-  dropDownQualidade: {fileID: 1220083610}
-  sliderMouseSensivity: {fileID: 344058840}
-  sliderEfeitosSonoros: {fileID: 713871138}
-  brightness: {fileID: 1758244642}
-  itemTemplate: {fileID: 196158, guid: bdec912e30623e94180605192491b7d9, type: 2}
+  hasActivate: 0
   gameOverImage: {fileID: 788349796}
   animSmartPhone: {fileID: 391579008}
   cursor: {fileID: 2800000, guid: e0560841a62ce854fa70e3e896f8aca7, type: 3}
-  hasActivate: 0
-  hasDesactivate: 0
-  hairCross: {fileID: 1198158880}
 --- !u!4 &1909321460
 Transform:
   m_ObjectHideFlags: 0
