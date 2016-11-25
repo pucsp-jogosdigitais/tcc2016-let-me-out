@@ -701,7 +701,7 @@ RectTransform:
   m_RootOrder: 7
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -21, y: 11}
+  m_AnchoredPosition: {x: -159.3, y: 12.4}
   m_SizeDelta: {x: 369.61, y: 78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &499769628
@@ -747,7 +747,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'PINTORES:'
+  m_Text: 'PINTORES DOS QUADROS:'
 --- !u!222 &499769630
 CanvasRenderer:
   m_ObjectHideFlags: 0
