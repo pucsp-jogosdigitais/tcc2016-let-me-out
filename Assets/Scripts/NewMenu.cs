@@ -121,8 +121,8 @@ public class NewMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (context == MenuContext.InGame && Player.GetInstance().Items.Contains(Constants.PhoneItem))
-        //if (context == MenuContext.Menu || context == MenuContext.InGame)
+		//if (context == MenuContext.InGame && Player.GetInstance().Items.Contains(Constants.PhoneItem) || context == MenuContext.Menu)
+        if (context == MenuContext.Menu || context == MenuContext.InGame)
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
@@ -165,15 +165,17 @@ public class NewMenu : MonoBehaviour
     }
 
     public void DesactivateMenu()
-    {
-        if (!inAnimation)
-        {
+    {		
+        //if (!inAnimation)
+        //{
+			Debug.Log ("abcde");
+
             inAnimation = true;
 
             animatorSmartphone.SetTrigger("bounceOut");
             Invoke("DesactivateSmartPhone", 2.1f);
             Invoke("ReactivatePlayer", 2.1f);
-        }
+        //}
     }
 
 	private void ReactivatePlayer()
@@ -721,12 +723,15 @@ public class NewMenu : MonoBehaviour
     {
         if (!inAnimation)
         {
-            if (currMenu != Menu.Default)
-            {
+
                 inAnimation = true;
 
                 switch (currMenu)
                 {
+			case Menu.Default:
+				Debug.Log ("teste");	
+					DesactivateMenu ();
+					break;
                     case Menu.Items:
                         InvokeRepeating("GoingOutInventory", 0, tickAnim);
                         break;
@@ -735,9 +740,7 @@ public class NewMenu : MonoBehaviour
                         break;
                 }
 
-                InvokeRepeating("GoingInMenu", 0.8f, 0.1f);
-            }
-        }
+                InvokeRepeating("GoingInMenu", 0.8f, 0.1f);        }
     }
 
     public void EnterConfig()

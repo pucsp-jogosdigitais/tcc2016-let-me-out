@@ -34,7 +34,7 @@ public class DefaultMenu : MonoBehaviour {
 
         buttonOptions.GetComponent<Button>().onClick.AddListener(delegate
         {
-            Application.Quit();
+				NewMenu.GetInstance().ActivateMenu();
         });
 	}
 	
