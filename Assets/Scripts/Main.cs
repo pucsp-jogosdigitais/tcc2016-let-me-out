@@ -65,7 +65,7 @@ public class Main : MonoBehaviour
     {
 		if(Input.GetKeyDown(KeyCode.L))
 		{
-			EventManager.GetInstance ().SetEvent ("babyPersecution");
+			EventManager.GetInstance ().SetEvent ("activatePart3");
 		}
 
         if (GameInfo.gameOver)
