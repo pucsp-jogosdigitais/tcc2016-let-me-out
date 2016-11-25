@@ -27154,21 +27154,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.22, y: 1.7, z: 1}
   m_Center: {x: 0, y: 0.57, z: 0}
---- !u!114 &1121162382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1121162379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1380150050ba3bb43bad61fa47e14364, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camTransform: {fileID: 1934310408}
-  shakeDuration: 0
-  shakeAmount: 0.7
-  decreaseFactor: 1
 --- !u!82 &1121162385
 AudioSource:
   m_ObjectHideFlags: 0

@@ -35,11 +35,6 @@ public class Player : MonoBehaviour
         return GameObject.Find("Player").GetComponent<Transform>();
     }
 
-    public static CameraShake GetShake()
-    {
-        return GameObject.Find("Player").GetComponent<CameraShake>();
-    }
-
     public static VignetteAndChromaticAberration GetVignette()
     {
         return GameObject.Find("FirstPersonCharacter").GetComponent<VignetteAndChromaticAberration>();
