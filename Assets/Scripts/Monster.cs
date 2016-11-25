@@ -2,9 +2,13 @@
 using System.Collections;
 using UnityStandardAssets.ImageEffects;
 using UnityStandardAssets.Characters.FirstPerson;
+using System.Collections.Generic;
+using System.Linq;
 
 public class Monster : MonoBehaviour
 {
+
+	public enum MonsterAnimation { Idle1 = 0, Idle2 = 1, Crawl = 2, Walk = 3 };
     public enum MonsterActionState { Spawn, Persecution, Rest };
     public MonsterActionState currActionState;
 
@@ -27,6 +31,23 @@ public class Monster : MonoBehaviour
         return instance;
     }
 
+	public static Animation GetAnimation()
+	{
+		return instance.GetComponentInChildren<Animation> ();
+	}
+
+	public static void SetAnimationState(MonsterAnimation index)
+	{
+		List<AnimationState> states;
+		Animation anim = GetAnimation();
+		states = new List<AnimationState>(anim.Cast<AnimationState>());
+
+		anim.Stop();
+		anim.clip = states[(int)index].clip;
+		Debug.Log(anim.clip.name);
+		anim.Play();
+	}
+
     public static AudioSource GetInstanceAudioSource()
     {
         return GameObject.FindGameObjectWithTag("BabyMonster").GetComponent<AudioSource>();
@@ -42,6 +63,8 @@ public class Monster : MonoBehaviour
 
     void Update()
     {
+
+		Debug.Log (GetAnimation());
 
         switch(currActionState)
         {

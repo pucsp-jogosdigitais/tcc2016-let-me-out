@@ -89,11 +89,12 @@ public class EventManager : MonoBehaviour
                 HelperUtil.FindGameObject(GameObject.Find("Quadros de Enfeite"), "Q01").GetComponent<Animator>().SetTrigger("activate");                
                 break;
 
-            case "activatePart3":
-                Monster.GetInstance().CancelAttack();
-                Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
-                Monster.GetInstance().SetVisibility(true);
-                Monster.GetInstance().mosterNV.enabled = true;
+		case "activatePart3":
+			Monster.GetInstance ().CancelAttack ();
+			Monster.GetInstance ().currActionState = Monster.MonsterActionState.Rest;
+			Monster.GetInstance ().SetVisibility (true);
+			Monster.GetInstance ().mosterNV.enabled = true;
+			Monster.SetAnimationState (Monster.MonsterAnimation.Crawl);
 
                 Monster.GetInstance().gameObject.transform.position = new Vector3(270.67f, 4.449f, 237.2929f);
                 //Monster.GetInstance().gameObject.transform.position = new Vector3(271.5951f, 4.449f, 237.2929f);
@@ -128,7 +129,8 @@ public class EventManager : MonoBehaviour
 
                 //Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
                 Monster.GetInstance().PersecutionMode();
-                Player.GetMotionBlur().blurAmount = 0.6f;
+			Monster.SetAnimationState (Monster.MonsterAnimation.Crawl);
+				Player.GetMotionBlur().blurAmount = 0.6f;
                 break;
 
             case "babyRest":
@@ -342,6 +344,7 @@ public class EventManager : MonoBehaviour
         Monster.GetInstance().currActionState = Monster.MonsterActionState.Spawn;
         Monster.GetInstance().SetVisibility(false);
         Monster.GetInstance().mosterNV.enabled = false;
+		Monster.SetAnimationState (Monster.MonsterAnimation.Idle1);
 
         HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
         GameObject.Find("CameraLockClosedRoom").GetComponent<Camera>().enabled = false;
