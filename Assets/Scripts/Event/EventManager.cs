@@ -304,6 +304,26 @@ public class EventManager : MonoBehaviour
 
         GameObject.Find("CameraLockClosedRoom").GetComponent<Camera>().enabled = true;
         GameObject.Find("CameraLockClosedRoom").GetComponent<Animator>().SetTrigger("activate");
+
+        Invoke("PlaySoundViolin", 2);
+    }
+
+    private void PlaySoundViolin()
+    {
+        HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundViolin").SetActive(true);
+
+        Invoke("DecreaseVolumeSoundViolin", 2);
+    }
+
+    private void DecreaseVolumeSoundViolin()
+    {
+        GameObject audioGO = HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundViolin");
+        AudioSource audio = audioGO.GetComponent<AudioSource>();
+        audio.volume -= 0.1f;
+
+        if (audio.volume > 0.01) {
+            Invoke("DecreaseVolumeSoundViolin", 0.20f);
+        }
     }
 
     private void ActivateCameraRoomBaby()
