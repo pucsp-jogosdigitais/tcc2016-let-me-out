@@ -15,6 +15,7 @@ public static class InitialConfig {
 		}
 
 		if (PlayerPrefs.HasKey ("mouseSensivity")) {
+            Debug.Log(PlayerPrefs.HasKey("mouseSensivity"));
 			GameInfo.mouseSensivity = PlayerPrefs.GetFloat("mouseSensivity");
 		}
 

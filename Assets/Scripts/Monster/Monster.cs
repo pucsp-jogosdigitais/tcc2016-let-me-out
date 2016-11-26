@@ -63,9 +63,6 @@ public class Monster : MonoBehaviour
 
     void Update()
     {
-
-		Debug.Log (GetAnimation());
-
         switch(currActionState)
         {
             case MonsterActionState.Spawn:
