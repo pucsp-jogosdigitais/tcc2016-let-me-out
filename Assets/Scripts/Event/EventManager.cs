@@ -289,8 +289,22 @@ public class EventManager : MonoBehaviour
 
         GameObject.Find("CameraLockCameraPicture1").GetComponent<Camera>().enabled = true;
         GameObject.Find("CameraLockCameraPicture1").GetComponent<Animator>().SetTrigger("activate");
+        HelperUtil.FindGameObject(GameObject.Find("Audio"), "BackgroundMusic").SetActive(true);
 
+        IncreaseVolumeBackgroundMusic();
         Invoke("PlayWomanEssaMolduraNaoENossa", 1.5f);
+    }
+
+    private void IncreaseVolumeBackgroundMusic()
+    {
+        GameObject audioGO = HelperUtil.FindGameObject(GameObject.Find("Audio"), "BackgroundMusic");
+        AudioSource audio = audioGO.GetComponent<AudioSource>();
+        audio.volume += 0.01f;
+
+        if (audio.volume < 0.1)
+        {
+            Invoke("IncreaseVolumeBackgroundMusic", 0.20f);
+        }
     }
 
     private void PlayWomanEssaMolduraNaoENossa()
@@ -367,7 +381,6 @@ public class EventManager : MonoBehaviour
     {
         //HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
         GameObject.Find("CameraLockCameraPicture1").GetComponent<Camera>().enabled = false;
-        HelperUtil.FindGameObject(GameObject.Find("Audio"), "BackgroundMusic").SetActive(true);
     }
 
     private void DesactivateCameraOpenRoom()
