@@ -183,8 +183,9 @@ public class NewMenu : MonoBehaviour
 		Player p = Player.GetInstance ();
 
 		if (p != null) {
-			Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(GameInfo.mouseSensivity * 10, GameInfo.mouseSensivity * 10);
+			Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(GameInfo.mouseSensivity, GameInfo.mouseSensivity);
             Player.GetInstance().GetComponent<FirstPersonController>().enabled = true;
+            Debug.Log(GameInfo.mouseSensivity);
 		}
 
 	}
@@ -774,9 +775,9 @@ public class NewMenu : MonoBehaviour
 
     public void OnChangeSensivity()
     {
-        PlayerPrefs.SetFloat("mouseSensivity", sliderSensivity.GetComponent<Slider>().value * 10);
+        PlayerPrefs.SetFloat("mouseSensivity", sliderSensivity.GetComponent<Slider>().value * 8);
         PlayerPrefs.Save();
-        GameInfo.mouseSensivity = sliderSensivity.GetComponent<Slider>().value * 10;
+        GameInfo.mouseSensivity = sliderSensivity.GetComponent<Slider>().value * 8;
     }
 
     public void ChangeScreenSize()
