@@ -127,6 +127,9 @@ public class EventManager : MonoBehaviour
 
                 break;
 
+            case "audioVidroArranhado":
+                Invoke("ActivateSoundVidroArranhado", 0.6f);
+                break;
 
             case "babyPersecution":
 
@@ -172,6 +175,11 @@ public class EventManager : MonoBehaviour
 
                 break;
         }
+    }
+
+    private void ActivateSoundVidroArranhado()
+    {
+        HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundVidroArranhado").SetActive(true);
     }
 
     private void ActivatePartPicture(string itemCod)
@@ -335,7 +343,8 @@ public class EventManager : MonoBehaviour
         AudioSource audio = audioGO.GetComponent<AudioSource>();
         audio.volume -= 0.1f;
 
-        if (audio.volume > 0.01) {
+        if (audio.volume > 0.01)
+        {
             Invoke("DecreaseVolumeSoundViolin", 0.20f);
         }
     }
