@@ -25,12 +25,7 @@ public class Item : MonoBehaviour
     [SerializeField]
     string eventItem;
 
-    int pictureCounter = 4;
-
-    int clickCounter = 0;
     bool hasClicked = false;
-
-	bool hasCompletedPicture;
 
     void Start()
     {
@@ -132,117 +127,9 @@ public class Item : MonoBehaviour
                     {
                         SubtitleManager.GetInstance().SetText("Você já tem lenha");
                     }
-
-
-                    break;
-
-			case ItemType.Picture:
-
-				string[] partsPicture = new string[] {
-					Constants.PictureP1Item,
-					Constants.PictureP2Item,
-					Constants.PictureP3Item,
-					Constants.PictureP4Item
-				};
-
-				clickCounter += 1;
-
-				Debug.Log (clickCounter);
-
-				if (hasCompletedPicture) {
-					EventManager.GetInstance().SetEvent("babyPersecution");
-					PartsToCompletePicture(partsPicture);
-					SubtitleManager.GetInstance().SetText("Quadro completo");
-					gameObject.SetActive(false);
-				}
-
-                    if (clickCounter > 2)
-                    {
-                        AudioRepository audioRepo = AudioRepository.GetInstance();
-
-                        if(!audioRepo.gameObject.GetComponent<AudioSource>().isPlaying)
-                        {
-                            audioRepo.gameObject.GetComponent<AudioSource>().clip = audioRepo.incompletePictureAudio;
-                            audioRepo.gameObject.GetComponent<AudioSource>().Play();
-                        }
-                    }
-
-                    Invoke("ResetCounter", 30f);
-
-                    AddPartsPicture(partsPicture);
-
-                    if (pictureCounter > 0)
-                    {
-                        SubtitleManager.GetInstance().SetText("Quadro incompleto");
-                    }
-                    else
-                    {
-						/*
-                        EventManager.GetInstance().SetEvent("babyPersecution");
-                        PartsToCompletePicture(partsPicture);
-                        SubtitleManager.GetInstance().SetText("Quadro completo");
-                        gameObject.SetActive(false);*/
-
-					hasCompletedPicture = true;
-
-                        HelperUtil.FindGameObject(GameObject.Find("Sangue pós quarta foto"), "SangueContainer").SetActive(true);
-                    }
-
-					
-
                     break;
             }
         }
-    }
-
-    void ResetCounter()
-    {
-        clickCounter = 0;
-    }
-
-    void FillPicture(string codPicture)
-    {
-        if (Player.GetInstance().Items.Contains(codPicture))
-        {
-            if (!GameObject.Find(codPicture).GetComponent<MeshRenderer>().enabled)
-            {
-                pictureCounter -= 1;
-                GameObject.Find(codPicture).GetComponent<MeshRenderer>().enabled = true;
-
-                switch(codPicture)
-                {
-                    case Constants.PictureP1Item:
-                        EventManager.GetInstance().SetEvent("activatePart2");
-                        break;
-
-                    case Constants.PictureP2Item:
-                        EventManager.GetInstance().SetEvent("activatePart3");
-                        break;
-
-                    case Constants.PictureP3Item:
-                        EventManager.GetInstance().SetEvent("activatePart4");
-                        break;
-                }
-            }
-        }
-    }
-
-    void AddPartsPicture(string[] parts)
-    {
-        foreach (string part in parts)
-        {
-            FillPicture(part);
-        }
-    }
-
-    void PartsToCompletePicture(string[] parts)
-    {
-        foreach (string part in parts)
-        {
-            Player.GetInstance().Items.Remove(part);
-        }
-
-        Player.GetInstance().Items.Add(Constants.PictureItem);
     }
 
     void SetVisibility(bool visibility)
