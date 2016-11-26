@@ -97,8 +97,8 @@ public class EventManager : MonoBehaviour
 			Monster.GetInstance ().mosterNV.enabled = true;
 			Monster.SetAnimationState (Monster.MonsterAnimation.Crawl);
 
-                Monster.GetInstance().gameObject.transform.position = new Vector3(270.67f, 4.449f, 237.2929f);
-                //Monster.GetInstance().gameObject.transform.position = new Vector3(271.5951f, 4.449f, 237.2929f);
+                Monster.GetInstance().gameObject.transform.position = new Vector3(269.02f, 4.449f, 237.2929f);
+                //Monster.GetInstance().gameObject.transform.position = new Vector3(270.67f, 4.449f, 237.2929f);
                 Monster.GetInstance().mosterNV.destination = GameObject.Find("AlvoBebe").transform.position;
 
                 ActivatePartPicture(Constants.PictureP3Item);
