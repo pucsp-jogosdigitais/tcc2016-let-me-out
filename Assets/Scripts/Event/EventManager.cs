@@ -290,7 +290,7 @@ public class EventManager : MonoBehaviour
         GameObject.Find("CameraLockCameraPicture1").GetComponent<Camera>().enabled = true;
         GameObject.Find("CameraLockCameraPicture1").GetComponent<Animator>().SetTrigger("activate");
 
-        Invoke("PlayWomanEssaMolduraNaoENossa", 2);
+        Invoke("PlayWomanEssaMolduraNaoENossa", 1.5f);
     }
 
     private void PlayWomanEssaMolduraNaoENossa()
