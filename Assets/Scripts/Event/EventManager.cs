@@ -386,6 +386,8 @@ public class EventManager : MonoBehaviour
         {
             light.range = 0;
         }
+
+        HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundLightOff").SetActive(true);
     }
 
     private void BabyCry()
