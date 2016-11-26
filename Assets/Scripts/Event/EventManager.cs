@@ -90,16 +90,18 @@ public class EventManager : MonoBehaviour
                 HelperUtil.FindGameObject(GameObject.Find("Quadros de Enfeite"), "Q01").GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 break;
 
-		case "activatePart3":
-			Monster.GetInstance ().CancelAttack ();
-			Monster.GetInstance ().currActionState = Monster.MonsterActionState.Rest;
-			Monster.GetInstance ().SetVisibility (true);
-			Monster.GetInstance ().mosterNV.enabled = true;
-			Monster.SetAnimationState (Monster.MonsterAnimation.Crawl);
+            case "activatePart3":
+                Monster.GetInstance().CancelAttack();
+                Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
+                Monster.GetInstance().SetVisibility(false);
 
-                Monster.GetInstance().gameObject.transform.position = new Vector3(269.02f, 4.449f, 237.2929f);
+                FalseMonster.GetInstance().Activate();
+
+                //Monster.GetInstance ().mosterNV.enabled = true;
+                //Monster.SetAnimationState (Monster.MonsterAnimation.Crawl);
+                //Monster.GetInstance().gameObject.transform.position = new Vector3(269.02f, 4.449f, 237.2929f);
                 //Monster.GetInstance().gameObject.transform.position = new Vector3(270.67f, 4.449f, 237.2929f);
-                Monster.GetInstance().mosterNV.destination = GameObject.Find("AlvoBebe").transform.position;
+                //Monster.GetInstance().mosterNV.destination = GameObject.Find("AlvoBebe").transform.position;
 
                 ActivatePartPicture(Constants.PictureP3Item);
                 GameObject.Find("PortaChave").GetComponent<DoorWrapper>().typeAnim = DoorWrapper.DoorAnim.Locked;
@@ -130,8 +132,8 @@ public class EventManager : MonoBehaviour
 
                 //Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
                 Monster.GetInstance().PersecutionMode();
-			Monster.SetAnimationState (Monster.MonsterAnimation.Crawl);
-				Player.GetMotionBlur().blurAmount = 0.6f;
+                Monster.SetAnimationState(Monster.MonsterAnimation.Crawl);
+                Player.GetMotionBlur().blurAmount = 0.6f;
                 break;
 
             case "babyRest":
@@ -353,7 +355,9 @@ public class EventManager : MonoBehaviour
         Monster.GetInstance().currActionState = Monster.MonsterActionState.Spawn;
         Monster.GetInstance().SetVisibility(false);
         Monster.GetInstance().mosterNV.enabled = false;
-		Monster.SetAnimationState (Monster.MonsterAnimation.Idle1);
+        Monster.SetAnimationState(Monster.MonsterAnimation.Idle1);
+
+        FalseMonster.GetInstance().Desactivate();
 
         //HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
         GameObject.Find("CameraLockClosedRoom").GetComponent<Camera>().enabled = false;
