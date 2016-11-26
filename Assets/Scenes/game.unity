@@ -26424,7 +26424,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11440880, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
       propertyPath: relatedItem
-      value: 
+      value: NULL_ITEM
       objectReference: {fileID: 0}
     - target: {fileID: 11440880, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
       propertyPath: sub
@@ -27552,6 +27552,10 @@ Prefab:
     - target: {fileID: 406412, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
       propertyPath: m_LocalScale.z
       value: 2.037417
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440880, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
+      propertyPath: relatedItem
+      value: NULL_ITEM
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45a7d5597d30f1b4b8f556c2ec306e15, type: 2}
@@ -43694,7 +43698,7 @@ MonoBehaviour:
   incompletePictureAudio: {fileID: 8300000, guid: 723389f714c634c4d8831a33fa370646,
     type: 3}
   doorLocked: {fileID: 8300000, guid: 917342af886a6b443a5b7d07d0531ca2, type: 3}
-  doorShaked: {fileID: 8300000, guid: 2c459226d37ac144aa440ef904cb84d5, type: 3}
+  doorShaked: {fileID: 8300000, guid: a455283a22c91904fac1757b8caf4c13, type: 3}
   doorOpen: {fileID: 8300000, guid: 18e75f4aef3861a49b2e88a5ff17d9f6, type: 3}
 --- !u!82 &1909321465
 AudioSource:

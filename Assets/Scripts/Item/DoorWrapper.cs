@@ -62,7 +62,9 @@ public class DoorWrapper : MonoBehaviour
                 if(!audio.isPlaying)
                 {
                     audio.clip = AudioRepository.GetInstance().doorShaked;
+                    doorAnim.SetTrigger("shake");
                     audioOpenDoor.Play();
+                    EventManager.GetInstance().SetEvent("lockDoors");
                 }
 
                 break;
