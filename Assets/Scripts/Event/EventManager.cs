@@ -338,6 +338,7 @@ public class EventManager : MonoBehaviour
     {
         //HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
         GameObject.Find("CameraLockCameraPicture1").GetComponent<Camera>().enabled = false;
+        HelperUtil.FindGameObject(GameObject.Find("Audio"), "BackgroundMusic").SetActive(true);
     }
 
     private void DesactivateCameraOpenRoom()
