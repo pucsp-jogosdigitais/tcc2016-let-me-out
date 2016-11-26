@@ -272,7 +272,7 @@ public class EventManager : MonoBehaviour
     private void ActivatePlayerCamera()
     {
         Player.GetCamera().enabled = true;
-        HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
+        //HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
     }
 
     private void DesactivatePlayerCamera()
@@ -283,7 +283,7 @@ public class EventManager : MonoBehaviour
 
     private void ActivateCameraEventPicture()
     {
-        HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
+        //HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
 
         GameObject.Find("CameraLockCameraPicture1").GetComponent<Camera>().enabled = true;
         GameObject.Find("CameraLockCameraPicture1").GetComponent<Animator>().SetTrigger("activate");
@@ -291,7 +291,7 @@ public class EventManager : MonoBehaviour
 
     private void ActivateCameraOpenRoom()
     {
-        HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
+        //HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
 
         GameObject.Find("CameraLockClosedRoom").GetComponent<Camera>().enabled = true;
         GameObject.Find("CameraLockClosedRoom").GetComponent<Animator>().SetTrigger("activate");
@@ -299,21 +299,21 @@ public class EventManager : MonoBehaviour
 
     private void ActivateCameraRoomBaby()
     {
-        HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
+        //HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
         GameObject.Find("CameraLockOpenDoor").GetComponent<Camera>().enabled = true;
         GameObject.Find("CameraLockOpenDoor").GetComponent<Animator>().SetTrigger("activate");
     }
 
     private void DesactivateCameraRoomBaby()
     {
-        HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
+        //HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
         GameObject.Find("CameraLockOpenDoor").GetComponent<Animator>().SetTrigger("activate");
         GameObject.Find("CameraLockOpenDoor").GetComponent<Camera>().enabled = false;
     }
 
     private void ActivateCameraGameOver()
     {
-        HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
+        //HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
         GameObject.Find("CameraLockBabyRoom").GetComponent<Camera>().enabled = true;
         GameObject.Find("CameraLockBabyRoom").GetComponent<Animator>().SetTrigger("activate");
     }
@@ -336,7 +336,7 @@ public class EventManager : MonoBehaviour
 
     private void DesactivateCameraEventPicture()
     {
-        HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
+        //HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
         GameObject.Find("CameraLockCameraPicture1").GetComponent<Camera>().enabled = false;
     }
 
@@ -347,7 +347,7 @@ public class EventManager : MonoBehaviour
         Monster.GetInstance().mosterNV.enabled = false;
 		Monster.SetAnimationState (Monster.MonsterAnimation.Idle1);
 
-        HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
+        //HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
         GameObject.Find("CameraLockClosedRoom").GetComponent<Camera>().enabled = false;
     }
 

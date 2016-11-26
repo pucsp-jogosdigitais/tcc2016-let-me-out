@@ -36,20 +36,20 @@ namespace Assets.Scripts.Util
             return null;
         }
 
-        /// <summary>
-        /// Ativa/Desativa Renderer GameObject
-        /// </summary>
-        /// <param name="parent"></param>
-        /// <param name="visibility"></param>
-        public static void SetVisibility(GameObject parent, bool visibility)
-        {
-            Renderer[] rs = parent.GetComponentsInChildren<Renderer>();
+        ///// <summary>
+        ///// Ativa/Desativa Renderer GameObject
+        ///// </summary>
+        ///// <param name="parent"></param>
+        ///// <param name="visibility"></param>
+        //public static void SetVisibility(GameObject parent, bool visibility)
+        ////{
+        ////    Renderer[] rs = parent.GetComponentsInChildren<Renderer>();
 
-            foreach (Renderer r in rs)
-            {
-                r.enabled = visibility;
-            }
-        }
+        ////    foreach (Renderer r in rs)
+        ////    {
+        ////        r.enabled = visibility;
+        ////    }
+        ////}
 
         /// <summary>
         /// Realiza busca de GameObjects ativos/inativos pelo nome da tag.
@@ -78,6 +78,30 @@ namespace Assets.Scripts.Util
                 }
             }
             return gameObjects;
+        }
+
+        /// <summary>
+        /// Ativa/Desativa renderização do GameObject
+        /// </summary>
+        /// <param name="gameObject"></param>
+        /// <param name="visibility"></param>
+        public static void SetVisibility(GameObject gameObject, bool visibility)
+        {
+            MeshRenderer mesh = gameObject.GetComponent<MeshRenderer>();
+
+            if (mesh != null)
+            {
+                mesh.enabled = false;
+            }
+            else
+            {
+                Renderer[] rs = gameObject.GetComponentsInChildren<Renderer>();
+
+                foreach (Renderer r in rs)
+                {
+                    r.enabled = visibility;
+                }
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using UnityStandardAssets.ImageEffects;
 using System.Collections.Generic;
 using System;
+using Assets.Scripts.Util;
 
 public class Player : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class Player : MonoBehaviour
         items = new List<string>();
         actions = new List<string>();
 
+        HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
         InitAnimViggete();
     }
 
