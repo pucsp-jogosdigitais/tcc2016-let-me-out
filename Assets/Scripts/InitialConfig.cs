@@ -1,67 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.Characters.FirstPerson;
 
-public static class InitialConfig {
+public static class InitialConfig
+{
+    public static void RestoreConfiguration()
+    {
+        if (PlayerPrefs.HasKey("volumeEffects"))
+        {
+            GameInfo.volumeEffects = PlayerPrefs.GetFloat("volumeEffects");
+        }
 
-	public static void Configure()
-	{
-		RestoreKeyboardConfiguration();
-	}
-
-	public static void RestoreConfiguration()
-	{
-		if (PlayerPrefs.HasKey ("volumeEffects")) {
-			GameInfo.volumeEffects = PlayerPrefs.GetFloat("volumeEffects");
-		}
-
-		if (PlayerPrefs.HasKey ("mouseSensivity")) {
+        if (PlayerPrefs.HasKey("mouseSensivity"))
+        {
             Debug.Log(PlayerPrefs.HasKey("mouseSensivity"));
-			GameInfo.mouseSensivity = PlayerPrefs.GetFloat("mouseSensivity");
-		}
+            GameInfo.mouseSensivity = PlayerPrefs.GetFloat("mouseSensivity");
+        }
 
-		AudioListener.volume = GameInfo.volumeEffects;
-	}
+        AudioListener.volume = GameInfo.volumeEffects;
 
-	public static void RestoreKeyboardConfiguration()
-	{
-		/*
-		if (PlayerPrefs.HasKey ("forward")) {
-			GameInfo.forward = (KeyCode)(PlayerPrefs.GetInt("forward"));
-		}
+		Player p = Player.GetInstance ();
 
-		if (PlayerPrefs.HasKey ("backward")) {
-			GameInfo.backward = (KeyCode)(PlayerPrefs.GetInt("backward"));
-		}
+        if (p != null)
+        {
+            Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(GameInfo.mouseSensivity, GameInfo.mouseSensivity);
+        }
 
-		if (PlayerPrefs.HasKey ("left")) {
-			GameInfo.left = (KeyCode)(PlayerPrefs.GetInt("left"));
-		}
-
-		if (PlayerPrefs.HasKey ("right")) {
-			GameInfo.right = (KeyCode)(PlayerPrefs.GetInt("right"));
-		}
-
-		if (PlayerPrefs.HasKey ("light")) {
-			GameInfo.light = (KeyCode)(PlayerPrefs.GetInt("light"));
-		}*/
-
-		/*
-		if (PlayerPrefs.HasKey ("mouseSensivity")) {
-			GameInfo.mouseSensivity = PlayerPrefs.GetFloat("mouseSensivity");
-		}*/
-
-		/*
-		if (PlayerPrefs.HasKey ("volumeEffects")) {
-			GameInfo.volumeEffects = PlayerPrefs.GetFloat("volumeEffects");
-		}
-
-		if (PlayerPrefs.HasKey ("fullScreen")) {
-			GameInfo.volumeEffects = PlayerPrefs.GetFloat("volumeEffects");
-		}*/
-
-		/*
-		if (PlayerPrefs.HasKey ("volumeEffects")) {
-			GameInfo.volumeEffects = PlayerPrefs.GetFloat("volumeEffects");
-		}*/
-	}
+    }
 }

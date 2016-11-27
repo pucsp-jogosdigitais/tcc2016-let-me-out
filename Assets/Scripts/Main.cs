@@ -39,8 +39,6 @@ public class Main : MonoBehaviour
         DesativarItems(Constants.PictureP2Item, items);
         DesativarItems(Constants.PictureP3Item, items);
         DesativarItems(Constants.PictureP4Item, items);
-
-        InitialConfig.Configure();
     }
 
     private void DesativarItems(string itemCod, GameObject[] itemsGO)

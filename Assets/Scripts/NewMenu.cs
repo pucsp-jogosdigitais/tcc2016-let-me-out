@@ -252,7 +252,7 @@ public class NewMenu : MonoBehaviour
 
 	void RestorePrevConfig()
 	{
-		sliderSensivity.GetComponent<Slider>().value = GameInfo.mouseSensivity / 10;
+		sliderSensivity.GetComponent<Slider>().value = GameInfo.mouseSensivity / 8;
 		sliderSound.GetComponent<Slider>().value = GameInfo.volumeEffects;
 
 		dropDownQualidade.GetComponent<Dropdown> ().value = QualitySettings.GetQualityLevel();
