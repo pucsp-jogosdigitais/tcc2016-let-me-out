@@ -10,7 +10,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class NewMenu : MonoBehaviour
 {
     static NewMenu instance;
-    
+
     public enum MenuContext { Intro, Menu, InGame };
     public MenuContext context;
 
@@ -34,9 +34,9 @@ public class NewMenu : MonoBehaviour
     GameObject tutorialMenu;
     GameObject transitionBgConfig;
     GameObject[] itemsDefaultMenu;
-	List<GameObject> itemsInventory;
+    List<GameObject> itemsInventory;
 
-    
+
     Animator animatorSmartphone;
 
     GameObject callWait;
@@ -56,10 +56,10 @@ public class NewMenu : MonoBehaviour
     GameObject dropDownResolucoes;
     GameObject dropDownQualidade;
     GameObject sliderSensivity;
-	GameObject sliderSound;
+    GameObject sliderSound;
     GameObject buttonResolution;
     Text textResolution;
-    
+
     [SerializeField]
     string windowedMode = "JANELA";
     [SerializeField]
@@ -89,9 +89,9 @@ public class NewMenu : MonoBehaviour
     {
         instance = this;
 
-		InitialConfig.RestoreConfiguration();
+        InitialConfig.RestoreConfiguration();
 
-		//Debug.Log (QualitySettings.GetQualityLevel());
+        //Debug.Log (QualitySettings.GetQualityLevel());
 
         smartphone = GameObject.Find("SmartPhone");
         wrapperSmartphone = GameObject.Find("WrapperSmartphone");
@@ -123,7 +123,7 @@ public class NewMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		//if (context == MenuContext.InGame && Player.GetInstance().Items.Contains(Constants.PhoneItem) || context == MenuContext.Menu)
+        //if (context == MenuContext.InGame && Player.GetInstance().Items.Contains(Constants.PhoneItem) || context == MenuContext.Menu)
         if (context == MenuContext.Menu || (context == MenuContext.InGame && Player.GetInstance().Items.Contains(Constants.PhoneItem)))
         {
             if (Input.GetKeyDown(KeyCode.C))
@@ -164,7 +164,11 @@ public class NewMenu : MonoBehaviour
         {
             inAnimation = true;
             Cursor.visible = true;
-            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+
+            if (context == MenuContext.InGame)
+            {
+                Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+            }
 
             wrapperSmartphone.SetActive(true);
             SetBlur(true);
@@ -180,31 +184,37 @@ public class NewMenu : MonoBehaviour
     }
 
     public void DesactivateMenu()
-    {		
+    {
         //if (!inAnimation)
         //{
-			Debug.Log ("abcde");
+        Debug.Log("abcde");
 
-            inAnimation = true;
-        Cursor.visible = false;
+        inAnimation = true;
+
+        if (context == MenuContext.InGame)
+        {
+            Cursor.visible = false;
+        }
 
         animatorSmartphone.SetTrigger("bounceOut");
-            Invoke("DesactivateSmartPhone", 2.1f);
-            Invoke("ReactivatePlayer", 2.1f);
+        Invoke("DesactivateSmartPhone", 2.1f);
+        Invoke("ReactivatePlayer", 2.1f)
+        ;
         //}
     }
 
-	private void ReactivatePlayer()
-	{
-		Player p = Player.GetInstance ();
+    private void ReactivatePlayer()
+    {
+        Player p = Player.GetInstance();
 
-		if (p != null) {
-			Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(GameInfo.mouseSensivity, GameInfo.mouseSensivity);
+        if (p != null)
+        {
+            Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(GameInfo.mouseSensivity, GameInfo.mouseSensivity);
             Player.GetInstance().GetComponent<FirstPersonController>().enabled = true;
             Debug.Log(GameInfo.mouseSensivity);
-		}
+        }
 
-	}
+    }
 
     private void ActivateSmartPhone()
     {
@@ -266,13 +276,13 @@ public class NewMenu : MonoBehaviour
         Application.LoadLevel("game");
     }
 
-	void RestorePrevConfig()
-	{
-		sliderSensivity.GetComponent<Slider>().value = GameInfo.mouseSensivity / 8;
-		sliderSound.GetComponent<Slider>().value = GameInfo.volumeEffects;
+    void RestorePrevConfig()
+    {
+        sliderSensivity.GetComponent<Slider>().value = GameInfo.mouseSensivity / 8;
+        sliderSound.GetComponent<Slider>().value = GameInfo.volumeEffects;
 
-		dropDownQualidade.GetComponent<Dropdown> ().value = QualitySettings.GetQualityLevel();
-	}
+        dropDownQualidade.GetComponent<Dropdown>().value = QualitySettings.GetQualityLevel();
+    }
 
     void BindMenu()
     {
@@ -328,18 +338,18 @@ public class NewMenu : MonoBehaviour
             OnChangeSensivity();
         });
 
-		sliderSound = HelperUtil.FindGameObject(smartphone, "SliderMusica");
+        sliderSound = HelperUtil.FindGameObject(smartphone, "SliderMusica");
 
-		sliderSound.GetComponent<Slider>().onValueChanged.AddListener(delegate
-		{
-			AudioListener.volume = sliderSound.GetComponent<Slider>().value;
-			GameInfo.volumeEffects = sliderSound.GetComponent<Slider>().value;
-			
-			PlayerPrefs.SetFloat("volumeEffects", sliderSound.GetComponent<Slider>().value);
-			PlayerPrefs.Save();
+        sliderSound.GetComponent<Slider>().onValueChanged.AddListener(delegate
+        {
+            AudioListener.volume = sliderSound.GetComponent<Slider>().value;
+            GameInfo.volumeEffects = sliderSound.GetComponent<Slider>().value;
 
-				Debug.Log(PlayerPrefs.GetFloat("volumeEffects"));
-		});
+            PlayerPrefs.SetFloat("volumeEffects", sliderSound.GetComponent<Slider>().value);
+            PlayerPrefs.Save();
+
+            Debug.Log(PlayerPrefs.GetFloat("volumeEffects"));
+        });
 
 
         dropDownResolucoes = HelperUtil.FindGameObject(smartphone, "DropdownResolucoes");
@@ -355,18 +365,19 @@ public class NewMenu : MonoBehaviour
 
                 dropDownResolucoesAsDropDown.options.Add(currRes);
 
-				if(res.width == Screen.width && res.height == Screen.height)
-				{
-					dropDownResolucoes.GetComponent<Dropdown>().value = dropDownResolucoes.GetComponent<Dropdown>().options.Count - 1;
-				}
+                if (res.width == Screen.width && res.height == Screen.height)
+                {
+                    dropDownResolucoes.GetComponent<Dropdown>().value = dropDownResolucoes.GetComponent<Dropdown>().options.Count - 1;
+                }
             }
         }
 
         if (dropDownResolucoesAsDropDown.options.Count > 0)
         {
-			dropDownResolucoesAsDropDown.captionText.text = dropDownResolucoesAsDropDown.options[dropDownResolucoes.GetComponent<Dropdown>().value].text;
+            dropDownResolucoesAsDropDown.captionText.text = dropDownResolucoesAsDropDown.options[dropDownResolucoes.GetComponent<Dropdown>().value].text;
 
-            dropDownResolucoesAsDropDown.onValueChanged.AddListener(delegate {
+            dropDownResolucoesAsDropDown.onValueChanged.AddListener(delegate
+            {
 
                 string[] resolucao = dropDownResolucoesAsDropDown.options[dropDownResolucoesAsDropDown.value].text.Split('x');
 
@@ -415,8 +426,9 @@ public class NewMenu : MonoBehaviour
         buttonExitNo = HelperUtil.FindGameObject(smartphone, "BotaoSairNao");
         textConfirmExit = HelperUtil.FindGameObject(smartphone, "TextoSair");
         contentConfirmExit = HelperUtil.FindGameObject(smartphone, "Confirm");
-            
-        buttonExitYes.GetComponent<Button>().onClick.AddListener(delegate {
+
+        buttonExitYes.GetComponent<Button>().onClick.AddListener(delegate
+        {
             Debug.Log("Yes");
             InvokeRepeating("GoingOutExitConfirm", 0, tickAnim);
             Invoke("GoingInRealExit", 0.8f);
@@ -741,23 +753,24 @@ public class NewMenu : MonoBehaviour
         if (!inAnimation)
         {
 
-                inAnimation = true;
+            inAnimation = true;
 
-                switch (currMenu)
-                {
-			case Menu.Default:
-				Debug.Log ("teste");	
-					DesactivateMenu ();
-					break;
-                    case Menu.Items:
-                        InvokeRepeating("GoingOutInventory", 0, tickAnim);
-                        break;
-                    case Menu.Config:
-                        InvokeRepeating("GoingOutConfig", switchAnim, tickAnim);
-                        break;
-                }
+            switch (currMenu)
+            {
+                case Menu.Default:
+                    Debug.Log("teste");
+                    DesactivateMenu();
+                    break;
+                case Menu.Items:
+                    InvokeRepeating("GoingOutInventory", 0, tickAnim);
+                    break;
+                case Menu.Config:
+                    InvokeRepeating("GoingOutConfig", switchAnim, tickAnim);
+                    break;
+            }
 
-                InvokeRepeating("GoingInMenu", 0.8f, 0.1f);        }
+            InvokeRepeating("GoingInMenu", 0.8f, 0.1f);
+        }
     }
 
     public void EnterConfig()
@@ -770,7 +783,7 @@ public class NewMenu : MonoBehaviour
 
             InvokeRepeating("GoingOutFirstMenu", 0, tickAnim);
             InvokeRepeating("GoingInConfig", switchAnim, tickAnim);
-			RestorePrevConfig ();
+            RestorePrevConfig();
         }
     }
 
@@ -822,15 +835,15 @@ public class NewMenu : MonoBehaviour
         if (context == MenuContext.Menu)
         {
             items = new List<string> {
-			    Constants.PhoneItem,
+                Constants.PhoneItem,
                 Constants.Key,
-			    Constants.StockWood,
+                Constants.StockWood,
                 Constants.PictureItem,
-			    Constants.PictureP1Item,
-			    Constants.PictureP2Item,
-			    Constants.PictureP3Item,
-			    Constants.PictureP4Item
-		    };
+                Constants.PictureP1Item,
+                Constants.PictureP2Item,
+                Constants.PictureP3Item,
+                Constants.PictureP4Item
+            };
         }
         else
         {
@@ -916,17 +929,17 @@ public class NewMenu : MonoBehaviour
             currItem.SetActive(true);
             cg.alpha = 0;
 
-			GameObject bgTitleInventory = HelperUtil.FindGameObject(smartphone, "FundoTextoInventario");
-			GameObject titleInventory = HelperUtil.FindGameObject(smartphone, "TextoInventario");
+            GameObject bgTitleInventory = HelperUtil.FindGameObject(smartphone, "FundoTextoInventario");
+            GameObject titleInventory = HelperUtil.FindGameObject(smartphone, "TextoInventario");
 
-			bgTitleInventory.SetActive (true);
-			titleInventory.SetActive (true);
+            bgTitleInventory.SetActive(true);
+            titleInventory.SetActive(true);
 
             //itemsInventory = GameObject.FindGameObjectsWithTag("ItemInventory").ToList();
 
 
-			//itemsInventory.Add (bgTitleInventory);
-			//itemsInventory.Add (titleInventory);
+            //itemsInventory.Add (bgTitleInventory);
+            //itemsInventory.Add (titleInventory);
         }
 
         itemsInventory = GameObject.FindGameObjectsWithTag("ItemInventory").ToList();
