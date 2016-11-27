@@ -148,10 +148,11 @@ public class Player : MonoBehaviour
                                 //firePlace.fireParticle.GetComponent<ParticleSystem>().enableEmission = true;
                             }
 
-                            if (hasDestroyedPicture)
+                            if (hasDestroyedPicture || firePlace.light.intensity > firePlace.minlightIntensity)
                             {
                                 HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundPersecution").SetActive(false);
                                 EventManager.GetInstance().SetEvent("babyRest");
+                                hasDestroyedPicture = true;
                             }
                             else
                             {
