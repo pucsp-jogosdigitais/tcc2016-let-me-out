@@ -48,7 +48,7 @@ public class EventManager : MonoBehaviour
             case "lockDoors":
                 LockDoors();
 
-            break;
+                break;
 
             case "activateIconFlashLight":
                 ActivateIconFlash();
@@ -181,10 +181,50 @@ public class EventManager : MonoBehaviour
 
                 Invoke("FadeInScreen", 4.8f);
                 Invoke("ActivateSoundWoman", 7.2f);
+
+                Invoke("FadeInGameOver", 10);
                 //Invoke("FadeOutScreen", 5.5f);
 
                 break;
         }
+    }
+
+    private void FadeInGameOver()
+    {
+        CanvasGroup cg = GameObject.Find("LetMeOut").GetComponent<CanvasGroup>();
+
+        cg.alpha += 0.10f;
+
+        if (cg.alpha < 0.99f)
+        {
+            Invoke("FadeInGameOver", 0.10f);
+        }
+        else
+        {
+            FadeInTextGameOver();
+        }
+    }
+
+    private void FadeInTextGameOver()
+    {
+        CanvasGroup cg = GameObject.Find("LetMeOutText").GetComponent<CanvasGroup>();
+
+        cg.alpha += 0.10f;
+
+        if (cg.alpha < 0.99f)
+        {
+            Invoke("FadeInTextGameOver", 0.10f);
+        }
+        else
+        {
+            Invoke("QuitGame", 0.5f);
+        }
+    }
+
+    private void QuitGame()
+    {
+        Debug.Log("Saiu");
+        Application.Quit();
     }
 
     private void IncreaseSoundPersecution()
