@@ -92,6 +92,7 @@ public class EventManager : MonoBehaviour
             case "activateAnimPart2":
                 //HelperUtil.FindGameObject(GameObject.Find("Quadros de Enfeite"), "Q01").GetComponent<Animator>().SetTrigger("activate");                
                 HelperUtil.FindGameObject(GameObject.Find("Quadros de Enfeite"), "Q01").GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundQuadroCaindo").SetActive(true); ;
                 break;
 
             case "activatePart3":
