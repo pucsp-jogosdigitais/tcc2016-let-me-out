@@ -140,6 +140,7 @@ public class EventManager : MonoBehaviour
 
                 //Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
                 Monster.GetInstance().PersecutionMode();
+                Monster.GetInstanceAudioSource().GetComponent<AudioSource>().Pause();
                 Monster.SetAnimationState(Monster.MonsterAnimation.Crawl);
                 Player.GetMotionBlur().blurAmount = 0.6f;
                 HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundPersecution").SetActive(true);
