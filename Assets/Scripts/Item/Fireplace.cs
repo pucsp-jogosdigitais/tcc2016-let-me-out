@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Util;
 
 public class Fireplace : MonoBehaviour
 {
@@ -22,9 +23,9 @@ public class Fireplace : MonoBehaviour
         light.intensity -= Time.deltaTime * 0.1f;
         fireParticle.GetComponent<ParticleSystem>().emissionRate -= Time.deltaTime * 0.1f;
 
-        //if (light.intensity < 0)
-        //{
-        //    fireParticle.GetComponent<ParticleSystem>().enableEmission = false;
-        //}
-	}
+        if (light.intensity < 0)
+        {
+            HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundLareira").SetActive(false);
+        }
+    }
 }

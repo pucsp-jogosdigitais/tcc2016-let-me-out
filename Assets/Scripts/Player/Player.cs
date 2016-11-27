@@ -137,6 +137,7 @@ public class Player : MonoBehaviour
                         {
                             if (Player.GetInstance().items.Contains(Constants.StockWood))
                             {
+                                HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundLareira").SetActive(true);
                                 Player.GetInstance().items.Remove(Constants.StockWood);
                                 firePlace.light.intensity = firePlace.lightIntensity;
                                 firePlace.fireParticle.GetComponent<ParticleSystem>().emissionRate = 6;
@@ -159,7 +160,8 @@ public class Player : MonoBehaviour
                         {
                             if (Player.GetInstance().items.Contains(Constants.StockWood))
                             {
-								firePlace.light.intensity = firePlace.lightIntensity;
+                                HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundLareira").SetActive(true);
+                                firePlace.light.intensity = firePlace.lightIntensity;
                                 firePlace.fireParticle.GetComponent<ParticleSystem>().emissionRate = 6;
                                 Debug.Log (firePlace.light.intensity);
 								Player.GetInstance().items.Remove(Constants.StockWood);	
