@@ -45940,6 +45940,10 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 11464878, guid: 78c07f7933b52f34598ba3d8d9996595, type: 2}
+      propertyPath: cursor
+      value: 
+      objectReference: {fileID: 2800000, guid: e0560841a62ce854fa70e3e896f8aca7, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78c07f7933b52f34598ba3d8d9996595, type: 2}
   m_IsPrefabParent: 0

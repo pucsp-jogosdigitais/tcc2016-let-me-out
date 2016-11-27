@@ -77,6 +77,8 @@ public class NewMenu : MonoBehaviour
 
     public Camera defaultCamera;
 
+    public Texture2D cursor;
+
     public static NewMenu GetInstance()
     {
         return instance;
@@ -143,6 +145,17 @@ public class NewMenu : MonoBehaviour
         }
     }
 
+    void OnMouseEnter()
+    {
+        Debug.Log("Entrou mouse enter");
+        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+    }
+    void OnMouseExit()
+    {
+        Debug.Log("Entrou mouse exit");
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+    }
+
     public void ActivateMenu()
     {
         Player p = Player.GetInstance();
@@ -150,6 +163,8 @@ public class NewMenu : MonoBehaviour
         if (!inAnimation)
         {
             inAnimation = true;
+            Cursor.visible = true;
+            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
 
             wrapperSmartphone.SetActive(true);
             SetBlur(true);
@@ -171,8 +186,9 @@ public class NewMenu : MonoBehaviour
 			Debug.Log ("abcde");
 
             inAnimation = true;
+        Cursor.visible = false;
 
-            animatorSmartphone.SetTrigger("bounceOut");
+        animatorSmartphone.SetTrigger("bounceOut");
             Invoke("DesactivateSmartPhone", 2.1f);
             Invoke("ReactivatePlayer", 2.1f);
         //}

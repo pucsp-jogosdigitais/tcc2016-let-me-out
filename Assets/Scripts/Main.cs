@@ -75,7 +75,7 @@ public class Main : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C) && Player.GetInstance().Items.Contains(Constants.PhoneItem))
         {
             active = !active;
-            Cursor.visible = active;
+            //Cursor.visible = active;
 
             if (active)
             {
@@ -116,4 +116,13 @@ public class Main : MonoBehaviour
         GameInfo.gameOver = false;
         Application.LoadLevel(Application.loadedLevel);
     }
+
+    //void OnMouseEnter()
+    //{
+    //    Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+    //}
+    //void OnMouseExit()
+    //{
+    //    Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+    //}
 }

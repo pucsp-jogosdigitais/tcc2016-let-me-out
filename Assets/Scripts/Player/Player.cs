@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     List<string> items;
     List<string> actions;
 
+    public Texture2D cursor;
+
     public static Player GetInstance()
     {
         return instance;
