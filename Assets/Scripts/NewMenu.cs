@@ -198,9 +198,29 @@ public class NewMenu : MonoBehaviour
 
         animatorSmartphone.SetTrigger("bounceOut");
         Invoke("DesactivateSmartPhone", 2.1f);
-        Invoke("ReactivatePlayer", 2.1f)
-        ;
+        Invoke("ReactivatePlayer", 2.1f);
+
+        Invoke("ResetMenu", 2.1f);
         //}
+    }
+
+    private void ResetMenu()
+    {
+        switch (currMenu)
+        {
+            case Menu.Config:
+                InvokeRepeating("GoingOutConfig", switchAnim, tickAnim);
+                InvokeRepeating("GoingInMenu", 0.8f, 0.1f);
+                break;
+            case Menu.Items:
+                InvokeRepeating("GoingOutInventory", 0, tickAnim);
+                InvokeRepeating("GoingInMenu", 0.8f, 0.1f);
+                break;
+            case Menu.Exit:
+                InvokeRepeating("GoingOutExit", 0, tickAnim);
+                InvokeRepeating("GoingInMenu", 0.8f, 0.1f);
+                break;
+        }
     }
 
     private void ReactivatePlayer()
