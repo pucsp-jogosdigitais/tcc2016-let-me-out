@@ -153,6 +153,7 @@ public class Player : MonoBehaviour
                             else
                             {
                                 SubtitleManager.GetInstance().SetText("Quadro destruído.");
+                                HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundPersecution").SetActive(false);
                                 EventManager.GetInstance().SetEvent("babyRest");
                             }
                         }
