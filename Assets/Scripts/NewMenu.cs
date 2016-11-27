@@ -15,6 +15,7 @@ public class NewMenu : MonoBehaviour
     public MenuContext context;
 
     public bool isActive;
+    public bool locked;
 
     public enum Menu { Default, Items, Config, Exit, None };
     public Menu[] menusToShow;
@@ -145,17 +146,6 @@ public class NewMenu : MonoBehaviour
         }
     }
 
-    void OnMouseEnter()
-    {
-        Debug.Log("Entrou mouse enter");
-        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
-    }
-    void OnMouseExit()
-    {
-        Debug.Log("Entrou mouse exit");
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-    }
-
     public void ActivateMenu()
     {
         Player p = Player.GetInstance();
@@ -173,6 +163,7 @@ public class NewMenu : MonoBehaviour
             wrapperSmartphone.SetActive(true);
             SetBlur(true);
             animatorSmartphone.SetTrigger("bounce");
+            locked = false;
             Invoke("ActivateSmartPhone", 2.1f);
 
             if (p != null)
@@ -185,23 +176,22 @@ public class NewMenu : MonoBehaviour
 
     public void DesactivateMenu()
     {
-        //if (!inAnimation)
-        //{
-        Debug.Log("abcde");
-
-        inAnimation = true;
-
-        if (context == MenuContext.InGame)
+        if (!inAnimation)
         {
-            Cursor.visible = false;
+            inAnimation = true;
+            locked = true;
+
+            if (context == MenuContext.InGame)
+            {
+                Cursor.visible = false;
+            }
+
+            animatorSmartphone.SetTrigger("bounceOut");
+            Invoke("DesactivateSmartPhone", 2.1f);
+            Invoke("ReactivatePlayer", 2.1f);
+
+            Invoke("ResetMenu", 2.1f);
         }
-
-        animatorSmartphone.SetTrigger("bounceOut");
-        Invoke("DesactivateSmartPhone", 2.1f);
-        Invoke("ReactivatePlayer", 2.1f);
-
-        Invoke("ResetMenu", 2.1f);
-        //}
     }
 
     private void ResetMenu()
@@ -758,7 +748,7 @@ public class NewMenu : MonoBehaviour
 
     public void EnterInventory()
     {
-        if (!inAnimation)
+        if (!inAnimation && !locked)
         {
             inAnimation = true;
             currMenu = Menu.Items;
@@ -770,7 +760,7 @@ public class NewMenu : MonoBehaviour
 
     public void EnterBack()
     {
-        if (!inAnimation)
+        if (!inAnimation && !locked)
         {
 
             inAnimation = true;
@@ -795,7 +785,7 @@ public class NewMenu : MonoBehaviour
 
     public void EnterConfig()
     {
-        if (!inAnimation)
+        if (!inAnimation && !locked)
         {
             inAnimation = true;
 
