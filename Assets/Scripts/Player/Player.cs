@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
 
     public Texture2D cursor;
 
+    bool hasDestroyedPicture;
+
     public static Player GetInstance()
     {
         return instance;
@@ -69,7 +71,7 @@ public class Player : MonoBehaviour
     {
         GetVignette().intensity -= 0.01f;
 
-        if(GetVignette().intensity > 0)
+        if (GetVignette().intensity > 0)
         {
             Invoke("ContinueAnimViggete", 0.02f);
         }
@@ -146,15 +148,22 @@ public class Player : MonoBehaviour
                                 //firePlace.fireParticle.GetComponent<ParticleSystem>().enableEmission = true;
                             }
 
-                                if (firePlace.light.intensity < firePlace.minlightIntensity)
+                            if (hasDestroyedPicture)
                             {
-                                SubtitleManager.GetInstance().SetText("Recarregue a lareira para queimar o quadro.");
+                                HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundPersecution").SetActive(false);
+                                EventManager.GetInstance().SetEvent("babyRest");
                             }
                             else
                             {
-                                SubtitleManager.GetInstance().SetText("Quadro destruído.");
-                                HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundPersecution").SetActive(false);
-                                EventManager.GetInstance().SetEvent("babyRest");
+                                if (firePlace.light.intensity < firePlace.minlightIntensity)
+                                {
+                                    SubtitleManager.GetInstance().SetText("Recarregue a lareira para queimar o quadro.");
+                                }
+                                else
+                                {
+                                    SubtitleManager.GetInstance().SetText("Recarregou a lareira. Destrua o quadro");
+                                    hasDestroyedPicture = true;
+                                }
                             }
                         }
                         else
@@ -164,9 +173,9 @@ public class Player : MonoBehaviour
                                 HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundLareira").SetActive(true);
                                 firePlace.light.intensity = firePlace.lightIntensity;
                                 firePlace.fireParticle.GetComponent<ParticleSystem>().emissionRate = 6;
-                                Debug.Log (firePlace.light.intensity);
-								Player.GetInstance().items.Remove(Constants.StockWood);	
-								SubtitleManager.GetInstance().SetText("Recarregou lareira");
+                                Debug.Log(firePlace.light.intensity);
+                                Player.GetInstance().items.Remove(Constants.StockWood);
+                                SubtitleManager.GetInstance().SetText("Recarregou a lareira.");
                             }
                             else
                             {
@@ -221,12 +230,12 @@ public class Player : MonoBehaviour
             Debug.Log(item.CodItem);
             Debug.Log(Constants.PictureItem);
 
-            if(!item.CodItem.Trim().Contains(Constants.PictureItem))
+            if (!item.CodItem.Trim().Contains(Constants.PictureItem))
             {
                 items.Add(item.CodItem);
                 Debug.Log("entrou aqui");
             }
-           
+
             item.Destroy();
             DesactivateAnimHand();
         }
