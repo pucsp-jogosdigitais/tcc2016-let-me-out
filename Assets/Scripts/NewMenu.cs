@@ -122,7 +122,7 @@ public class NewMenu : MonoBehaviour
     void Update()
     {
 		//if (context == MenuContext.InGame && Player.GetInstance().Items.Contains(Constants.PhoneItem) || context == MenuContext.Menu)
-        if (context == MenuContext.Menu || context == MenuContext.InGame)
+        if (context == MenuContext.Menu || (context == MenuContext.InGame && Player.GetInstance().Items.Contains(Constants.PhoneItem)))
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
