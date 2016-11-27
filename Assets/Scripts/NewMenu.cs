@@ -620,8 +620,6 @@ public class NewMenu : MonoBehaviour
     {
         //GameObject[] menuItems = GameObject.FindGameObjectsWithTag("ItemInventory");
 
-
-
         foreach (GameObject menuItem in itemsInventory)
         {
             CanvasGroup cg = menuItem.GetComponent<CanvasGroup>();
@@ -869,14 +867,16 @@ public class NewMenu : MonoBehaviour
         //Vector2 initialPos = new Vector2(-100, 160);
 
         int incrementY = 0;
+        int counter = 0;
+
 
         for (int i = 0; i < items.Count; i++)
         {
             GameObject currItem = null;
 
-            //if(items[i] == Constants.PhoneItem)
+            //if (items[i] == Constants.PhoneItem)
             //{
-            //    continue;
+            //    return;
             //}
 
             Debug.Log(items[i]);
@@ -920,24 +920,29 @@ public class NewMenu : MonoBehaviour
                     break;
             }
 
-            if (i % 3 == 0)
+            if (items[i] != Constants.PhoneItem)
             {
-                initialPos = new Vector2(originalPos.x, originalPos.y);
-                incrementY -= 140;
-                initialPos.y += incrementY;
+                if (counter % 3 == 0)
+                {
+                    initialPos = new Vector2(originalPos.x, originalPos.y);
+                    incrementY -= 140;
+                    initialPos.y += incrementY;
+                }
+
+                initialPos = new Vector2(initialPos.x + 120, initialPos.y);
+
+                CanvasGroup cg = currItem.GetComponent<CanvasGroup>();
+
+                //currItem.GetComponentInChildren<Text>().text = items[i];
+                //currItem.GetComponentInChildren<Text>().text = "";
+
+                currItem.transform.SetParent(firstMenu.transform, false);
+                currItem.GetComponent<RectTransform>().transform.localPosition = new Vector3(initialPos.x, initialPos.y);
+                currItem.SetActive(true);
+                cg.alpha = 0;
+
+                counter += 1;
             }
-
-            initialPos = new Vector2(initialPos.x + 120, initialPos.y);
-
-            CanvasGroup cg = currItem.GetComponent<CanvasGroup>();
-
-            //currItem.GetComponentInChildren<Text>().text = items[i];
-            //currItem.GetComponentInChildren<Text>().text = "";
-
-            currItem.transform.SetParent(firstMenu.transform, false);
-            currItem.GetComponent<RectTransform>().transform.localPosition = new Vector3(initialPos.x, initialPos.y);
-            currItem.SetActive(true);
-            cg.alpha = 0;
 
             GameObject bgTitleInventory = HelperUtil.FindGameObject(smartphone, "FundoTextoInventario");
             GameObject titleInventory = HelperUtil.FindGameObject(smartphone, "TextoInventario");
