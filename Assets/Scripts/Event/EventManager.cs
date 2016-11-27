@@ -142,6 +142,10 @@ public class EventManager : MonoBehaviour
                 Monster.GetInstance().PersecutionMode();
                 Monster.SetAnimationState(Monster.MonsterAnimation.Crawl);
                 Player.GetMotionBlur().blurAmount = 0.6f;
+                HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundPersecution").SetActive(true);
+                IncreaseSoundPersecution();
+
+
                 break;
 
             case "babyRest":
@@ -179,6 +183,18 @@ public class EventManager : MonoBehaviour
                 //Invoke("FadeOutScreen", 5.5f);
 
                 break;
+        }
+    }
+
+    private void IncreaseSoundPersecution()
+    {
+        GameObject audioGO = HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundPersecution");
+        AudioSource audio = audioGO.GetComponent<AudioSource>();
+        audio.volume += 0.01f;
+
+        if (audio.volume < 0.99)
+        {
+            Invoke("IncreaseSoundPersecution", 0.20f);
         }
     }
 
