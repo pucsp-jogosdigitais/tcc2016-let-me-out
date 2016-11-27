@@ -15,8 +15,6 @@ public class FlashLight : MonoBehaviour
 
     public GameObject menuLanterna;
 
-    bool hasActivate = false;
-
     // Use this for initialization
     void Start()
     {

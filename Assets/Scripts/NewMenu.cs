@@ -833,9 +833,6 @@ public class NewMenu : MonoBehaviour
 
         for (int i = 0; i < items.Count; i++)
         {
-            Vector2 newPos = new Vector2(initialPos.x, initialPos.y);
-            //Vector2 newPos = new Vector2 (initialPos.x, initialPos.y + (i * -120));
-
             GameObject currItem = null;
 
             //if(items[i] == Constants.PhoneItem)

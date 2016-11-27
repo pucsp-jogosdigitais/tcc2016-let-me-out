@@ -25,8 +25,6 @@ public class Item : MonoBehaviour
     [SerializeField]
     string eventItem;
 
-    bool hasClicked = false;
-
     void Start()
     {
 
