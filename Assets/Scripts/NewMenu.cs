@@ -920,7 +920,7 @@ public class NewMenu : MonoBehaviour
                     break;
             }
 
-            if (items[i] != Constants.PhoneItem)
+            if (items[i] != Constants.PhoneItem && !String.IsNullOrEmpty(items[i]))
             {
                 if (counter % 3 == 0)
                 {
