@@ -137,9 +137,10 @@ public class Player : MonoBehaviour
                             {
                                 Player.GetInstance().items.Remove(Constants.StockWood);
                                 firePlace.light.intensity = firePlace.lightIntensity;
+                                firePlace.fireParticle.GetComponent<ParticleSystem>().emissionRate = 6;
                                 //firePlace.fireParticle.GetComponent<ParticleSystem>().emissionRate = 3;
                                 //firePlace.fireParticle.GetComponent<ParticleSystem>().Play();
-                                firePlace.fireParticle.GetComponent<ParticleSystem>().enableEmission = true;
+                                //firePlace.fireParticle.GetComponent<ParticleSystem>().enableEmission = true;
                             }
 
                                 if (firePlace.light.intensity < firePlace.minlightIntensity)
@@ -157,7 +158,8 @@ public class Player : MonoBehaviour
                             if (Player.GetInstance().items.Contains(Constants.StockWood))
                             {
 								firePlace.light.intensity = firePlace.lightIntensity;
-								Debug.Log (firePlace.light.intensity);
+                                firePlace.fireParticle.GetComponent<ParticleSystem>().emissionRate = 6;
+                                Debug.Log (firePlace.light.intensity);
 								Player.GetInstance().items.Remove(Constants.StockWood);	
 								SubtitleManager.GetInstance().SetText("Recarregou lareira");
                             }
