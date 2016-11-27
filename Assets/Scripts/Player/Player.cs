@@ -137,6 +137,9 @@ public class Player : MonoBehaviour
                             {
                                 Player.GetInstance().items.Remove(Constants.StockWood);
                                 firePlace.light.intensity = firePlace.lightIntensity;
+                                //firePlace.fireParticle.GetComponent<ParticleSystem>().emissionRate = 3;
+                                //firePlace.fireParticle.GetComponent<ParticleSystem>().Play();
+                                firePlace.fireParticle.GetComponent<ParticleSystem>().enableEmission = true;
                             }
 
                                 if (firePlace.light.intensity < firePlace.minlightIntensity)

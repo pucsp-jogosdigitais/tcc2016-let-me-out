@@ -13,10 +13,17 @@ public class Fireplace : MonoBehaviour
     // Use this for initialization
     void Start () {
         light.intensity = 0;
+        fireParticle.GetComponent<ParticleSystem>().enableEmission = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
         light.intensity -= Time.deltaTime * 0.1f;
+        //fireParticle.GetComponent<ParticleSystem>().emissionRate -= Time.deltaTime * 0.1f;
+
+        if (light.intensity < 0)
+        {
+            fireParticle.GetComponent<ParticleSystem>().enableEmission = false;
+        }
 	}
 }
