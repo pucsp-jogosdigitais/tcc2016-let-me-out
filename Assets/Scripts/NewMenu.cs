@@ -149,6 +149,8 @@ public class NewMenu : MonoBehaviour
     public void ActivateMenu()
     {
         Player p = Player.GetInstance();
+		ResetMenu ();
+
 
         if (!inAnimation)
         {
