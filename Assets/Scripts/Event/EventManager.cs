@@ -163,7 +163,7 @@ public class EventManager : MonoBehaviour
             Player.GetInstance().GetComponent<FirstPersonController>().enabled = false;
                 Main.GetInstance().inCutScene = true;
 
-                Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(0, 0);
+                //Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(0, 0);
 
                 Monster.GetInstance().CancelAttack();
                 Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
@@ -457,6 +457,7 @@ public class EventManager : MonoBehaviour
         //HelperUtil.SetVisibility(Player.GetInstance().gameObject, false);
         GameObject.Find("CameraLockBabyRoom").GetComponent<Camera>().enabled = true;
         GameObject.Find("CameraLockBabyRoom").GetComponent<Animator>().SetTrigger("activate");
+        Main.GetInstance().inCutScene = false;
     }
 
     private void ActivateSoundWoman()
