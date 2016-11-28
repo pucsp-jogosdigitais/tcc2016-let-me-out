@@ -24281,6 +24281,27 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e493a6f1ed20984b8acfcd4d4ba25e4, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &946339865 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 177338, guid: 6e493a6f1ed20984b8acfcd4d4ba25e4, type: 2}
+  m_PrefabInternal: {fileID: 629956896}
+--- !u!95 &946339868
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946339865}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b61c0d4e5968a9c42b7034102621f33d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &946590823
 GameObject:
   m_ObjectHideFlags: 0
@@ -24849,6 +24870,27 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 436860, guid: 5ee6c0b39293eaa40be3f10c85b06b20, type: 2}
   m_PrefabInternal: {fileID: 975974020}
+--- !u!1 &982117596 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 177338, guid: 6e493a6f1ed20984b8acfcd4d4ba25e4, type: 2}
+  m_PrefabInternal: {fileID: 1640280861}
+--- !u!95 &982117599
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 982117596}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 613c1a9d0a2b566478da6f647c19749b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &982557078
 GameObject:
   m_ObjectHideFlags: 0
@@ -26221,7 +26263,16 @@ Prefab:
       propertyPath: m_Name
       value: lustre (11)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9581292, guid: 6e493a6f1ed20984b8acfcd4d4ba25e4, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9581292, guid: 6e493a6f1ed20984b8acfcd4d4ba25e4, type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7ee2588d583d99c48a007c67bef84651, type: 2}
+    m_RemovedComponents:
+    - {fileID: 9581292, guid: 6e493a6f1ed20984b8acfcd4d4ba25e4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6e493a6f1ed20984b8acfcd4d4ba25e4, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1036136496
@@ -47699,6 +47750,27 @@ Transform:
   - {fileID: 1564541264}
   m_Father: {fileID: 2018033348}
   m_RootOrder: 2
+--- !u!1 &2067697688 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 177338, guid: 6e493a6f1ed20984b8acfcd4d4ba25e4, type: 2}
+  m_PrefabInternal: {fileID: 1286447228}
+--- !u!95 &2067697691
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2067697688}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f1a80e35536bc2845990bc009ecb7458, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!4 &2067735053 stripped
 Transform:
   m_PrefabParentObject: {fileID: 408142, guid: 6e493a6f1ed20984b8acfcd4d4ba25e4, type: 2}
@@ -49233,6 +49305,27 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2140021433}
+--- !u!1 &2142674771 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 177338, guid: 6e493a6f1ed20984b8acfcd4d4ba25e4, type: 2}
+  m_PrefabInternal: {fileID: 1035425689}
+--- !u!95 &2142674773
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2142674771}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 83d4101b653cf4444a8d6f284a1b4cc8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2143437800
 GameObject:
   m_ObjectHideFlags: 0
