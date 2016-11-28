@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Util;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class EventManager : MonoBehaviour
 {
@@ -72,6 +73,8 @@ public class EventManager : MonoBehaviour
                 break;
 
             case "lockCameraPicture1":
+                Player.GetInstance().GetComponent<FirstPersonController>().enabled = false;
+
                 FadeInScreen();
                 Invoke("ActivateCameraEventPicture", 1.2f);
                 Invoke("FadeOutScreen", 1.8f);
@@ -90,12 +93,15 @@ public class EventManager : MonoBehaviour
                 break;
 
             case "activateAnimPart2":
+
                 //HelperUtil.FindGameObject(GameObject.Find("Quadros de Enfeite"), "Q01").GetComponent<Animator>().SetTrigger("activate");                
                 HelperUtil.FindGameObject(GameObject.Find("Quadros de Enfeite"), "Q01").GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 HelperUtil.FindGameObject(GameObject.Find("Audio"), "SoundQuadroCaindo").SetActive(true); ;
                 break;
 
             case "activatePart3":
+                Player.GetInstance().GetComponent<FirstPersonController>().enabled = false;
+
                 Monster.GetInstance().CancelAttack();
                 Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
                 Monster.GetInstance().SetVisibility(false);
@@ -150,6 +156,10 @@ public class EventManager : MonoBehaviour
                 break;
 
             case "babyRest":
+                Player.GetInstance().GetComponent<FirstPersonController>().enabled = false;
+
+                Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(0, 0);
+
                 Monster.GetInstance().CancelAttack();
                 Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
 
@@ -171,6 +181,7 @@ public class EventManager : MonoBehaviour
                 break;
 
             case "gameOver":
+                Player.GetInstance().GetComponent<FirstPersonController>().enabled = false;
 
                 FadeInScreen();
                 Invoke("FadeOutScreen", 1.8f);
@@ -431,6 +442,7 @@ public class EventManager : MonoBehaviour
         //HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
         GameObject.Find("CameraLockOpenDoor").GetComponent<Animator>().SetTrigger("activate");
         GameObject.Find("CameraLockOpenDoor").GetComponent<Camera>().enabled = false;
+        Player.GetInstance().GetComponent<FirstPersonController>().enabled = true;
     }
 
     private void ActivateCameraGameOver()
@@ -460,6 +472,7 @@ public class EventManager : MonoBehaviour
     {
         //HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
         GameObject.Find("CameraLockCameraPicture1").GetComponent<Camera>().enabled = false;
+        Player.GetInstance().GetComponent<FirstPersonController>().enabled = true;
     }
 
     private void DesactivateCameraOpenRoom()
@@ -473,6 +486,7 @@ public class EventManager : MonoBehaviour
 
         //HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
         GameObject.Find("CameraLockClosedRoom").GetComponent<Camera>().enabled = false;
+        Player.GetInstance().GetComponent<FirstPersonController>().enabled = true;
     }
 
     private void OpenClosedRoom()

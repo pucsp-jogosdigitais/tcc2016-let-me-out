@@ -63,7 +63,7 @@ public class Main : MonoBehaviour
     {
 		if(Input.GetKeyDown(KeyCode.L))
 		{
-            EventManager.GetInstance().SetEvent("gameOver");
+            EventManager.GetInstance().SetEvent("lockCameraPicture1");
 		}
 
         if (GameInfo.gameOver)
