@@ -31,6 +31,8 @@ public class Main : MonoBehaviour
     {
         instance = this;
 
+		Cursor.visible = false;
+
         GameObject.Find("CameraLockCameraPicture1").GetComponent<Camera>().enabled = false;
 
 
