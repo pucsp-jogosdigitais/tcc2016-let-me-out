@@ -44,7 +44,6 @@ public class Monster : MonoBehaviour
 
 		anim.Stop();
 		anim.clip = states[(int)index].clip;
-		Debug.Log(anim.clip.name);
 		anim.Play();
 	}
 
@@ -71,7 +70,6 @@ public class Monster : MonoBehaviour
                 Vector3 playerPos = Player.GetTransform().position;
                 float volumeReduction = (GetDistance(playerPos) / soundAreaCollider.bounds.extents.x);
                 //float volumeReduction = (GetDistance(playerPos) / 6) * 0.6f;
-                //Debug.Log(GetDistance(playerPos));
 
                 GetInstanceAudioSource().volume = (1 - volumeReduction) * .3f;
 
@@ -88,7 +86,6 @@ public class Monster : MonoBehaviour
                         if (counterAttackTime < 0)
                         {
 						//SubtitleManager.GetInstance ().SetText ("Matou");
-                            Debug.Log("Matou player");
                             Main.GetInstance().GameOver();
                             //Player.GetInstance().Die();
                         }

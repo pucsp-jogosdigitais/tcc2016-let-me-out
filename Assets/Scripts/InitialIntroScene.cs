@@ -36,10 +36,8 @@ public class InitialIntroScene : MonoBehaviour {
 
 	void ActivateNextImage()
 	{
-		Debug.Log (indexCurrImage);
 
 		if(indexCurrImage >= introImages.Length) {
-			Debug.Log ("dsadsads");
 			Application.LoadLevel(nextScene);
 		}
 

@@ -10,7 +10,6 @@ public class MultipleInteractItem : MonoBehaviour, IItem
 
     public void Interact()
     {
-        Debug.Log("interagiu");
         anim.SetTrigger(animTrigger);
     }
 }

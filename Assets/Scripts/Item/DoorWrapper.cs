@@ -34,8 +34,6 @@ public class DoorWrapper : MonoBehaviour
     {
         AudioSource audio = gameObject.GetComponent<AudioSource>();
 
-        Debug.Log("Abriu porta");
-
         switch (typeAnim)
         {
             case DoorAnim.Locked:
@@ -49,7 +47,6 @@ public class DoorWrapper : MonoBehaviour
                 {
                     if (!audio.isPlaying)
                     {
-                        Debug.Log("entrou");
                         audio.clip = AudioRepository.GetInstance().doorLocked;
                         audio.Play();
                     }
@@ -92,7 +89,6 @@ public class DoorWrapper : MonoBehaviour
         if (string.IsNullOrEmpty(relatedItem) || Player.GetInstance().Items.Contains(relatedItem) || Player.GetInstance().Actions.Contains(relatedItem))
         {
             unlucked = true;
-            Debug.Log("aberto");
         }
 
         return unlucked;

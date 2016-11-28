@@ -83,8 +83,6 @@ public class NewIntro : MonoBehaviour {
 
 		cg.alpha += 0.10f;
 
-		Debug.Log ("dfsdfdsfd");
-
 		if (cg.alpha > 0.99f) {
 			CancelInvoke ("fadeInImage");
             InvokeRepeating("fadeOutImage", fadeOutTimeImage, 0.10f);

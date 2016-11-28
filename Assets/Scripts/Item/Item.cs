@@ -111,8 +111,6 @@ public class Item : MonoBehaviour
                         destroyed = true;
                         audio.Play();
                     }
-
-                    Debug.Log("Interact");
                     break;
 
                 case ItemType.StockWoodMaker:

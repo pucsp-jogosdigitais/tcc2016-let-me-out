@@ -57,7 +57,6 @@ public class TestBaby : MonoBehaviour
     {
         anim.Stop();
         anim.clip = states[index].clip;
-        Debug.Log(anim.clip.name);
         anim.Play();
     }
 }

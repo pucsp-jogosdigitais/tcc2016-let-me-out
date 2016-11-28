@@ -46,7 +46,6 @@ public class FlashLight : MonoBehaviour
                     }*/
 
                 flashLight.enabled = !flashLight.enabled;
-                //Debug.Log("clicou");
 
                 if (flashLight.enabled)
                 {
@@ -70,7 +69,6 @@ public class FlashLight : MonoBehaviour
         rayToInteract = Player.GetCamera().ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         if (Physics.Raycast(rayToInteract, out hitInfo, rangeInteract, monsterLayer))
         {
-            Debug.Log(hitInfo.transform.gameObject.name);
             if (hitInfo.collider.tag == "BabyMonster")
             {
                 if (flashLight.enabled)
@@ -78,7 +76,6 @@ public class FlashLight : MonoBehaviour
                     GameObject playerCamera = GameObject.Find("FirstPersonCharacter");
                     NoiseAndGrain noisePlayer = playerCamera.GetComponent<NoiseAndGrain>();
                     noisePlayer.intensityMultiplier = 0;
-                    Debug.Log("bebe monstro");
                     Destroy(hitInfo.collider.gameObject);
                     counter = 0;
                 }
@@ -103,7 +100,6 @@ public class FlashLight : MonoBehaviour
                 }
                 // Destroy(hitInfo.collider.gameObject);
                 //Main.getInstance().spawnTimeMinutes -= 1;
-                //Debug.Log(Main.getInstance().spawnTimeMinutes);
             }
 
         }

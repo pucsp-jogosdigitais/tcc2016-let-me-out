@@ -42,7 +42,6 @@ public class MonsterSpawnManager : MonoBehaviour
         if (!Monster.GetInstance().TimeAttack)
         {
             SpawnMonster();
-            Debug.Log("Trocou pos");
         }
 
         Invoke("RandomSpawn", time);
@@ -81,15 +80,6 @@ public class MonsterSpawnManager : MonoBehaviour
         spawnPoints = tempSpawnPoints.ToList();
         //spawnPoints.RemoveAt(0);
         spawnPoints.RemoveRange(0, (spawnPoints.Count) / 2);
-
-        Debug.Log(spawnPoints.Count);
-
-        /*
-        foreach(GameObject item in spawnPoints)
-        {
-            Debug.Log(item.name);
-            Debug.Log(Vector3.Distance(item.transform.position, posPlayer));
-        }*/
 
         return spawnPoints;
     }

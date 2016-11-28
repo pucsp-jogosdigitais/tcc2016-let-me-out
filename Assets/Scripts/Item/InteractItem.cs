@@ -21,7 +21,6 @@ public class InteractItem : MonoBehaviour, IItem
     public void Interact()
     {
         anim = GetComponent<Animator>();
-        Debug.Log("interagiu");
         anim.SetTrigger(animTrigger);
     }
 }

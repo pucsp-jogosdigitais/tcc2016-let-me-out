@@ -235,13 +235,9 @@ public class Player : MonoBehaviour
         {
             Item item = hitInfo.collider.gameObject.GetComponent<Item>();
 
-            Debug.Log(item.CodItem);
-            Debug.Log(Constants.PictureItem);
-
             if (!item.CodItem.Trim().Contains(Constants.PictureItem))
             {
                 items.Add(item.CodItem);
-                Debug.Log("entrou aqui");
             }
 
             item.Destroy();

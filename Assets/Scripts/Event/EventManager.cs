@@ -240,7 +240,6 @@ public class EventManager : MonoBehaviour
 
     private void QuitGame()
     {
-        Debug.Log("Saiu");
         Application.Quit();
     }
 

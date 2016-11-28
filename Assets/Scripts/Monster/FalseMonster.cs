@@ -53,7 +53,6 @@ public class FalseMonster : MonoBehaviour {
 
         anim.Stop();
         anim.clip = states[(int)index].clip;
-        Debug.Log(anim.clip.name);
         anim.Play();
     }
 

@@ -92,8 +92,6 @@ public class NewMenu : MonoBehaviour
 
         InitialConfig.RestoreConfiguration();
 
-        //Debug.Log (QualitySettings.GetQualityLevel());
-
         smartphone = GameObject.Find("SmartPhone");
         wrapperSmartphone = GameObject.Find("WrapperSmartphone");
         firstMenu = GameObject.Find("Principal");
@@ -441,7 +439,6 @@ public class NewMenu : MonoBehaviour
 
         buttonExitYes.GetComponent<Button>().onClick.AddListener(delegate
         {
-            Debug.Log("Yes");
             InvokeRepeating("GoingOutExitConfirm", 0, tickAnim);
             Invoke("GoingInRealExit", 0.8f);
             Invoke("ExitGame", 1);
@@ -464,7 +461,6 @@ public class NewMenu : MonoBehaviour
 
             buttonTutorial.GetComponent<Button>().onClick.AddListener(delegate
             {
-                Debug.Log("Teste");
                 InvokeRepeating("GoingOutTutorial", 0, 0.1f);
                 //InvokeRepeating("GoingOutExit", 0, 0.1f);
                 //tutorialMenu.SetActive(false);
