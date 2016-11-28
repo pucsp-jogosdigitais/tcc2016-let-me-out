@@ -125,7 +125,7 @@ public class NewMenu : MonoBehaviour
     void Update()
     {
         //if (context == MenuContext.InGame && Player.GetInstance().Items.Contains(Constants.PhoneItem) || context == MenuContext.Menu)
-        if (context == MenuContext.Menu || (context == MenuContext.InGame && Player.GetInstance().Items.Contains(Constants.PhoneItem)))
+        if (context == MenuContext.InGame && Player.GetInstance().Items.Contains(Constants.PhoneItem))
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
@@ -761,8 +761,6 @@ public class NewMenu : MonoBehaviour
         if (!inAnimation && !locked)
         {
 
-            inAnimation = true;
-
             switch (currMenu)
             {
                 case Menu.Default:
@@ -770,9 +768,11 @@ public class NewMenu : MonoBehaviour
                     DesactivateMenu();
                     break;
                 case Menu.Items:
+                    inAnimation = true;
                     InvokeRepeating("GoingOutInventory", 0, tickAnim);
                     break;
                 case Menu.Config:
+                    inAnimation = true;
                     InvokeRepeating("GoingOutConfig", switchAnim, tickAnim);
                     break;
             }
