@@ -764,8 +764,10 @@ public class NewMenu : MonoBehaviour
             switch (currMenu)
             {
                 case Menu.Default:
-                    Debug.Log("teste");
-                    DesactivateMenu();
+                    if(context == MenuContext.Menu)
+                    {
+                        DesactivateMenu();
+                    }
                     break;
                 case Menu.Items:
                     inAnimation = true;
