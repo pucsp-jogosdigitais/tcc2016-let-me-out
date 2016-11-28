@@ -102,7 +102,14 @@ public class Player : MonoBehaviour
 
     public void Interact()
     {
-        rayToInteract = Player.GetCamera().ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        if(Main.GetInstance().inCutScene)
+        {
+            Debug.Log("ativou cutscene");
+            DesactivateAnimHand();
+            return;
+        }
+
+            rayToInteract = Player.GetCamera().ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 
         if (Physics.Raycast(rayToInteract, out hitInfo, rangeInteract))
         {

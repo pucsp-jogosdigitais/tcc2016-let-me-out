@@ -19,6 +19,8 @@ public class Main : MonoBehaviour
 
     public Texture2D cursor;
 
+    public bool inCutScene;
+
     public static Main GetInstance()
     {
         return instance;
@@ -63,7 +65,7 @@ public class Main : MonoBehaviour
     {
 		if(Input.GetKeyDown(KeyCode.L))
 		{
-            EventManager.GetInstance().SetEvent("lockCameraPicture1");
+            EventManager.GetInstance().SetEvent("gameOver");
 		}
 
         if (GameInfo.gameOver)

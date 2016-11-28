@@ -74,6 +74,7 @@ public class EventManager : MonoBehaviour
 
             case "lockCameraPicture1":
                 Player.GetInstance().GetComponent<FirstPersonController>().enabled = false;
+                Main.GetInstance().inCutScene = true;
 
                 FadeInScreen();
                 Invoke("ActivateCameraEventPicture", 1.2f);
@@ -101,6 +102,7 @@ public class EventManager : MonoBehaviour
 
             case "activatePart3":
                 Player.GetInstance().GetComponent<FirstPersonController>().enabled = false;
+                Main.GetInstance().inCutScene = true;
 
                 Monster.GetInstance().CancelAttack();
                 Monster.GetInstance().currActionState = Monster.MonsterActionState.Rest;
@@ -156,7 +158,10 @@ public class EventManager : MonoBehaviour
                 break;
 
             case "babyRest":
-                Player.GetInstance().GetComponent<FirstPersonController>().enabled = false;
+                
+            
+            Player.GetInstance().GetComponent<FirstPersonController>().enabled = false;
+                Main.GetInstance().inCutScene = true;
 
                 Player.GetInstance().GetComponent<FirstPersonController>().ChangeMouseSensitivity(0, 0);
 
@@ -182,6 +187,7 @@ public class EventManager : MonoBehaviour
 
             case "gameOver":
                 Player.GetInstance().GetComponent<FirstPersonController>().enabled = false;
+                Main.GetInstance().inCutScene = true;
 
                 FadeInScreen();
                 Invoke("FadeOutScreen", 1.8f);
@@ -443,6 +449,7 @@ public class EventManager : MonoBehaviour
         GameObject.Find("CameraLockOpenDoor").GetComponent<Animator>().SetTrigger("activate");
         GameObject.Find("CameraLockOpenDoor").GetComponent<Camera>().enabled = false;
         Player.GetInstance().GetComponent<FirstPersonController>().enabled = true;
+        Main.GetInstance().inCutScene = false;
     }
 
     private void ActivateCameraGameOver()
@@ -473,6 +480,7 @@ public class EventManager : MonoBehaviour
         //HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
         GameObject.Find("CameraLockCameraPicture1").GetComponent<Camera>().enabled = false;
         Player.GetInstance().GetComponent<FirstPersonController>().enabled = true;
+        Main.GetInstance().inCutScene = false;
     }
 
     private void DesactivateCameraOpenRoom()
@@ -487,6 +495,7 @@ public class EventManager : MonoBehaviour
         //HelperUtil.SetVisibility(Player.GetInstance().gameObject, true);
         GameObject.Find("CameraLockClosedRoom").GetComponent<Camera>().enabled = false;
         Player.GetInstance().GetComponent<FirstPersonController>().enabled = true;
+        Main.GetInstance().inCutScene = false;
     }
 
     private void OpenClosedRoom()
