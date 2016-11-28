@@ -68,6 +68,7 @@ public class Main : MonoBehaviour
         {
             alphaGameOver += 0.10f;
             gameOverImage.GetComponent<CanvasRenderer>().SetAlpha(alphaGameOver);
+			NewMenu.GetInstance ().smartphone.GetComponent<CanvasGroup> ().alpha = 0;
         }
 
         if (Input.GetKeyDown(KeyCode.C) && Player.GetInstance().Items.Contains(Constants.PhoneItem))

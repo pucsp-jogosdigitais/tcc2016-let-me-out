@@ -25,7 +25,7 @@ public class NewMenu : MonoBehaviour
     public float tickAnim = 0.1f;
     public float switchAnim = 0.8f;
 
-    GameObject smartphone;
+	public GameObject smartphone;
     GameObject wrapperSmartphone;
     GameObject firstMenu;
     GameObject exitMenu;

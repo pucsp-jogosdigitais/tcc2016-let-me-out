@@ -36831,6 +36831,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1495251184}
+--- !u!1 &1495679700 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 182236, guid: 78c07f7933b52f34598ba3d8d9996595, type: 2}
+  m_PrefabInternal: {fileID: 1994555696}
+--- !u!225 &1495679701
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1495679700}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1497195176
 GameObject:
   m_ObjectHideFlags: 0
@@ -46375,6 +46390,10 @@ Prefab:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 2800000, guid: e0560841a62ce854fa70e3e896f8aca7, type: 3}
+    - target: {fileID: 8246414, guid: 78c07f7933b52f34598ba3d8d9996595, type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78c07f7933b52f34598ba3d8d9996595, type: 2}
   m_IsPrefabParent: 0
